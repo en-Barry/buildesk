@@ -40,4 +40,7 @@
 作業環境にこだわりたい20-40代のデスクワーカー
 
 ## **画面遷移図**
-https://xd.adobe.com/view/b78a14ae-708f-4ed6-8012-19908c2384f0-e2d9/
+- https://xd.adobe.com/view/b78a14ae-708f-4ed6-8012-19908c2384f0-e2d9/
+
+## **ER図**
+- https://drive.google.com/file/d/1DXEMqbS_7hjjPsu6FCg9g8Q03sJmMHBi/view?usp=sharing
