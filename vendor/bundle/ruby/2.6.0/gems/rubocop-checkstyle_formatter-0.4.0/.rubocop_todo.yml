@@ -1,0 +1,24 @@
+# Offense count: 1
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 42
+
+# Offense count: 9
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 111
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: Keywords.
+# Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW
+Style/CommentAnnotation:
+  Exclude:
+    - 'lib/rubocop/formatter/checkstyle_formatter.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+Style/CommentIndentation:
+  Exclude:
+    - 'lib/rubocop/formatter/checkstyle_formatter.rb'
