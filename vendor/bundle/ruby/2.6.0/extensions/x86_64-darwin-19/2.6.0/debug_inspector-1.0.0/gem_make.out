@@ -1,0 +1,15 @@
+current directory: /Users/ryuseiobama/workspace/runteq/desktour/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.0.0/ext/debug_inspector
+/Users/ryuseiobama/.rbenv/versions/2.6.6/bin/ruby -I /Users/ryuseiobama/.rbenv/versions/2.6.6/lib/ruby/2.6.0 -r ./siteconf20210218-90835-1eknvfp.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ryuseiobama/workspace/runteq/desktour/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.0.0/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/ryuseiobama/workspace/runteq/desktour/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.0.0/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/ryuseiobama/workspace/runteq/desktour/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.0.0/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20210218-90835-ldnzjy
