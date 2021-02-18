@@ -6,6 +6,8 @@ ruby '2.6.6'
 gem 'rails', '6.0.3.5'
 
 # Assets
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
 
@@ -18,10 +20,15 @@ gem 'puma', '~> 4.1'
 
 # UI/UX
 gem 'jbuilder', '~> 2.7'
+gem 'slim-rails'
+gem 'html2slim'
 # gem 'turbolinks', '~> 5'
 
 # Authentication
 gem 'sorcery'
+
+# form
+gem 'simple_form'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

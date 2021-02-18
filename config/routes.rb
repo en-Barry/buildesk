@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'top#index'
 
-  get 'login', to: 'users#new'
-  post 'login', to: 'users#create'
-  delete 'login', to: 'users#destroy'
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  delete 'login', to: 'user_sessions#destroy'
+
+  resources :users
 end
