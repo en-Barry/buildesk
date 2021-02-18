@@ -1,0 +1,8 @@
+.box.box-primary
+  = simple_form_for login_path, method: :post do |f|
+    .box-body
+      = f.input :email
+      = f.input :password
+
+    .box-footer
+      = f.button :submit, 'Login', class: %w[btn btn-primary]

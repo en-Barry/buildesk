@@ -1,5 +1,8 @@
 h1
   | Top#index
 p
-  | Find me in app/views/top/index.html.erb
-= link_to '新規登録', new_user_path
+= link_to 'Register', new_user_path
+p
+= link_to 'Login', login_path
+p
+= link_to 'Logout', logout_path, method: :delete
