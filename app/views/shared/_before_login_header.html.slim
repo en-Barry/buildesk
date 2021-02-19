@@ -1,1 +1,5 @@
 = link_to 'Login', login_path
+p
+= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
+p
+= link_to 'Register', new_user_path
