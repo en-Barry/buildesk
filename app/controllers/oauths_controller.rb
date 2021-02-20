@@ -12,7 +12,9 @@ class OauthsController < ApplicationController
       redirect_to root_path, notice: 'ログインをキャンセルしました'
       return
     end
-    if @user = login_from(provider)
+    
+    @user = login_from(provider)
+    if @user
       redirect_to root_path, success: "#{provider.titleize}でログインしました"
     else
       begin
