@@ -12,18 +12,17 @@ class OauthsController < ApplicationController
       redirect_to root_path, notice: 'ログインをキャンセルしました'
       return
     end
-    create_user_from(provider) unless @user = login_from(provider)
-    redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
-  end
-
-  private
-
-  def create_user_from(provider)
-    @user = create_from(provider)
-    reset_session
-    auto_login(@user)
-    redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
-  rescue
-    redirect_to root_path, :alert => "Failed to login from #{provider.titleize}!"
+    if @user = login_from(provider)
+      redirect_to root_path, success: "#{provider.titleize}でログインしました"
+    else
+      begin
+        @user = create_from(provider)
+        reset_session
+        auto_login(@user)
+        redirect_to root_path, success: "#{provider.titleize}でログインしました"
+      rescue StandardError
+        redirect_to root_path, danger: "#{provider.titleize}のログインに失敗しました"
+      end
+    end
   end
 end
