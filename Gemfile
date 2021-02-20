@@ -6,7 +6,7 @@ ruby '2.6.6'
 gem 'rails', '6.0.3.5'
 
 # Assets
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.4.1'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
