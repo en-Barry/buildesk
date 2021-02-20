@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | Desktour
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  body
+    - if logged_in?
+      = render 'shared/header'
+    - else
+      = render 'shared/before_login_header'
+    = render 'shared/flash_message'
+    = yield
+
+
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'

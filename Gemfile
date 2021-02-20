@@ -6,8 +6,10 @@ ruby '2.6.6'
 gem 'rails', '6.0.3.5'
 
 # Assets
-gem 'webpacker', '~> 4.0'
+gem 'bootstrap', '~> 4.4.1'
+gem 'font-awesome-rails'
 gem 'sass-rails'
+gem 'webpacker', '~> 4.0'
 
 # Database
 gem 'mysql2', '>= 0.4.4'
@@ -18,7 +20,15 @@ gem 'puma', '~> 4.1'
 
 # UI/UX
 gem 'jbuilder', '~> 2.7'
+gem 'slim-rails'
+gem 'html2slim'
 # gem 'turbolinks', '~> 5'
+
+# Authentication
+gem 'sorcery'
+
+# form
+gem 'simple_form'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -34,34 +44,33 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Debugger
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
-  #CLI
+  # CLI
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Code analyze
-  gem 'rubocop'
-  gem 'rubocop-rails'
-  gem 'rubocop-checkstyle_formatter'
   gem 'rails_best_practices'
+  gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter'
+  gem 'rubocop-rails'
   gem 'scss_lint'
   gem 'slim_lint'
 
   # Test
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
   gem 'foreman'
+  gem 'listen', '~> 3.2'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -71,4 +80,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

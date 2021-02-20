@@ -1,0 +1,11 @@
+.box.box-primary
+  = form_with url: login_path, method: :post, local: true do |f|
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :password
+      = f.password_field :password
+
+    .actions
+      = f.submit 'Login', class: %w[btn btn-primary]
