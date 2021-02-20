@@ -1,17 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "UserSessions", type: :system do
-  before do
-    let!(:user) { create(:user) }
-  end
+  let(:user) { create(:user) }
 
   describe 'ログイン前' do
     context 'フォームの入力値が正常' do
       it 'ログイン処理が成功する' do
-        click_link 'Login'
-        fill_in 'Email',	with: user.email
-        fill_in 'Password',	with: user.password
-        click_button 'Login'
+        login(user)
+        expect(current_path).to eq root_path
+        expect(page).to have_content(user.name)
       end
     end
     context 'フォームが未入力' do
