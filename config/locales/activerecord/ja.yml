@@ -1,4 +1,7 @@
 ja:
+  defaults:
+    message:
+      require_login: 'ログインしてください'
   activerecord:
     models:
       user: 'ユーザー'
@@ -11,3 +14,13 @@ ja:
         description: '自己紹介'
         image: 'プロフィール画像'
         role: 'タイプ'
+  users:
+    create:
+      success: 'ユーザー登録しました'
+      danger: 'ユーザー登録に失敗しました'
+  user_sessions:
+    create:
+      success: 'ログインしました'
+      danger: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
