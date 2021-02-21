@@ -39,7 +39,7 @@ RSpec.describe "Users", type: :system do
           click_button '登録する'
           expect(current_path).to eq users_path
           expect(page).to have_content('ユーザー登録に失敗しました')
-          expect(page).to have_content('入力されたメールアドレスはすでに存在します')
+          expect(page).to have_content('メールアドレスはすでに存在します')
         end
       end
     end
