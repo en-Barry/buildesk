@@ -16,11 +16,11 @@ ja:
         role: 'タイプ'
   users:
     create:
-      Register successful: 'ユーザー登録しました'
-      Register failed: 'ユーザー登録に失敗しました'
+      success: 'ユーザー登録しました'
+      fail: 'ユーザー登録に失敗しました'
   user_sessions:
     create:
-      Login successful: 'ログインしました'
-      Login failed: 'ログインに失敗しました'
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
     destroy:
-      Logged out: 'ログアウトしました'
+      success: 'ログアウトしました'
