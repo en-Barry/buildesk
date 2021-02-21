@@ -1,4 +1,4 @@
-10.time do
+10.times do
   User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -7,9 +7,9 @@
   )
 end
 
-20.time do |index|
+20.times do |index|
   Post.create!(
-    user: User.offset(rand(User.count))first,
+    user: User.offset(rand(User.count)).first,
     body: "本文#{index}"
   )
 end
