@@ -1,0 +1,26 @@
+ja:
+  defaults:
+    message:
+      require_login: 'ログインしてください'
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: 'ユーザーネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        description: '自己紹介'
+        image: 'プロフィール画像'
+        role: 'タイプ'
+  users:
+    create:
+      success: 'ユーザー登録しました'
+      fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'

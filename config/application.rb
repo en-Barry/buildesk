@@ -32,6 +32,10 @@ module Desktour
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    # i18nの設定
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
+
     config.generators do |g|
       g.assets false				#CSS/JSファイル生成しない
       g.test_framework false		#テストフレームワークを生成しない

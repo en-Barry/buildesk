@@ -22,6 +22,7 @@ gem 'puma', '~> 4.1'
 gem 'jbuilder', '~> 2.7'
 gem 'slim-rails'
 gem 'html2slim'
+gem 'rails-i18n', '>= 5.1.3'
 # gem 'turbolinks', '~> 5'
 
 # Authentication

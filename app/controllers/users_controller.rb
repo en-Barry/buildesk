@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path, notice: 'Register successful'
+      redirect_to root_path, success: t('.success')
     else
-      flash.now[:alert] = 'Register failed'
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
