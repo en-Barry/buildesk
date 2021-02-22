@@ -18,17 +18,9 @@ Category.create!(name: 'Video creator')
   )
 end
 
-PostCategory.create!(
-  category: Category.first,
-  post: Post.first
-)
-
-PostCategory.create!(
-  category: Category.second,
-  post: Post.second
-)
-
-PostCategory.create!(
-  category: Category.third,
-  post: Post.third
-)
+15.times do
+  PostCategory.distinct.create!(
+    category: Category.offset(rand(Category.count)).first,
+    post: Post.offset(rand(Post.count)).first
+  )
+end
