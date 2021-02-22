@@ -3,5 +3,6 @@ class TopController < ApplicationController
   
   def index
     @posts = Post.all.includes(:user).order(created_at: :desc)
+    @engineer_posts = @posts.post_categories(category_id: 1).limit(3)
   end
 end
