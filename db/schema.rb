@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_22_074937) do
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id", "post_id"], name: "index_post_categories_on_category_id_and_post_id", unique: true
     t.index ["category_id"], name: "index_post_categories_on_category_id"
     t.index ["post_id"], name: "index_post_categories_on_post_id"
   end
