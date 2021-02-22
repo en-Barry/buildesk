@@ -1,0 +1,10 @@
+.col-sm-12.col-lg-4.mb-3
+  //- content_tag 'div', id: "post-id-#{post.id]}"
+  .card
+    = image_tag '20210209_020213.jpg', class: 'card-img-top', size: '300x200'
+    .card-body
+    .ul.list-inline
+      .li.list-inline-item
+        = post_category.post.user.name
+      .li.list-inline-item
+        = l post_category.post.created_at
