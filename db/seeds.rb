@@ -11,16 +11,24 @@ Category.create!(name: 'Engineer')
 Category.create!(name: 'Gamer')
 Category.create!(name: 'Video creator')
 
-20.times do |index|
+15.times do |index|
   Post.create!(
     user: User.offset(rand(User.count)).first,
     body: "本文#{index}"
   )
 end
 
-20.times do
-  PostCategory.create!(
-    category: Category.offset(rand(Category.count)).first,
-    post: Post.offset(rand(Post.count)).first
-  )
-end
+PostCategory.create!(
+  category: Category.first,
+  post: Post.first
+)
+
+PostCategory.create!(
+  category: Category.second,
+  post: Post.second
+)
+
+PostCategory.create!(
+  category: Category.third,
+  post: Post.third
+)
