@@ -18,8 +18,8 @@ Category.create!(name: 'Video creator')
   )
 end
 
-15.times do
-  PostCategory.distinct.create!(
+20.times do
+  PostCategory.create(
     category: Category.offset(rand(Category.count)).first,
     post: Post.offset(rand(Post.count)).first
   )
