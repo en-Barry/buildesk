@@ -5,6 +5,7 @@ RSpec.describe "Posts", type: :system do
     context "新着の表示" do
       it '最新の投稿が3件表示される' do
         posts = create_list(:post, 5)
+        expect(page).to have_selector()  
       end
     end
     context "カテゴリ別の表示" do
