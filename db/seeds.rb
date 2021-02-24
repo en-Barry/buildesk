@@ -8,7 +8,7 @@
 end
 
 Category.create!(name: 'Engineer')
-Category.create!(name: 'Gamer')
+Category.create!(name: 'Writer')
 Category.create!(name: 'Video creator')
 
 15.times do |index|

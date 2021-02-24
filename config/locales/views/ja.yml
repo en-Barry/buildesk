@@ -5,7 +5,8 @@ ja:
     logout: 'ログアウト'
     Engineer: 'エンジニア'
     Gamer: 'ゲーマー'
-    Video Creator: '動画クリエイター'
+    Video Creator: '動画系クリエイター'
+    Writer: 'ライター'
   top:
     index:
       New Arrival: '新着'
