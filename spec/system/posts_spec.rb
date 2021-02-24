@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
-  describe "トップページの表示" do
-    let!(:post_with_engineer) { create(:post, :with_engineer) }
-    let!(:post_with_writer) { create(:post, :with_writer) }
-    let!(:post_with_videocreator) { create(:post, :with_videocreator) }
+  let!(:post_with_engineer) { create(:post, :with_engineer) }
+  let!(:post_with_writer) { create(:post, :with_writer) }
+  let!(:post_with_videocreator) { create(:post, :with_videocreator) }
 
+  describe "トップページの表示" do
     context "新着の表示" do
       it '最新の投稿が表示される' do
         visit root_path
@@ -45,9 +45,17 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe "カテゴリ別一覧の表示" do
+    context "全カテゴリ一覧ページ" do
+      it "投稿一覧が表示される" do
+        visit categories_path
+        expect(page).to have_content(post_with_engineer.user.name)
+        expect(page).to have_content(post_with_writer.user.name)
+        expect(page).to have_content(post_with_videocreator.user.name)
+      end
+    end
     context "エンジニアのページ" do
       it "投稿一覧が表示される" do
-        visit category_path(category.engineers)
+        visit category_path(post_with_engineer.category_ids)
         expect(page).to have_content(post_with_engineer.user.name)
         expect(page).not_to have_content(post_with_writer.user.name)
         expect(page).not_to have_content(post_with_videocreator.user.name)
@@ -55,7 +63,7 @@ RSpec.describe "Posts", type: :system do
     end
     context "ライターのページ" do
       it "投稿一覧が表示される" do
-        visit category_path(category.writers)
+        visit category_path(post_with_writer.category_ids)
         expect(page).to have_content(post_with_writer.user.name)
         expect(page).not_to have_content(post_with_engineer.user.name)
         expect(page).not_to have_content(post_with_videocreator.user.name)
@@ -63,7 +71,7 @@ RSpec.describe "Posts", type: :system do
     end
     context "動画系クリエイター" do
       it "投稿一覧が表示される" do
-        visit category_path(category.video_creators)
+        visit category_path(post_with_videocreator.category_ids)
         expect(page).to have_content(post_with_videocreator.user.name)
         expect(page).not_to have_content(post_with_engineer.user.name)
         expect(page).not_to have_content(post_with_writer.user.name)
