@@ -1,2 +1,34 @@
 h1
   | Top#index
+p
+h3
+  = t('.New Arrival')
+.new_arrival
+  .row
+    .col-12
+      .row
+        = render @posts
+p
+h3
+  = t('defaults.Engineer')
+.post_engineer
+  .row
+    .col-12
+      .row
+        = render @engineer_posts
+p
+h3
+  = t('defaults.Writer')
+.post_writer
+  .row
+    .col-12
+      .row
+        = render @gamer_posts
+p
+h3
+  = t('defaults.Video Creator')
+.post_videocreator
+  .row
+    .col-12
+      .row
+        = render @vc_posts

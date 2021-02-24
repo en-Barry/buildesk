@@ -3,10 +3,22 @@ ja:
     login: 'ログイン'
     register: 'ユーザー登録'
     logout: 'ログアウト'
+    Engineer: 'エンジニア'
+    Gamer: 'ゲーマー'
+    Video Creator: '動画系クリエイター'
+    Writer: 'ライター'
+  top:
+    index:
+      New Arrival: '新着'
   users:
     new:
       title: 'ユーザー登録'
   user_sessions:
     new:
       title: 'ログイン'
+  time:
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
       

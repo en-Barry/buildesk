@@ -28,8 +28,11 @@ gem 'rails-i18n', '>= 5.1.3'
 # Authentication
 gem 'sorcery'
 
-# form
+# Form
 gem 'simple_form'
+
+# Seeds
+gem 'faker'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -76,7 +79,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'faker'
   gem 'webdrivers'
 end
 
