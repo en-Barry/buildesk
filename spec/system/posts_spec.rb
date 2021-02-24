@@ -21,24 +21,54 @@ RSpec.describe "Posts", type: :system do
         visit root_path
         within('.post_engineer') do
           expect(page).to have_content(post_with_engineer.user.name)
+          expect(page).not_to have_content(post_with_writer.user.name)
+          expect(page).not_to have_content(post_with_videocreator.user.name)
         end
       end
       it "ライターの投稿が表示される" do
         visit root_path
         within('.post_writer') do
           expect(page).to have_content(post_with_writer.user.name)
+          expect(page).not_to have_content(post_with_engineer.user.name)
+          expect(page).not_to have_content(post_with_videocreator.user.name)
         end
       end
       it "動画系クリエイターの投稿が表示される" do
         visit root_path
         within('.post_videocreator') do
           expect(page).to have_content(post_with_videocreator.user.name)
+          expect(page).not_to have_content(post_with_engineer.user.name)
+          expect(page).not_to have_content(post_with_writer.user.name)
         end
       end
     end
   end
+
   describe "カテゴリ別一覧の表示" do
-    
+    context "エンジニアのページ" do
+      it "投稿一覧が表示される" do
+        visit category_path(category.engineers)
+        expect(page).to have_content(post_with_engineer.user.name)
+        expect(page).not_to have_content(post_with_writer.user.name)
+        expect(page).not_to have_content(post_with_videocreator.user.name)
+      end
+    end
+    context "ライターのページ" do
+      it "投稿一覧が表示される" do
+        visit category_path(category.writers)
+        expect(page).to have_content(post_with_writer.user.name)
+        expect(page).not_to have_content(post_with_engineer.user.name)
+        expect(page).not_to have_content(post_with_videocreator.user.name)
+      end
+    end
+    context "動画系クリエイター" do
+      it "投稿一覧が表示される" do
+        visit category_path(category.video_creators)
+        expect(page).to have_content(post_with_videocreator.user.name)
+        expect(page).not_to have_content(post_with_engineer.user.name)
+        expect(page).not_to have_content(post_with_writer.user.name)
+      end
+    end
   end
   
 end
