@@ -3,28 +3,32 @@ h1
 p
 h3
   = t('.New Arrival')
-.row
-  .col-12
-    .row
-      = render @posts
+.new_arrival
+  .row
+    .col-12
+      .row
+        = render @posts
 p
 h3
   = t('defaults.Engineer')
-.row
-  .col-12
-    .row
-      = render @engineer_posts
+.post_engineer
+  .row
+    .col-12
+      .row
+        = render @engineer_posts
 p
 h3
   = t('defaults.Writer')
-.row
-  .col-12
-    .row
-      = render @gamer_posts
+.post_writer
+  .row
+    .col-12
+      .row
+        = render @gamer_posts
 p
 h3
   = t('defaults.Video Creator')
-.row
-  .col-12
-    .row
-      = render @vc_posts
+.post_videocreator
+  .row
+    .col-12
+      .row
+        = render @vc_posts
