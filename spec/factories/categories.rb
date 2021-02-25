@@ -12,6 +12,6 @@ FactoryBot.define do
   end
 
   trait :media_creator do
-    name { 'Media Creator' }
+    name { 'MediaCreator' }
   end
 end
