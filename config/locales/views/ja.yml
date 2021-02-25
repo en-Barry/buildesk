@@ -5,7 +5,7 @@ ja:
     logout: 'ログアウト'
   category:
     Engineer: 'エンジニア'
-    Media Creator: 'メディアクリエイター'
+    MediaCreator: 'メディアクリエイター'
     Writer: 'ライター / エディター'
     Designer: 'デザイナー / イラストレーター'
     Director: 'ディレクター / マーケター'
@@ -19,6 +19,8 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+  categories:
+    show:
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
