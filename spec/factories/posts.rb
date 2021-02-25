@@ -16,9 +16,9 @@ FactoryBot.define do
     end
   end
 
-  trait :with_videocreator do
+  trait :with_mediacreator do
     after(:build) do |post|
-      post.categories << create(:category, :video_creator)
+      post.categories << create(:category, :media_creator)
     end
   end
 end
