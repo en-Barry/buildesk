@@ -17,7 +17,7 @@ h3
     .col-12
       .row
         = render @engineer_posts
-  = link_to t('.show more'), category_path(id: 1)
+  = link_to t('.show more'), category_path('engineer')
 p
 h3
   = t('defaults.Writer')
@@ -26,7 +26,7 @@ h3
     .col-12
       .row
         = render @writer_posts
-  = link_to t('.show more'), category_path(id: 2)
+  = link_to t('.show more'), category_path('writer')
 p
 h3
   = t('defaults.Video Creator')
@@ -35,4 +35,4 @@ h3
     .col-12
       .row
         = render @vc_posts
-  = link_to t('.show more'), category_path(id: 3)
+  = link_to t('.show more'), category_path('Video creator')
