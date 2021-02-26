@@ -1,0 +1,8 @@
+h1 Categories#show
+p
+h2 
+  = t("category.#{@category.name}")+'のデスク'
+.row
+  .col-12
+    .row
+      = render @posts

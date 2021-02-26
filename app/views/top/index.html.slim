@@ -8,27 +8,31 @@ h3
     .col-12
       .row
         = render @posts
+= link_to t('.show more'), categories_path
 p
 h3
-  = t('defaults.Engineer')
+  = t('category.Engineer')
 .post_engineer
   .row
     .col-12
       .row
         = render @engineer_posts
+= link_to t('.show more'), category_path('Engineer')
 p
 h3
-  = t('defaults.Writer')
+  = t('category.Writer')
 .post_writer
   .row
     .col-12
       .row
-        = render @gamer_posts
+        = render @writer_posts
+= link_to t('.show more'), category_path('Writer')
 p
 h3
-  = t('defaults.Video Creator')
-.post_videocreator
+  = t('category.MediaCreator')
+.post_mediacreator
   .row
     .col-12
       .row
-        = render @vc_posts
+        = render @creator_posts
+= link_to t('.show more'), category_path('MediaCreator')

@@ -3,10 +3,13 @@ ja:
     login: 'ログイン'
     register: 'ユーザー登録'
     logout: 'ログアウト'
+  category:
     Engineer: 'エンジニア'
-    Gamer: 'ゲーマー'
-    Video Creator: '動画系クリエイター'
-    Writer: 'ライター'
+    MediaCreator: 'メディアクリエイター'
+    Writer: 'ライター / エディター'
+    Designer: 'デザイナー / イラストレーター'
+    Director: 'ディレクター / マーケター'
+    Other: 'その他'
   top:
     index:
       New Arrival: '新着'
@@ -16,6 +19,8 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+  categories:
+    show:
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"

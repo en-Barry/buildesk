@@ -9,7 +9,7 @@ end
 
 Category.create!(name: 'Engineer')
 Category.create!(name: 'Writer')
-Category.create!(name: 'Video creator')
+Category.create!(name: 'MediaCreator')
 
 15.times do |index|
   Post.create!(

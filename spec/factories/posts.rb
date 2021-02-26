@@ -4,12 +4,21 @@ FactoryBot.define do
     association :user
   end
 
-  trait :with_category do
-    transient do
-      sequence(:category_name) { |n| "test_category_name_#{n}" }
+  trait :with_engineer do
+    after(:build) do |post|
+      post.categories << create(:category, :engineer)
     end
-    after(:build) do |post, evaluator|
-      post.categories << build(:category, name: evaluator.category_name)
+  end
+
+  trait :with_writer do
+    after(:build) do |post|
+      post.categories << create(:category, :writer)
+    end
+  end
+
+  trait :with_mediacreator do
+    after(:build) do |post|
+      post.categories << create(:category, :media_creator)
     end
   end
 end
