@@ -10,6 +10,9 @@ ja:
     Designer: 'デザイナー / イラストレーター'
     Director: 'ディレクター / マーケター'
     Other: 'その他'
+  message:
+    created: "%{item}しました"
+    not_created: "%{item}できませんでした"
   top:
     index:
       New Arrival: '新着'
@@ -19,6 +22,9 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+  posts:
+    new:
+      title: '新規投稿'
   categories:
     show:
   time:

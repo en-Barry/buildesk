@@ -1,2 +1,6 @@
 h1 Posts#new
-p Find me in app/views/posts/new.html.slim
+.container
+  .row 
+    .col-lg-8.offset-lg-2 
+      h1 = t('.title')
+      = render 'form', { post: @post }
