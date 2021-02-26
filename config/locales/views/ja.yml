@@ -3,6 +3,9 @@ ja:
     login: 'ログイン'
     register: 'ユーザー登録'
     logout: 'ログアウト'
+    message:
+      created: "%{item}しました"
+      not_created: "%{item}できません"
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'
@@ -19,6 +22,9 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+  posts:
+    new:
+      title: '新規投稿'
   categories:
     show:
   time:

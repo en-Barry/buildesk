@@ -1,0 +1,8 @@
+.box.box-primary
+  = simple_form_for @post do |f|
+    .box-body 
+      = f.input :body
+      = f.association :categories, as: :check_boxes
+
+    .box-footer
+    = f.button :submit, '投稿する', class: %w[btn btn-primary]

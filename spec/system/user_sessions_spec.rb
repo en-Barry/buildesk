@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "UserSessions", type: :system do
+RSpec.describe 'UserSessions', type: :system do
   let(:user) { create(:user) }
 
   describe 'ログイン前' do
@@ -22,7 +22,7 @@ RSpec.describe "UserSessions", type: :system do
       end
     end
   end
-  
+
   describe 'ログイン後' do
     context 'ログアウトボタンをクリック' do
       it 'ログアウト処理が成功する' do
@@ -33,5 +33,4 @@ RSpec.describe "UserSessions", type: :system do
       end
     end
   end
-  
 end

@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:twitter, :google]
+  config.external_providers = %i[twitter google]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -118,7 +118,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = Rails.application.credentials.dig(:twitter, :key)
   config.twitter.secret = Rails.application.credentials.dig(:twitter, :secret_key)
   config.twitter.callback_url = 'http://127.0.0.1:3000/oauth/callback?provider=twitter'
-  config.twitter.user_info_mapping = { 
+  config.twitter.user_info_mapping = {
     name: 'name',
     email: 'screen_name',
     description: 'description',
@@ -171,7 +171,7 @@ Rails.application.config.sorcery.configure do |config|
     name: 'name',
     image: 'picture'
   }
-  config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+  config.google.scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
   # The callback URL "can't contain a query string or invalid special characters"
@@ -235,7 +235,6 @@ Rails.application.config.sorcery.configure do |config|
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
 
-  
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
   # config.discord.key = "xxxxxx"
@@ -562,5 +561,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = 'User'
 end

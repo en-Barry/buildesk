@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'
-  get 'oauth/:provider', to: 'oauths#oauth', :as => :auth_at_provider
+  get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
   resources :users, only: %i[new create]
   resources :categories, only: %i[index show], param: :name
+  resources :posts
 end
