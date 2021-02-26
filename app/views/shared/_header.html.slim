@@ -1,3 +1,11 @@
-= current_user.name
+.container
+  .row
+    .col-md-2
+      = current_user.name
 p
-= link_to t('defaults.logout'), logout_path, method: :delete
+.container
+  .row
+    .col-md-2
+      = link_to '新規投稿', new_post_path
+    .col-md-2
+      = link_to t('defaults.logout'), logout_path, method: :delete
