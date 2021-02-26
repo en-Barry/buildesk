@@ -2,7 +2,7 @@
   = simple_form_for @post do |f|
     .box-body 
       = f.input :body
-      = f.association :categories, as: :radio_buttons
+      = f.association :categories
 
     .box-footer
-    = f.button :submit
+    = f.button :submit, class: %w[btn btn-primary]
