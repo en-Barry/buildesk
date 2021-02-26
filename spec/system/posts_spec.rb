@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
   describe "投稿のCRUD" do
-
-    describe "トップページの表示" do
-      let!(:post_with_engineer) { create(:post, :with_engineer) }
+    let!(:post_with_engineer) { create(:post, :with_engineer) }
       let!(:post_with_writer) { create(:post, :with_writer) }
       let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
 
+    describe "トップページの表示" do
       context "新着の表示" do
         it '最新の投稿が表示される' do
           visit root_path
