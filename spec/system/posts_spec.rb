@@ -56,6 +56,7 @@ RSpec.describe "Posts", type: :system do
     context "エンジニアのページ" do
       it "投稿一覧が表示される" do
         visit category_path(post_with_engineer.categories.name)
+        sleep 3
         expect(page).to have_selector("#post-id-#{post_with_engineer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_writer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")

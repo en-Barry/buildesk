@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
-  #before_action :set_category, only: %i[show]
 
   def index 
     @posts = Post.all.includes(:user).order(created_at: :desc)
