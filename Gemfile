@@ -19,10 +19,10 @@ gem 'redis-rails'
 gem 'puma', '~> 4.1'
 
 # UI/UX
-gem 'jbuilder', '~> 2.7'
-gem 'slim-rails'
 gem 'html2slim'
+gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '>= 5.1.3'
+gem 'slim-rails'
 # gem 'turbolinks', '~> 5'
 
 # Authentication

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
-  def index 
+  def index
     @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create 
+  def create
     @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
@@ -19,17 +19,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def update 
+  def update; end
 
-  end
-
-  def destroy
-
-  end
+  def destroy; end
 
   private
 
   def post_params
-    params.require(:post).permit(:body, {category_ids: []}) 
+    params.require(:post).permit(:body, { category_ids: [] })
   end
 end

@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_categories
   belongs_to :user
 
-  validates :body, length: { maximum: 65535 }
+  validates :body, length: { maximum: 65_535 }
   validate :validate_categories
 
   def validate_categories

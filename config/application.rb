@@ -41,10 +41,10 @@ module Desktour
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
 
     config.generators do |g|
-      g.assets false				#CSS/JSファイル生成しない
-      g.test_framework false		#テストフレームワークを生成しない
-      g.skip_routes true			#routes.rb変更しない
-      g.helper false					#ヘルパー生成しない
+      g.assets false	# CSS/JSファイル生成しない
+      g.test_framework false	# テストフレームワークを生成しない
+      g.skip_routes true	# routes.rb変更しない
+      g.helper false					# ヘルパー生成しない
     end
   end
 end

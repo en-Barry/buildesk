@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
-  describe "投稿のCRUD" do
+RSpec.describe 'Posts', type: :system do
+  describe '投稿のCRUD' do
     let!(:post_with_engineer) { create(:post, :with_engineer) }
-      let!(:post_with_writer) { create(:post, :with_writer) }
-      let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
+    let!(:post_with_writer) { create(:post, :with_writer) }
+    let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
 
-    describe "トップページの表示" do
-      context "新着の表示" do
+    describe 'トップページの表示' do
+      context '新着の表示' do
         it '最新の投稿が表示される' do
           visit root_path
           within('.new_arrival') do
@@ -17,8 +17,8 @@ RSpec.describe "Posts", type: :system do
           end
         end
       end
-      context "カテゴリ別の表示" do
-        it "エンジニアの投稿が表示される" do
+      context 'カテゴリ別の表示' do
+        it 'エンジニアの投稿が表示される' do
           visit root_path
           within('.post_engineer') do
             expect(page).to have_selector("#post-id-#{post_with_engineer.id}")
@@ -26,7 +26,7 @@ RSpec.describe "Posts", type: :system do
             expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
           end
         end
-        it "ライターの投稿が表示される" do
+        it 'ライターの投稿が表示される' do
           visit root_path
           within('.post_writer') do
             expect(page).to have_selector("#post-id-#{post_with_writer.id}")
@@ -34,7 +34,7 @@ RSpec.describe "Posts", type: :system do
             expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
           end
         end
-        it "動画系クリエイターの投稿が表示される" do
+        it '動画系クリエイターの投稿が表示される' do
           visit root_path
           within('.post_mediacreator') do
             expect(page).to have_selector("#post-id-#{post_with_mediacreator.id}")
@@ -45,33 +45,33 @@ RSpec.describe "Posts", type: :system do
       end
     end
 
-    describe "カテゴリ別一覧の表示" do
-      context "全カテゴリ一覧ページ" do
-        it "投稿一覧が表示される" do
+    describe 'カテゴリ別一覧の表示' do
+      context '全カテゴリ一覧ページ' do
+        it '投稿一覧が表示される' do
           visit posts_path
           expect(page).to have_selector("#post-id-#{post_with_engineer.id}")
           expect(page).to have_selector("#post-id-#{post_with_writer.id}")
           expect(page).to have_selector("#post-id-#{post_with_mediacreator.id}")
         end
       end
-      context "エンジニアのページ" do
-        it "投稿一覧が表示される" do
+      context 'エンジニアのページ' do
+        it '投稿一覧が表示される' do
           visit category_path('Engineer')
           expect(page).to have_selector("#post-id-#{post_with_engineer.id}")
           expect(page).not_to have_selector("#post-id-#{post_with_writer.id}")
           expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
         end
       end
-      context "ライターのページ" do
-        it "投稿一覧が表示される" do
+      context 'ライターのページ' do
+        it '投稿一覧が表示される' do
           visit category_path('Writer')
           expect(page).to have_selector("#post-id-#{post_with_writer.id}")
           expect(page).not_to have_selector("#post-id-#{post_with_engineer.id}")
           expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
         end
       end
-      context "動画系クリエイター" do
-        it "投稿一覧が表示される" do
+      context '動画系クリエイター' do
+        it '投稿一覧が表示される' do
           visit category_path('MediaCreator')
           expect(page).to have_selector("#post-id-#{post_with_mediacreator.id}")
           expect(page).not_to have_selector("#post-id-#{post_with_engineer.id}")
@@ -80,19 +80,18 @@ RSpec.describe "Posts", type: :system do
       end
     end
 
-  
-    describe "投稿の作成" do
+    describe '投稿の作成' do
       let(:user) { create(:user) }
 
       context 'ログインしていない場合' do
-        it "ログインページにリダイレクトされる" do
+        it 'ログインページにリダイレクトされる' do
           visit new_post_path
           expect(current_path).to eq(login_path)
           expect(page).to have_content('ログインしてください')
         end
       end
 
-      context "ログインしている場合" do
+      context 'ログインしている場合' do
         before do
           login(user)
           visit new_post_path
@@ -115,5 +114,4 @@ RSpec.describe "Posts", type: :system do
       end
     end
   end
-  
 end
