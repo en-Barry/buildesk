@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to categories_path(@post.category.name), success: t('defaults.message.created', item: Post.model_name_human)
     else
-      flash.now['danger'] = t('defaults.message.created', item: Post.model_name_human)
+      flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name_human)
       render :new
     end
   end
