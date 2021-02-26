@@ -1,0 +1,6 @@
+= simple_form_with model: post do |f|
+  .form-group 
+    = f.input :body
+    = f.association :category, as: :radio_buttons
+    
+  = f.button :submit
