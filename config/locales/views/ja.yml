@@ -3,6 +3,9 @@ ja:
     login: 'ログイン'
     register: 'ユーザー登録'
     logout: 'ログアウト'
+    message:
+      created: "%{item}しました"
+      not_created: "%{item}できませんでした"
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'
@@ -10,9 +13,6 @@ ja:
     Designer: 'デザイナー / イラストレーター'
     Director: 'ディレクター / マーケター'
     Other: 'その他'
-  message:
-    created: "%{item}しました"
-    not_created: "%{item}できませんでした"
   top:
     index:
       New Arrival: '新着'
