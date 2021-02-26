@@ -95,10 +95,11 @@ RSpec.describe "Posts", type: :system do
       context "ログインしている場合" do
         before do
           login(user)
+          visit new_post_path
         end
 
         it '投稿が作成できる' do
-          fill_in 'body', with: 'my-desk'
+          fill_in '本文', with: 'my-desk'
           select 'Engineer', from: 'カテゴリー'
           click_button '投稿する'
           expect(current_path).to eq(category_path('Engineer'))
