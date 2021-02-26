@@ -102,8 +102,8 @@ RSpec.describe "Posts", type: :system do
           fill_in '本文', with: 'my-desk'
           check 'Engineer'
           click_button '投稿する'
-          expect(current_path).to eq(category_path('Engineer'))
-          expect(page).to have_content('投稿が完了しました')
+          expect(current_path).to eq(posts_path)
+          expect(page).to have_content('投稿しました')
           within('.new_arrival') do
             expect(page).to have_content(user.name)
           end
