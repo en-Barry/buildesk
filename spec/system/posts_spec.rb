@@ -55,8 +55,7 @@ RSpec.describe "Posts", type: :system do
     end
     context "エンジニアのページ" do
       it "投稿一覧が表示される" do
-        visit category_path(post_with_engineer.categories.name)
-        sleep 3
+        visit category_path('Engineer')
         expect(page).to have_selector("#post-id-#{post_with_engineer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_writer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
@@ -64,7 +63,7 @@ RSpec.describe "Posts", type: :system do
     end
     context "ライターのページ" do
       it "投稿一覧が表示される" do
-        visit category_path(post_with_writer.categories.name)
+        visit category_path('Writer')
         expect(page).to have_selector("#post-id-#{post_with_writer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_engineer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_mediacreator.id}")
@@ -72,7 +71,7 @@ RSpec.describe "Posts", type: :system do
     end
     context "動画系クリエイター" do
       it "投稿一覧が表示される" do
-        visit category_path(post_with_mediacreator.categories.name)
+        visit category_path('MediaCreator')
         expect(page).to have_selector("#post-id-#{post_with_mediacreator.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_engineer.id}")
         expect(page).not_to have_selector("#post-id-#{post_with_writer.id}")
