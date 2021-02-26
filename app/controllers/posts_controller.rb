@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create 
-    @post = current_path.posts.build(post_param)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to categories_path(@post.category.name), success: t('defaults.message.created', item: Post.model_name_human)
     else
