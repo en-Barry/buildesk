@@ -1,6 +1,6 @@
-h1 Posts#new
-.container
-  .row 
-    .col-lg-8.offset-lg-2 
-      h1 = t('.title')
-      = render 'form', { post: @post }
+h1 
+  | Posts#new
+p
+  = render 'form'
+p
+  = link_to 'Top' ,root_path

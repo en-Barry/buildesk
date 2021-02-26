@@ -1,6 +1,8 @@
-= simple_form_with model: post do |f|
-  .form-group 
-    = f.input :body
-    = f.association :category, as: :radio_buttons
-    
-  = f.button :submit
+.box.box-primary
+  = simple_form_for @post do |f|
+    .box-body 
+      = f.input :body
+      = f.association :categories, as: :radio_buttons
+
+    .box-footer
+    = f.button :submit
