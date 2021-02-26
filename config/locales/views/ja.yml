@@ -5,7 +5,7 @@ ja:
     logout: 'ログアウト'
     message:
       created: "%{item}しました"
-      not_created: "%{item}できませんでした"
+      not_created: "%{item}できません"
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'

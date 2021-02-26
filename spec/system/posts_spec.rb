@@ -89,7 +89,7 @@ RSpec.describe "Posts", type: :system do
         it "ログインページにリダイレクトされる" do
           visit new_post_path
           expect(current_path).to eq(login_path)
-          #expect(page).to have_content('ログインしてください')
+          expect(page).to have_content('ログインしてください')
         end
       end
 
