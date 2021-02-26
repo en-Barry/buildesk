@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :categories, only: %i[index show], param: :name
+  resources :posts, only: %i[new create update destory]
 end
