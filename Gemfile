@@ -37,6 +37,9 @@ gem 'faker'
 # Uploader
 gem 'carrierwave', '2.1.1'
 
+# Storage
+gem 'mini_magick', '4.11.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 

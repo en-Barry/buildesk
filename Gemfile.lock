@@ -377,6 +377,7 @@ DEPENDENCIES
   html2slim
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  mini_magick (= 4.11.0)
   mysql2 (>= 0.4.4)
   puma (~> 4.1)
   rails (= 6.0.3.5)
