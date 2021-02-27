@@ -20,9 +20,7 @@ RSpec.describe 'UserSessions', type: :system do
         click_link 'ログイン'
         click_button 'ログイン'
         expect(current_path).to eq login_path
-        expect(page).to have_content('ログインに失敗しました')
-        expect(page).to have_content('メールアドレスを入力してください')
-        expect(apge).to have_content('パスワードを入力してください')  
+        expect(page).to have_content('ログインに失敗しました')  
       end
     end
   end
