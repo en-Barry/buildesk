@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
