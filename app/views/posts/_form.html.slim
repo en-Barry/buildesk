@@ -1,9 +1,9 @@
 .box.box-primary
   = simple_form_for @post do |f|
     .box-body 
-      = f.fields_for :post_images do |img|
-        = img.input :image, as: :file
-        = img.input :caption, placeholder: '写っているアイテムの説明や使用感など'
+      = f.simple_fields_for :post_images do |image_form|
+        = image_form.input :image, as: :file
+        = image_form.input :caption, placeholder: '写っているアイテムの説明や使用感など'
 
       = f.input :body, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
       = f.association :categories, as: :check_boxes
