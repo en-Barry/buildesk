@@ -11,5 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :categories, only: %i[index show], param: :name
-  resources :posts
+  resources :posts do
+    resources :post_images, only: %i[create]
+  end
 end
