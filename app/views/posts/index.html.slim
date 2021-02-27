@@ -4,4 +4,5 @@ h1
   .row
     .col-12
       .row
-        = render @posts
+        - if @posts.present?
+          = render @posts
