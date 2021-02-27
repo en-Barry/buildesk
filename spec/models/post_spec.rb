@@ -19,11 +19,10 @@ RSpec.describe Post, type: :model do
       expect(post).to be_invalid
     end
   end
-  context "カテゴリーが選択されていない場合" do
+  context 'カテゴリーが選択されていない場合' do
     it '無効である' do
       post = build(:post)
       expect(post).to be_invalid
     end
   end
-  
 end
