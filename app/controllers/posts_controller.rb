@@ -11,6 +11,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    
+    #binding.pry
+    
     if @post.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -26,6 +29,9 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, post_images_attributes: [:image, :caption], category_ids: [])
+    params.require(:post).permit(
+      :body,
+      post_images_attributes: [:image, :caption],
+      category_ids: [])
   end
 end
