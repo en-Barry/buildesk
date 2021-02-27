@@ -9,7 +9,7 @@ h3
       .row
         - if @posts.present?
           = render @posts
-= link_to t('.show more'), posts_path
+          = link_to t('.show more'), posts_path
 p
 h3
   = t('category.Engineer')
@@ -19,7 +19,7 @@ h3
       .row
         - if @engineer_posts.present?
           = render @engineer_posts
-= link_to t('.show more'), category_path('Engineer')
+          = link_to t('.show more'), category_path('Engineer')
 p
 h3
   = t('category.Writer')
@@ -29,7 +29,7 @@ h3
       .row
         - if @writer_posts.present?
           = render @writer_posts
-= link_to t('.show more'), category_path('Writer')
+          = link_to t('.show more'), category_path('Writer')
 p
 h3
   = t('category.MediaCreator')
@@ -39,4 +39,4 @@ h3
       .row
         - if @creator_posts.present?
           = render @creator_posts
-= link_to t('.show more'), category_path('MediaCreator')
+          = link_to t('.show more'), category_path('MediaCreator')
