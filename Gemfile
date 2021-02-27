@@ -34,6 +34,9 @@ gem 'simple_form'
 # Seeds
 gem 'faker'
 
+# Uploader
+gem 'carrierwave', '2.1.1'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
