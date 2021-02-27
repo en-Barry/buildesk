@@ -110,6 +110,7 @@ RSpec.describe 'Posts', type: :system do
         it '投稿の作成に失敗する' do
           click_button '投稿する'
           expect(page).to have_content('投稿できません')
+          expect(page).to have_content('カテゴリーを一つ以上選択してください')
         end
       end
     end
