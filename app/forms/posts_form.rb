@@ -3,7 +3,7 @@ class PostsForm
   extend CarrierWave::Mount
 
   mount_uploader :image, PostImageUploader
-  attr_accessor :image, :caption
+  attr_accessor :image, :caption, :body, :post_categories
 
   validates :body, length: { maximum: 65_535 }
   validates :image, presence: :true
@@ -19,11 +19,23 @@ class PostsForm
     attr_reader :post_images_attributes
 
     def post_images
-      @post_images_attributes || = PostImage.new
+      @post_images_attributes ||= PostImage.new
     end
 
     def post_images_attributes=(attributes)
       @post_images_attributes = PostImage.new(attributes)
+    end
+  end
+
+  concerning :PostCategories do
+    attr_reader :post_categories_attributes
+
+    def post_categories
+      @post_categories_attributes ||= PostCategory.new
+    end
+
+    def post_categories_attributes=(attributes)
+      @post_categories_attributes = PostCategory.new(attributes)
     end
   end
 
@@ -45,15 +57,15 @@ class PostsForm
   def post_params
     { 
       body: body,
-      category_ids: categories
     }
   end
 
   def build_associations
     post.post_images << post_images
+    post.post_categories << post_categories
   end
 
   def validate_categories
-    errors.add(:categories, 'を一つ以上選択してください') if categories.empty?
+    errors.add(:post_category, 'を一つ以上選択してください') if post_categories.empty?
   end
 end
