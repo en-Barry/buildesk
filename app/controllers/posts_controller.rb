@@ -6,15 +6,15 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post_form = PostsForm.new
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @post_form = current_user.posts.build(post_forms_params)
     
     #binding.pry
     
-    if @post.save
+    if @post_form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name.human)
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   private
 
-  def post_params
+  def post_forms_params
     params.require(:post).permit(
       :body,
       post_images_attributes: [:image, :caption],

@@ -1,5 +1,5 @@
 .box.box-primary
-  = simple_form_for @post do |f|
+  = simple_form_for @post_form do |f|
     .box-body 
       = f.simple_fields_for :post_images do |image_form|
         = image_form.input :image, as: :file
