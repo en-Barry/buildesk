@@ -20,6 +20,13 @@ class PostsForm
   end
 
   attri_accessor :body, :category_ids
+
+  validates :body, length: { maximum: 65_535 }
+  validate :validate_categories
+
+  def validate_categories
+    errors.add(:categories, 'を一つ以上選択してください') if categories.empty?
+  end
   
   def save
     return false if invalid?
@@ -37,6 +44,6 @@ class PostsForm
   private
 
   def post_params
-    
+
   end
 end
