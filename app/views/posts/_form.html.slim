@@ -1,13 +1,13 @@
 .box.box-primary
-  = simple_form_for @post_form, url: posts_path do |f|
+  = simple_form_for model: form, url: posts_path do |f|
     .box-body 
       = f.simple_fields_for :post_images do |image_form|
         = image_form.input :image, as: :file
         = image_form.input :caption, placeholder: '写っているアイテムの説明や使用感など'
 
-      = f.input :body, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
-      = f.simple_fields_for :post_categories do |catgegory_form|
-        = catgegory_form.input :post_category, as: :check_boxes, collection: Category.all
+      = f.input :body, as: :text, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
+
+      = f.association :category_names, as: :check_boxes
 
     .box-footer
     = f.button :submit, '投稿する', class: %w[btn btn-primary]
