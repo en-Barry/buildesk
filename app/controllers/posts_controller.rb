@@ -11,7 +11,9 @@ class PostsController < ApplicationController
 
   def create
     @form = PostsForm.new(posts_form_params)
-
+    
+    binding.pry
+    
     if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -30,7 +32,7 @@ class PostsController < ApplicationController
     params.require(:posts_form).permit(
       :body,
       post_images_attributes: [:image, :caption],
-      post_categories_attributes: [:category_id]
+      post_categories_attributes: {category_id: []}
     )
   end
 end

@@ -1,14 +1,10 @@
 class PostsForm
   include ActiveModel::Model
-  include ActiveModel::Attributes
   extend CarrierWave::Mount
 
   mount_uploader :image, PostImageUploader
 
-  attribute :body
-  attribute :image
-  attribute :caption
-  attribute :category
+  attr_accessor :body, :image, :caption, :category
 
   validates :image, presence: :true
   validates :category, presence: :true
@@ -20,16 +16,20 @@ class PostsForm
   end
 
   concerning :PostImagesBuilder do
+    attr_reader :post_images_attributes
+
     def post_images
       @post_images_attributes ||= PostImage.new
     end
 
     def post_images_attributes=(attributes)
-      @post_images_attributes = PostImage.new
+      @post_images_attributes = PostImage.new(attributes)
     end
   end
 
-  concerning :CategoriesBuilder do
+  concerning :PostCategoriesBuilder do
+    attr_reader :post_categories_attributes
+
     def post_categories
       @categories_attributes ||= PostCategory.new
     end
