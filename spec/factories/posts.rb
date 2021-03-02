@@ -21,4 +21,10 @@ FactoryBot.define do
       post.categories << create(:category, :media_creator)
     end
   end
+
+  trait :with_image do
+    after(:build) do |post|
+      post.post_images << create(:post_image)
+    end
+  end
 end
