@@ -1,5 +1,5 @@
 .box.box-primary
-  = simple_form_for model: form, url: posts_path do |f|
+  = simple_form_for @form, url: posts_path do |f|
     .box-body 
       = f.simple_fields_for :post_images do |image_form|
         = image_form.input :image, as: :file
@@ -7,7 +7,8 @@
 
       = f.input :body, as: :text, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
 
-      = f.association :category_names, as: :check_boxes
+      = f.simple_fields_for :post_categories do |category_form|
+        = category_form.association :category, as: :check_boxes
 
     .box-footer
     = f.button :submit, '投稿する', class: %w[btn btn-primary]

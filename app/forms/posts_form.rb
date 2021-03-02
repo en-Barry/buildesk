@@ -8,17 +8,15 @@ class PostsForm
   attribute :body
   attribute :image
   attribute :caption
-  attribute :category_names
+  attribute :category
 
   validates :image, presence: :true
-  validates :category_names, presence: :true
+  validates :category, presence: :true
 
-  delegate :persisted?, to: :post
-
-  def initialize(attributes = nil, post = Post.new)
-    @post = post
-    attributes ||= default_attributes
-    super(attributes)
+  concerning :PostBuilder do
+    def post
+      @post ||= Post.new
+    end
   end
 
   concerning :PostImagesBuilder do
@@ -27,7 +25,17 @@ class PostsForm
     end
 
     def post_images_attributes=(attributes)
-      @post_images_attributes = PostImage.new(attributes)
+      @post_images_attributes = PostImage.new
+    end
+  end
+
+  concerning :CategoriesBuilder do
+    def post_categories
+      @categories_attributes ||= PostCategory.new
+    end
+
+    def post_categories_attributes=(attributes)
+      @categories_attributes = PostCategory.new(attributes)
     end
   end
 
@@ -44,10 +52,6 @@ class PostsForm
     end
   end
 
-  def to_model
-    post
-  end
-
   private
 
   def post_params
@@ -58,6 +62,6 @@ class PostsForm
 
   def build_associations
     post.post_images << post_images
-    post.post_categories << category_names
+    post.post_categories << post_categories
   end
 end
