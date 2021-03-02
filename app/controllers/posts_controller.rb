@@ -12,8 +12,6 @@ class PostsController < ApplicationController
   def create
     @form = PostsForm.new(posts_form_params)
     
-    binding.pry
-    
     if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else

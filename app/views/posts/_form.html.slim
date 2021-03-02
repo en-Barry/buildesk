@@ -1,6 +1,6 @@
 .box.box-primary
   = simple_form_for @form, url: posts_path do |f|
-    .box-body 
+    .box-body
       = f.simple_fields_for :post_images do |image_form|
         = image_form.input :image, as: :file
         = image_form.input :caption, placeholder: '写っているアイテムの説明や使用感など'

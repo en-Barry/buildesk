@@ -45,11 +45,7 @@ class PostsForm
     post.assign_attributes(post_params)
     build_associations
 
-    if post.save
-      true
-    else
-      false
-    end
+    post.save ? true : false
   end
 
   private
