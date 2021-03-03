@@ -9,12 +9,6 @@ RSpec.describe Post, type: :model do
       expect(post).to be_valid
     end
   end
-  context 'カテゴリーが選択されていない場合' do
-    it '無効である' do
-      post = build(:post)
-      expect(post).to be_invalid
-    end
-  end
 
   context '画像が正しく添付される' do
     it 'アップロードに成功する' do
