@@ -23,7 +23,7 @@ class PostsForm
     post = Post.new(post_params)
     
     post.post_images.build(post_images_params).save!
-    
+
     category_id.each do |category|
       post.post_categories.build(category_id: category).save!
     end
@@ -49,7 +49,7 @@ class PostsForm
 
   def post_categories_params
     {
-      category_id: category_id
+      category_id: category
     }
   end
 end
