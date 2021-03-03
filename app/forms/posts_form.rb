@@ -20,8 +20,9 @@ class PostsForm
     return false if invalid?
 
     post = Post.new(post_params)
-    post.post_images << PostImage.new(post_images_params)
+    
     post.post_categories << PostCategory.new(post_categories_params)
+    post.post_images << PostImage.new(post_images_params)
     post.save ? true : false
   end
 
