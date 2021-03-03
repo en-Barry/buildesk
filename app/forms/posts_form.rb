@@ -9,6 +9,7 @@ class PostsForm
   attribute :image, :string
   attribute :caption, :string 
   attribute :categories
+  attribute :post_id, :integer
 
   validates :image, :categories, presence: :true
 
@@ -19,10 +20,13 @@ class PostsForm
   def save
     return false if invalid?
 
-    post = Post.new(post_params)
+    post = Post.new(post_params).save!
     
-    post.post_categories << PostCategory.new(post_categories_params)
-    post.post_images << PostImage.new(post_images_params)
+    post.post_images.build(image: image, caption: caption).save!
+    post.post_categories.build(category_id: categories).save!
+    
+    binding.pry
+    
     post.save ? true : false
   end
 
