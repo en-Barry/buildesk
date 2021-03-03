@@ -8,10 +8,10 @@ class PostsForm
   attribute :body, :string
   attribute :image, :string
   attribute :caption, :string 
-  attribute :categories
-  attribute :post_id, :integer
+  attribute :category_id
+  attribute :user_id, :integer
 
-  validates :image, :categories, presence: :true
+  validates :image, :category_id, presence: :true
 
   def initialize(params = {})
     super(params)
@@ -20,10 +20,10 @@ class PostsForm
   def save
     return false if invalid?
 
-    post = Post.new(post_params).save!
+    post = Post.new(post_params)
     
-    post.post_images.build(image: image, caption: caption).save!
-    post.post_categories.build(category_id: categories).save!
+    post.post_images.build(post_images_params).save!
+    post.post_categories.build(post_categories_params).save!
     
     binding.pry
     
@@ -34,7 +34,8 @@ class PostsForm
 
   def post_params
     {
-      body: body
+      body: body,
+      user_id: user_id
     }
   end
 
@@ -47,7 +48,7 @@ class PostsForm
 
   def post_categories_params
     {
-      category_id: categories
+      category_id: category_id
     }
   end
 end

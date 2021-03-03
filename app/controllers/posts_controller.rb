@@ -6,11 +6,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @form = PostsForm.new
+    @form = PostsForm.new(user_id: current_user.id)
   end
 
   def create
-    @form = PostsForm.new(post_params)
+    @form = PostsForm.new(post_params.merge(user_id: current_user.id))
 
     if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       :body,
       :image,
       :caption,
-      { categories: [] }
+      { category_id: [] }
     )
   end
 end
