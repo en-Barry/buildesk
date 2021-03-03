@@ -17,18 +17,18 @@ RSpec.describe Post, type: :model do
   end
 
   context '画像が正しく添付される' do
-    it "アップロードに成功する" do
+    it 'アップロードに成功する' do
       post = build(:post)
       post_image = build(:post_image)
       expect(post_image).to be_valid
     end
   end
-     
+
   context '画像が許されていない拡張子でアップロードされる' do
-    it "アップロードに失敗する" do
+    it 'アップロードに失敗する' do
       post = build(:post)
       post_image = build(:post_image)
-      image_path = File.join(Rails.root, "spec/fixtures/20210227_005224.rb")
+      image_path = File.join(Rails.root, 'spec/fixtures/20210227_005224.rb')
       post_image = build(:post_image, image: File.open(image_path))
       expect(post_image).not_to be_valid
     end
