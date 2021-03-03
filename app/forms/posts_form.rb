@@ -1,50 +1,27 @@
 class PostsForm
   include ActiveModel::Model
+  include ActiveModel::Attributes
   extend CarrierWave::Mount
 
   mount_uploader :image, PostImageUploader
 
-  attr_accessor :body, :image, :caption, :category
+  attribute :body, :string
+  attribute :image, :string
+  attribute :caption, :string 
+  attribute :categories
 
-  validates :image, presence: :true
-  validates :category, presence: :true
+  validates :image, :categories, presence: :true
 
-  concerning :PostBuilder do
-    def post
-      @post ||= Post.new
-    end
-  end
-
-  concerning :PostImagesBuilder do
-    attr_reader :post_images_attributes
-
-    def post_images
-      @post_images_attributes ||= PostImage.new
-    end
-
-    def post_images_attributes=(attributes)
-      @post_images_attributes = PostImage.new(attributes)
-    end
-  end
-
-  concerning :PostCategoriesBuilder do
-    attr_reader :post_categories_attributes
-
-    def post_categories
-      @categories_attributes ||= PostCategory.new
-    end
-
-    def post_categories_attributes=(attributes)
-      @categories_attributes = PostCategory.new(attributes)
-    end
+  def initialize(params = {})
+    super(params)
   end
 
   def save
     return false if invalid?
 
-    post.assign_attributes(post_params)
-    build_associations
-
+    post = Post.new(post_params)
+    post.post_images << PostImage.new(post_images_params)
+    post.post_categories << PostCategory.new(post_categories_params)
     post.save ? true : false
   end
 
@@ -56,8 +33,16 @@ class PostsForm
     }
   end
 
-  def build_associations
-    post.post_images << post_images
-    post.post_categories << post_categories
+  def post_images_params
+    {
+      image: image,
+      caption: caption
+    }
+  end
+
+  def post_categories_params
+    {
+      category_id: categories
+    }
   end
 end
