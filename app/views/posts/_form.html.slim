@@ -6,7 +6,7 @@
 
       = f.input :body, as: :text, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
 
-      = f.input :category_id, as: :check_boxes, collection: Category.all
+      = f.input :category_id, as: :check_boxes, collection: Category.all, include_hidden: false
 
     .box-footer
     = f.button :submit, '投稿する', class: %w[btn btn-primary]

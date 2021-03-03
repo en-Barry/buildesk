@@ -23,9 +23,10 @@ class PostsForm
     post = Post.new(post_params)
     
     post.post_images.build(post_images_params).save!
-    post.post_categories.build(post_categories_params).save!
     
-    binding.pry
+    category_id.each do |category|
+      post.post_categories.build(category_id: category).save!
+    end
     
     post.save ? true : false
   end
