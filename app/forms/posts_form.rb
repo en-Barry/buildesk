@@ -46,10 +46,4 @@ class PostsForm
       caption: caption
     }
   end
-
-  def post_categories_params
-    {
-      category_id: category
-    }
-  end
 end
