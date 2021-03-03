@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       :body,
       :image,
       :caption,
-      { category_id: [] }
+      { categories: [] }
     )
   end
 end

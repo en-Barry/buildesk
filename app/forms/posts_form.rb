@@ -8,10 +8,10 @@ class PostsForm
   attribute :body, :string
   attribute :image, :string
   attribute :caption, :string 
-  attribute :category_id
+  attribute :categories
   attribute :user_id, :integer
 
-  validates :image, :category_id, presence: :true
+  validates :image, :categories, presence: :true
 
   def initialize(params = {})
     super(params)
@@ -22,9 +22,10 @@ class PostsForm
 
     post = Post.new(post_params)
     
+    #画像の複数登録仕様にはなっていない
     post.post_images.build(post_images_params).save!
 
-    category_id.each do |category|
+    categories.each do |category|
       post.post_categories.build(category_id: category).save!
     end
     
