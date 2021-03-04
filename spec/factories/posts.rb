@@ -27,4 +27,8 @@ FactoryBot.define do
       post.post_images << create(:post_image)
     end
   end
+
+  factory :image_with_engineer, traits: %i[with_engineer with_image]
+  factory :image_with_writer, traits: %i[with_writer with_image]
+  factory :image_with_mediacreator, traits: %i[with_mediacreator with_image]
 end

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :system do
   describe '投稿のCRUD' do
-    let!(:post_with_engineer) { create(:post, :with_engineer) }
-    let!(:post_with_writer) { create(:post, :with_writer) }
-    let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
+    let!(:post_with_engineer) { create(:post, :with_engineer, :with_image) }
+    let!(:post_with_writer) { create(:post, :with_writer, :with_image) }
+    let!(:post_with_mediacreator) { create(:post, :with_mediacreator, :with_image) }
 
     describe 'トップページの表示' do
       context '新着の表示' do
