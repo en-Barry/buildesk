@@ -76,8 +76,8 @@ group :development, :test do
   gem 'slim_lint'
 
   # Test
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
