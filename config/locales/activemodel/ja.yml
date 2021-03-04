@@ -1,0 +1,6 @@
+ja:
+  activemodel:
+    attributes:
+      posts_form:
+        image: '画像'
+        categories: 'カテゴリー'
