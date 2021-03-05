@@ -1,42 +1,35 @@
-h1
-  | Top#index
-p
-h3
-  = t('.New Arrival')
-.new_arrival
-  .row
-    .col-12
-      .row
-        - if @posts.present?
-          = render @posts
-          = link_to t('.show more'), posts_path
-p
-h3
-  = t('category.Engineer')
-.post_engineer
-  .row
-    .col-12
-      .row
-        - if @engineer_posts.present?
-          = render @engineer_posts
-          = link_to t('.show more'), category_path('Engineer')
-p
-h3
-  = t('category.Writer')
-.post_writer
-  .row
-    .col-12
-      .row
-        - if @writer_posts.present?
-          = render @writer_posts
-          = link_to t('.show more'), category_path('Writer')
-p
-h3
-  = t('category.MediaCreator')
-.post_mediacreator
-  .row
-    .col-12
-      .row
-        - if @creator_posts.present?
-          = render @creator_posts
-          = link_to t('.show more'), category_path('MediaCreator')
+.container
+  h1
+    | Top#index
+  p
+  .new_arrival
+    h3
+      = t('.New Arrival')
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @posts.present?
+        = render @posts
+        = link_to t('.show more'), posts_path
+  p
+  .post_engineer
+    h3
+      = t('category.Engineer')
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @engineer_posts.present?
+        = render @engineer_posts
+        = link_to t('.show more'), category_path('Engineer')
+  p
+  .post_writer
+    h3
+      = t('category.Writer')
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @writer_posts.present?
+        = render @writer_posts
+        = link_to t('.show more'), category_path('Writer')
+  p
+  .post_mediacreator
+    h3
+      = t('category.MediaCreator')
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @creator_posts.present?
+        = render @creator_posts
+        = link_to t('.show more'), category_path('MediaCreator')
