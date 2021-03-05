@@ -2,16 +2,17 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :post_images).order(created_at: :desc)
   end
 
   def new
-    @post = Post.new
+    @form = PostsForm.new
   end
 
   def create
-    @post = current_user.posts.build(post_params)
-    if @post.save
+    @form = PostsForm.new(post_params)
+
+    if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name.human)
@@ -26,6 +27,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, { category_ids: [] })
+    params.require(:posts_form).permit(
+      :body,
+      :image,
+      :caption,
+      { categories: [] }
+    ).merge(user_id: current_user.id)
   end
 end

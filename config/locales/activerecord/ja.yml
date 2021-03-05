@@ -16,8 +16,7 @@ ja:
         image: 'プロフィール画像'
         role: 'タイプ'
       post:
-        body: 本文
-        categories: カテゴリー
+        body: '本文'
   users:
     create:
       success: 'ユーザー登録しました'

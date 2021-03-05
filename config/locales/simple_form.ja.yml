@@ -1,0 +1,16 @@
+ja:
+  simple_form:
+    "yes": 'はい'
+    "no": 'いいえ'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "エラーがあります。確認してください。"
+    labels:
+      defaults:
+      posts_form:
+        image: '画像'
+        caption: 'キャプション'
+        body: '本文'
+        categories: 'カテゴリー'

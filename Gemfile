@@ -6,7 +6,7 @@ ruby '2.6.6'
 gem 'rails', '6.0.3.5'
 
 # Assets
-gem 'bootstrap', '~> 4.4.1'
+gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
@@ -34,6 +34,12 @@ gem 'simple_form'
 # Seeds
 gem 'faker'
 
+# Uploader
+gem 'carrierwave', '2.1.1'
+
+# Storage
+gem 'mini_magick', '4.11.0'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
@@ -51,6 +57,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
 
   # CLI
   gem 'spring'
@@ -66,8 +76,8 @@ group :development, :test do
   gem 'slim_lint'
 
   # Test
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do

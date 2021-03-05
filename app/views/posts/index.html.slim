@@ -1,8 +1,8 @@
-h1 
-  | Posts#index
-.new_arrival
-  .row
-    .col-12
-      .row
-        - if @posts.present?
-          = render @posts
+.container
+  h1 
+    | Posts#index
+  p
+  .new_arrival
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @posts.present?
+        = render @posts
