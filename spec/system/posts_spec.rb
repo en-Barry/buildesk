@@ -100,10 +100,10 @@ RSpec.describe 'Posts', type: :system do
         end
 
         it '投稿が作成できる' do
-          fill_in 'Body', with: 'test'
+          fill_in '本文', with: 'test'
           check 'Engineer'
           file_path = Rails.root.join('spec', 'fixtures', '20210227_005224.jpg')
-          attach_file 'Image', file_path
+          attach_file '画像', file_path
           click_button '投稿する'
           expect(current_path).to eq(posts_path)
           expect(page).to have_content('投稿しました')
@@ -114,8 +114,8 @@ RSpec.describe 'Posts', type: :system do
         it '投稿の作成に失敗する' do
           click_button '投稿する'
           expect(page).to have_content('投稿できません')
-          expect(page).to have_content('Categoriesを入力してください')
-          expect(page).to have_content('Imageを入力してください')
+          expect(page).to have_content('カテゴリーを入力してください')
+          expect(page).to have_content('画像を入力してください')
         end
       end
     end
