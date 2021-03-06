@@ -5,10 +5,10 @@ RSpec.describe "Comments", type: :system do
     driven_by(:rack_test)
   end
 
-  let(:me) create(:user)
-  let!(:post) create(:post)
-  let!(:comment_by_me) create(:comment, user: me, post: post)
-  let!(:comment_by_another) create(:comment, post: post)
+  let(:me) { create(:user) }
+  let!(:post) { create(:post) }
+  let!(:comment_by_me) { create(:comment, user: me, post: post) }
+  let!(:comment_by_another) { create(:comment, post: post) }
 
   describe "コメントのCRUD" do
     before do
