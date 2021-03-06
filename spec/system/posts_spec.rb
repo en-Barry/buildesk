@@ -144,7 +144,7 @@ RSpec.describe 'Posts', type: :system do
             click_on post.image
           end
           expect(page).to have_content(post.user.name)
-          expect(page).to have_cantent(post.body)
+          expect(page).to have_content(post.body)
         end
       end
     end
