@@ -4,6 +4,8 @@ RSpec.describe 'Posts', type: :system do
   include CarrierWave::Test::Matchers
 
   describe '投稿のCRUD' do
+    let(:user) { create(:user) }
+    let!(:post) { create(:post) }
     let!(:post_with_engineer) { create(:post, :with_engineer) }
     let!(:post_with_writer) { create(:post, :with_writer) }
     let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
@@ -83,8 +85,6 @@ RSpec.describe 'Posts', type: :system do
     end
 
     describe '投稿の作成' do
-      let(:user) { create(:user) }
-
       context 'ログインしていない場合' do
         it 'ログインページにリダイレクトされる' do
           visit new_post_path
@@ -119,5 +119,32 @@ RSpec.describe 'Posts', type: :system do
         end
       end
     end
+
+    describe "投稿の詳細" do
+      context "ログインしていない場合" do
+        it "ログインページにリダイレクトされる" do
+          visit post_path(post)
+          expect(current_path).to eq(login_path)
+          expect(page).to have_content('ログインしてください')
+        end
+      end
+
+      context "ログインしている場合" do
+        before do
+          post
+          login(user)
+        end
+
+        it "投稿の詳細が表示される" do
+          visit posts_path
+          within "post-id-#{post.id}" do
+            click_on post.image
+          end
+          expect(page).to have_content(post.user.name)
+          expect(page).to have_cantent(post.body)
+        end
+      end
+    end
+    
   end
 end
