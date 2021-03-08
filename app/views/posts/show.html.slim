@@ -15,6 +15,8 @@
             li class='list-inline-item'
               = l @post.created_at, format: :short
     
+    = render 'comments/form', { post: @post, comment: @comment }
+    = render 'comments/comments', { comments: @comments }
 
 
       
