@@ -37,7 +37,7 @@ FactoryBot.define do
   end
 
   factory :post_image do
-    image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/20210227_005224.jpg"), 'image/png') }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/20210227_005224.jpg'), 'image/png') }
     sequence(:caption) { |n| "test_caption_#{n}" }
   end
 end
