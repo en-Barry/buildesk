@@ -16,6 +16,7 @@
               = l @post.created_at, format: :short
     
     = render 'comments/form', { post: @post, comment: @comment }
+    p
     = render 'comments/comments', { comments: @comments }
 
 
