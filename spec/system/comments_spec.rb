@@ -22,7 +22,7 @@ RSpec.describe "Comments", type: :system do
     describe "コメントの一覧" do
       context "投稿詳細ページにアクセス" do
         it "投稿に紐づくコメントが表示される" do
-          within('#js-post-comment') do
+          within('#js-table-comment') do
             expect(page).to have_content(comment_by_me.body)
             expect(page).to have_content(comment_by_another.user.name)  
           end
@@ -36,7 +36,7 @@ RSpec.describe "Comments", type: :system do
           fill_in 'コメント', with: 'test'
           click_on '投稿'
           comment = Comment.last
-          within('#js-post-comment') do
+          within('#js-table-comment') do
             expect(page).to have_content(comment.user.name)
             expect(page).to have_content(comment.body)
           end
@@ -47,7 +47,7 @@ RSpec.describe "Comments", type: :system do
         it "作成に失敗する" do
           fill_in 'コメント', with: ''
           click_on '投稿'
-          expect(page).to have_content('コメントを作成できませんでした') 
+          expect(page).to have_content('コメントできません') 
         end
       end
     end
