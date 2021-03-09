@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
+  before do
+    driven_by(:rack_test)
+  end
+  
   let(:user) { create(:user) }
   let!(:category_engineer) { create(:category, :engineer) }
   let!(:category_writer) { create(:category, :writer) }

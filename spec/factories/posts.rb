@@ -5,7 +5,11 @@ FactoryBot.define do
 
     after(:build) do |post|
       post.post_images << build(:post_image, post: post)
-    end  
+    end
+
+    after(:build) do |post|
+      post.categories << create(:category)
+    end
   end
 
   trait :with_engineer do
@@ -33,11 +37,7 @@ FactoryBot.define do
   end
 
   factory :post_image do
-    image { Rack::Test::UploadedFile.new(File.join(Rails.root, "spec/fixtures/20210227_005224.jpg"), 'image/png') }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/20210227_005224.jpg'), 'image/png') }
     sequence(:caption) { |n| "test_caption_#{n}" }
-  end  
-
-  factory :image_with_engineer, traits: %i[with_engineer with_image]
-  factory :image_with_writer, traits: %i[with_writer with_image]
-  factory :image_with_mediacreator, traits: %i[with_mediacreator with_image]
+  end
 end

@@ -1,0 +1,6 @@
+.col-md-6
+  = form_with model: comment, url: [post, comment], local: true do |f|
+    = f.label :body
+    = f.text_area :body, class: 'form-control', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body)
+
+    = f.submit t('defaults.post'), class: %w[btn btn-primary]

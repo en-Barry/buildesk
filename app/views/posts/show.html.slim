@@ -1,0 +1,23 @@
+.container
+  h1
+    | Posts#show
+  .row
+    .col-sm-4.col-md-6
+      = image_tag @post.post_images.first.image_url, size: '600x400'
+    .col-sm-3.col-md-6
+      .card
+        .card-body
+          ul class='list-inline'
+            li class='list-inline-item'
+              = @post.user.name
+            p
+              = @post.body
+            li class='list-inline-item'
+              = l @post.created_at, format: :short
+    
+    = render 'comments/form', { post: @post, comment: @comment }
+    p
+    = render 'comments/comments', { comments: @comments }
+
+
+      

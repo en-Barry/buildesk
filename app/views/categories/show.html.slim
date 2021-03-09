@@ -1,8 +1,11 @@
-h1 Categories#show
-p
-h2 
-  = t("category.#{@category.name}")+'のデスク'
-.row
-  .col-12
-    .row
-      = render @posts
+.container
+  h1
+    | Categories#show
+  p
+  h2 
+    = t("category.#{@category.name}")+'のデスク'
+  p
+  .new_arrival
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @posts.present?
+        = render @posts

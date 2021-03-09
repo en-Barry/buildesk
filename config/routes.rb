@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :categories, only: %i[index show], param: :name
   resources :posts do
     resources :post_images, only: %i[create]
+    resources :comments, only: %i[create update destroy], shallow: true
   end
 end
