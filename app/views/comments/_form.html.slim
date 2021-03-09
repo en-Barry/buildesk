@@ -1,4 +1,6 @@
-.row.md-6
-  = simple_form_for model: comment, url: [post, comment] do |f|
-    = f.input :body, as: :text
-    = f.button :submit, 'defaults.post', class: %w[btn btn-primary]
+.col-md-5
+  = form_with model: comment, url: [post, comment] do |f|
+    = f.label :body
+    = f.text_area :body, class: 'form-control', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body)
+
+    = f.submit t('defaults.post'), class: %w[btn btn-primary]
