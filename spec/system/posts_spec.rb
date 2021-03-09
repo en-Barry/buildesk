@@ -140,7 +140,7 @@ RSpec.describe 'Posts', type: :system do
 
         it "投稿の詳細が表示される" do
           visit posts_path
-          within "post-id-#{post.id}" do
+          within "#post-id-#{post.id}" do
             click_on post.image
           end
           expect(page).to have_content(post.user.name)
