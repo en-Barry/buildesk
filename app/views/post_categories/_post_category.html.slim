@@ -2,7 +2,7 @@ div id="post-id-#{post_category.post.id}"
   .col
     .card
       = link_to post_path(post_category.post.id)
-        = image_tag post_category.post.post_images.first.image_url, class: 'card-img-top', size: '300x300'
+        = image_tag post_category.post.post_images.first.image_url,　alt: 'post-img', class: 'card-img-top', size: '300x300'
       .card-body
         ul class='list-inline'
           li class='list-inline-item'

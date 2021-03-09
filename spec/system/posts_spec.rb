@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :system do
   include CarrierWave::Test::Matchers
   before do
-    driven_by(:rack_test)
+    #driven_by(:rack_test)
   end
 
   describe '投稿のCRUD' do
@@ -123,7 +123,7 @@ RSpec.describe 'Posts', type: :system do
       end
     end
 
-    describe "投稿の詳細" do
+    describe "投稿の詳細", focus: true do
       context "ログインしていない場合" do
         it "ログインページにリダイレクトされる" do
           visit post_path(post)
@@ -141,7 +141,7 @@ RSpec.describe 'Posts', type: :system do
         it "投稿の詳細が表示される" do
           visit posts_path
           within "#post-id-#{post.id}" do
-            click_on post.image
+            click_on 'post-img'
           end
           expect(page).to have_content(post.user.name)
           expect(page).to have_content(post.body)
