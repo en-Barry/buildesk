@@ -123,7 +123,7 @@ RSpec.describe 'Posts', type: :system do
       end
     end
 
-    describe "投稿の詳細", focus: true do
+    describe "投稿の詳細" do
       context "ログインしていない場合" do
         it "ログインページにリダイレクトされる" do
           visit post_path(post)
