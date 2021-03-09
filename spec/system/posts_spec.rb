@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :system do
   include CarrierWave::Test::Matchers
   before do
-    #driven_by(:rack_test)
+    driven_by(:rack_test)
   end
 
   describe '投稿のCRUD' do
