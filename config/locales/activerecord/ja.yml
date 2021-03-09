@@ -6,6 +6,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '投稿'
+      comment: 'コメント'
     attributes:
       user:
         name: 'ユーザーネーム'
@@ -17,6 +18,8 @@ ja:
         role: 'タイプ'
       post:
         body: '本文'
+      comment:
+        body: 'コメント'
   users:
     create:
       success: 'ユーザー登録しました'

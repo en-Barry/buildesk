@@ -3,6 +3,7 @@ ja:
     login: 'ログイン'
     register: 'ユーザー登録'
     logout: 'ログアウト'
+    post: '投稿'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
@@ -25,6 +26,8 @@ ja:
   posts:
     new:
       title: '新規投稿'
+    show:
+      title: '投稿詳細'
   categories:
     show:
   time:
