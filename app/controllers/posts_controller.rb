@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comment = @post.comments.includes(:user).order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def create
