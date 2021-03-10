@@ -37,7 +37,7 @@ class PostsController < ApplicationController
       :body,
       :image,
       :caption,
-      { categories: [] }
+      { category_ids: [] }
     ).merge(user_id: current_user.id)
   end
 end
