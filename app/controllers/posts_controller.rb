@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @form = PostsForm.new(post_params)
-    
+
     if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def post_params
     params.require(:posts_form).permit(
       :body,
-      { images: [] }, 
+      { images: [] },
       { category_ids: [] }
     ).merge(user_id: current_user.id)
   end
