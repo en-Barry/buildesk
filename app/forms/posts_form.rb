@@ -47,6 +47,8 @@ class PostsForm
   end
 
   def image_content_type
+    return false if images.blank?
+    
     extension_whitelist = %w[image/jpg image/jpeg image/png]
 
     images.each do |image|
@@ -57,6 +59,8 @@ class PostsForm
   end
 
   def image_size
+    return false if images.blank?
+
     images.each do |image|
       if image.size > 5.megabytes
         errors.add(:images, 'は5MB以下のファイルまでアップロードできます')
