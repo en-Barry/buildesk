@@ -6,12 +6,12 @@ class PostsForm
   mount_uploader :image, PostImageUploader
 
   attribute :body, :string
-  attribute :image, :string
-  attribute :caption, :string
+  attribute :images
   attribute :category_ids
   attribute :user_id, :integer
 
-  validates :image, :category_ids, presence: :true
+  validates :images, presence: :true
+  validates :category_ids, presence: :true
 
   def initialize(params = {})
     super(params)
@@ -21,14 +21,17 @@ class PostsForm
     return false if invalid?
 
     post = Post.new(post_params)
+    post.save!
 
-    post.post_images.build(post_images_params).save!
-
-    category_ids.each do |category_id|
-      post.post_categories.build(category_id: category_id).save!
+    images.each do |image|
+      post.post_images.create!(image: image)
     end
 
-    post.save ? true : false
+    category_ids.each do |category_id|
+      post.post_categories.create!(category_id: category_id)
+    end
+
+    post
   end
 
   private
@@ -37,13 +40,6 @@ class PostsForm
     {
       body: body,
       user_id: user_id
-    }
-  end
-
-  def post_images_params
-    {
-      image: image,
-      caption: caption
     }
   end
 end

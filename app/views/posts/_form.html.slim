@@ -1,10 +1,9 @@
 .box.box-primary
   = simple_form_for @form, url: posts_path do |f|
     .box-body
-      = f.input :image, as: :file
-      = f.input :caption, placeholder: '写っているアイテムの説明や使用感など'
+      = f.input :images, as: :file, input_html: { multiple: true }
 
-      = f.input :body, as: :text, placeholder: '推しポイントや今後取り入れたいアイテムなどあれば紹介しよう'
+      = f.input :body, as: :text
 
       = f.input :category_ids, as: :check_boxes, collection: Category.all, include_hidden: false
 
