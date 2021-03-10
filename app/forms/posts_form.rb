@@ -23,15 +23,17 @@ class PostsForm
   def save
     return false if invalid?
 
-    post = Post.new(post_params)
-    post.save!
+    @form.transaction do
+      post = Post.new(post_params)
+      post.save!
 
-    images.each do |image|
-      post.post_images.create!(image: image)
-    end
+      images.each do |image|
+        post.post_images.create!(image: image)
+      end
 
-    category_ids.each do |category_id|
-      post.post_categories.create!(category_id: category_id)
+      category_ids.each do |category_id|
+        post.post_categories.create!(category_id: category_id)
+      end
     end
 
     post
