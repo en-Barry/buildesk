@@ -13,6 +13,9 @@ class PostsForm
   validates :images, presence: :true
   validates :category_ids, presence: :true
 
+  validate :image_content_type
+  validate :image_size
+
   def initialize(params = {})
     super(params)
   end
@@ -41,5 +44,23 @@ class PostsForm
       body: body,
       user_id: user_id
     }
+  end
+
+  def image_content_type
+    extension_whitelist = %w[image/jpg image/jpeg image/png]
+
+    images.each do |image|
+      unless extension_whitelist.include?(image.content_type)
+        errors.add(:images, 'は許可されていないファイルの拡張子です')
+      end
+    end
+  end
+
+  def image_size
+    images.each do |image|
+      if image.size > 5.megabytes
+        errors.add(:images, 'は5MB以下のファイルまでアップロードできます')
+      end
+    end
   end
 end
