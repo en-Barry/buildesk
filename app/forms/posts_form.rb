@@ -23,7 +23,7 @@ class PostsForm
   def save
     return false if invalid?
 
-    @form.transaction do
+    ActiveRecord::Base.transaction do
       post = Post.new(post_params)
       post.save!
 
@@ -35,8 +35,6 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
     end
-
-    post
   end
 
   private
