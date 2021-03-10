@@ -51,7 +51,7 @@ class PostsForm
 
     images.each do |image|
       unless extension_whitelist.include?(image.content_type)
-        errors.add(:images, 'は許可されていないファイルの拡張子です')
+        errors.add(:images, 'は jpg/jpeg/png が許可されています')
       end
     end
   end
