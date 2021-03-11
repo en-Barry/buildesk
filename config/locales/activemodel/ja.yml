@@ -2,5 +2,5 @@ ja:
   activemodel:
     attributes:
       posts_form:
-        image: '画像'
-        categories: 'カテゴリー'
+        images: '画像'
+        category_ids: 'カテゴリー'
