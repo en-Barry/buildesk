@@ -102,7 +102,7 @@ RSpec.describe 'Posts', type: :system do
           visit new_post_path
         end
 
-        it '投稿が作成できる' do
+        it '投稿が作成に成功する' do
           fill_in '本文', with: 'test'
           check 'Engineer'
           file_path = Rails.root.join('spec', 'fixtures', '20210227_005224.jpg')
@@ -147,6 +147,29 @@ RSpec.describe 'Posts', type: :system do
           expect(page).to have_content(post.body)
         end
       end
+    end
+    
+    describe "投稿の編集" do
+      let(:post_by_user) { create(:post, user: user) }
+      let(:post_by_others) { create(:post) }
+
+      context "他人の投稿の場合" do
+        it "編集・削除ボタンが表示されない" do
+          login(user)
+          visit post_path(post_by_others)
+          expect(page).not_to have_selector("#button-edit-#{post_by_others.id}")
+          expect(page).not_to have_selector("#button-delete-#{post_by_others.id}")  
+        end
+      end
+      context "自分の投稿の場合" do
+        it "編集・削除ボタンが表示される" do
+          login(user)
+          visit post_path(post)
+          expect(page).to have_selector("#button-edit-#{post.id}")
+          expect(page).to have_selector("#button-delete-#{post.id}")  
+        end
+      end
+      
     end
     
   end
