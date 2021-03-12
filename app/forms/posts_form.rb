@@ -10,8 +10,8 @@ class PostsForm
   attribute :category_ids
   attribute :user_id, :integer
 
-  validates :images, presence: :true
-  validates :category_ids, presence: :true
+  validates :images, presence: true
+  validates :category_ids, presence: true
 
   validate :image_content_type
   validate :image_size
