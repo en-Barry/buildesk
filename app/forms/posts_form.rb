@@ -19,9 +19,8 @@ class PostsForm
   def save
     return false if invalid?
 
-    post = Post.new(post_params)
-
     ActiveRecord::Base.transaction do
+      post = Post.new(post_params)
       post.save!
 
       images.each do |image|
@@ -33,7 +32,7 @@ class PostsForm
       end
     end
 
-    post
+    true
   end
 
   private
