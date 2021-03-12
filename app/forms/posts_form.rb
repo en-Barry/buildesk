@@ -16,15 +16,12 @@ class PostsForm
   validate :image_content_type
   validate :image_size
 
-  def initialize(params = {})
-    super(params)
-  end
-
   def save
     return false if invalid?
 
+    post = Post.new(post_params)
+
     ActiveRecord::Base.transaction do
-      post = Post.new(post_params)
       post.save!
 
       images.each do |image|
@@ -35,6 +32,8 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
     end
+
+    post
   end
 
   private
