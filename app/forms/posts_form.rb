@@ -6,30 +6,34 @@ class PostsForm
   mount_uploader :image, PostImageUploader
 
   attribute :body, :string
-  attribute :image, :string
-  attribute :caption, :string
-  attribute :categories
+  attribute :images
+  attribute :category_ids
   attribute :user_id, :integer
 
-  validates :image, :categories, presence: :true
+  validates :images, presence: true
+  validates :category_ids, presence: true
 
-  def initialize(params = {})
-    super(params)
-  end
+  validate :image_content_type
+  validate :image_size
 
   def save
     return false if invalid?
 
     post = Post.new(post_params)
 
-    # 画像の複数登録仕様にはなっていない
-    post.post_images.build(post_images_params).save!
+    ActiveRecord::Base.transaction do
+      post.save!
 
-    categories.each do |category|
-      post.post_categories.build(category_id: category).save!
+      images.each do |image|
+        post.post_images.create!(image: image)
+      end
+
+      category_ids.each do |category_id|
+        post.post_categories.create!(category_id: category_id)
+      end
     end
 
-    post.save ? true : false
+    post
   end
 
   private
@@ -41,10 +45,21 @@ class PostsForm
     }
   end
 
-  def post_images_params
-    {
-      image: image,
-      caption: caption
-    }
+  def image_content_type
+    return false if images.blank?
+
+    extension_whitelist = %w[image/jpg image/jpeg image/png]
+
+    images.each do |image|
+      errors.add(:images, 'は jpg/jpeg/png が許可されています') unless extension_whitelist.include?(image.content_type)
+    end
+  end
+
+  def image_size
+    return false if images.blank?
+
+    images.each do |image|
+      errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes
+    end
   end
 end

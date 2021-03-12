@@ -35,9 +35,8 @@ class PostsController < ApplicationController
   def post_params
     params.require(:posts_form).permit(
       :body,
-      :image,
-      :caption,
-      { categories: [] }
+      { images: [] },
+      { category_ids: [] }
     ).merge(user_id: current_user.id)
   end
 end
