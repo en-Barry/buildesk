@@ -18,8 +18,10 @@ class PostsForm
 
   delegate :persisted?, to: :post
 
-  def initialize(attribute)
-    @attribute = attribute
+  def initialize(attributes = nil, post: Post.new)
+    @post = post
+    attributes ||= default_attributes
+    super(attributes)
   end
 
   def save
@@ -50,14 +52,16 @@ class PostsForm
   def post_params
     {
       body: body,
-      user_id: user_id
+      user_id: user_id,
     }
   end
 
   def default_attributes
     {
       body: body,
-      user_id: user_id
+      user_id: user_id,
+      images: images,
+      category_ids: category_ids
     }
   end
 
