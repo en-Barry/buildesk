@@ -16,6 +16,12 @@ class PostsForm
   validate :image_content_type
   validate :image_size
 
+  delegate :persisted?, to: :post
+
+  def initialize(attribute)
+    @attribute = attribute
+  end
+
   def save
     return false if invalid?
 
@@ -35,9 +41,20 @@ class PostsForm
     true
   end
 
+  def to_model
+    post
+  end
+
   private
 
   def post_params
+    {
+      body: body,
+      user_id: user_id
+    }
+  end
+
+  def default_attributes
     {
       body: body,
       user_id: user_id
