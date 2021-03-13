@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_set
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def post_params
