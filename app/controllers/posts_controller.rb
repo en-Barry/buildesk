@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:posts_form).permit(
+    params.require(:post).permit(
       :body,
       { images: [] },
       { category_ids: [] }

@@ -16,7 +16,7 @@ class PostsForm
   validate :image_content_type
   validate :image_size
 
-  delegate :persisted?, to: :post
+  delegate :persisted?, to: :@post
 
   def initialize(attributes = nil, post: Post.new)
     @post = post
@@ -29,7 +29,7 @@ class PostsForm
 
     ActiveRecord::Base.transaction do
       post = Post.new(post_params)
-      post.save!
+      post.save
 
       images.each do |image|
         post.post_images.create!(image: image)
@@ -44,7 +44,7 @@ class PostsForm
   end
 
   def to_model
-    post
+    @post
   end
 
   private
@@ -52,16 +52,16 @@ class PostsForm
   def post_params
     {
       body: body,
-      user_id: user_id,
+      user_id: user_id
     }
   end
 
   def default_attributes
     {
-      body: body,
-      user_id: user_id,
-      images: images,
-      category_ids: category_ids
+      body: @post.body,
+      user_id: @post.user_id,
+      images: @post.post_images,
+      category_ids: @post.post_categories
     }
   end
 
