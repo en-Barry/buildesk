@@ -18,10 +18,10 @@ class PostsForm
 
   delegate :persisted?, to: :@post
 
-  def initialize(attributes = nil, post: Post.new)
+  def initialize(attributes = {}, post: Post.new)
     @post = post
-    attributes ||= default_attributes
-    super(attributes)
+    new_attributes = default_attributes.merge(attributes)
+    super(new_attributes)
   end
 
   def save
@@ -29,7 +29,7 @@ class PostsForm
 
     ActiveRecord::Base.transaction do
       post = Post.new(post_params)
-      post.save
+      post.save!
 
       images.each do |image|
         post.post_images.create!(image: image)
@@ -39,6 +39,14 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
     end
+
+    true
+  end
+
+  def update
+    return false if invalid?
+
+    
 
     true
   end
@@ -60,7 +68,7 @@ class PostsForm
     {
       body: @post.body,
       user_id: @post.user_id,
-      images: @post.post_images,
+      images: @post.post_images.map(&:image),
       category_ids: @post.post_categories
     }
   end
