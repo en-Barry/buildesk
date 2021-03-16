@@ -1,5 +1,17 @@
 .container
   h1 
     | Posts#edit
-  p
-    = render 'form'
+  .box.box-primary
+    = simple_form_for @form do |f|
+      .box-body
+        .col-sm-4.col-md-6
+          - if @form.images.present?
+            - @form.images.each do |image|
+              = image_tag image.url, size: '600x400'
+
+        = f.input :body, as: :text
+
+        = f.input :category_ids, as: :check_boxes, collection: Category.all, include_hidden: false
+
+      .box-footer
+        = f.button :submit, '投稿する', class: %w[btn btn-primary]
