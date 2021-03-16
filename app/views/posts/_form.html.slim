@@ -2,6 +2,11 @@
   = simple_form_for @form do |f|
     .box-body
       = f.input :images, as: :file, input_html: { multiple: true }
+      .row
+        .col-sm-4.col-md-6
+          - if @form.images.present?
+            - @form.images.each do |image|
+              = image_tag image.url(resize: '600x400'), class: 'card-img-top'
 
       = f.input :body, as: :text
 

@@ -46,7 +46,11 @@ class PostsForm
   def update
     return false if invalid?
 
-    
+    ActiveRecord::Base.transaction do
+      @post.update!(post_params)
+      
+      @post.category_ids = category_ids
+    end
 
     true
   end
