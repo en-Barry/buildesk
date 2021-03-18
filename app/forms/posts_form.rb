@@ -48,11 +48,11 @@ class PostsForm
 
     ActiveRecord::Base.transaction do
       @post.update!(post_params)
-      
+
       @post.category_ids = category_ids
     end
 
-    true
+    rescue => e
   end
 
   def to_model
@@ -78,7 +78,7 @@ class PostsForm
   end
 
   def image_content_type
-    return false if images.blank?
+    return false if images.empty?
 
     extension_whitelist = %w[image/jpg image/jpeg image/png]
 
@@ -88,7 +88,7 @@ class PostsForm
   end
 
   def image_size
-    return false if images.blank?
+    return false if images.empty?
 
     images.each do |image|
       errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes
