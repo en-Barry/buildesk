@@ -3,9 +3,6 @@
     | Posts#edit
   .box.box-primary
     = simple_form_for @form do |f|
-      - if @form.errors.any?
-        - @form.errors.full_messages.each do |msg|
-          = msg
       .box-body
         .col-sm-4.col-md-6
           - if @form.images.present?
