@@ -14,6 +14,8 @@
               = @post.body
             li class='list-inline-item'
               = l @post.created_at, format: :short
+            li class='list-inline-item'
+              = render 'posts/crud_menus', post: @post if current_user.own?(@post)
     
     = render 'comments/form', { post: @post, comment: @comment }
     p

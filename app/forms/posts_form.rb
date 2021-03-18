@@ -16,12 +16,19 @@ class PostsForm
   validate :image_content_type
   validate :image_size
 
+  delegate :persisted?, to: :@post
+
+  def initialize(attributes = {}, post: Post.new)
+    @post = post
+    new_attributes = default_attributes.merge(attributes)
+    super(new_attributes)
+  end
+
   def save
     return false if invalid?
 
-    post = Post.new(post_params)
-
     ActiveRecord::Base.transaction do
+      post = Post.new(post_params)
       post.save!
 
       images.each do |image|
@@ -33,7 +40,22 @@ class PostsForm
       end
     end
 
-    post
+    true
+  end
+
+  def update
+    return false if invalid?
+
+    ActiveRecord::Base.transaction do
+      @post.update!(post_params)
+
+      @post.category_ids = category_ids
+    end
+  rescue StandardError => e
+  end
+
+  def to_model
+    @post
   end
 
   private
@@ -45,8 +67,17 @@ class PostsForm
     }
   end
 
+  def default_attributes
+    {
+      body: @post.body,
+      user_id: @post.user_id,
+      images: @post.post_images.map(&:image),
+      category_ids: @post.post_categories
+    }
+  end
+
   def image_content_type
-    return false if images.blank?
+    return false if images.empty?
 
     extension_whitelist = %w[image/jpg image/jpeg image/png]
 
@@ -56,7 +87,7 @@ class PostsForm
   end
 
   def image_size
-    return false if images.blank?
+    return false if images.empty?
 
     images.each do |image|
       errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes

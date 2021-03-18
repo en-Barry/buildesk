@@ -7,6 +7,10 @@ ja:
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できません"
+      deleted: "%{item}を削除しました"
+      not_deleted: "%{item}を削除できません"
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'
