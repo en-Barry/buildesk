@@ -34,6 +34,8 @@ ja:
       title: '新規投稿'
     show:
       title: '投稿詳細'
+    edit:
+      title: '投稿編集'
   categories:
     show:
       title: 'カテゴリー別投稿一覧'
