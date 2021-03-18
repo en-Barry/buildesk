@@ -51,8 +51,7 @@ class PostsForm
 
       @post.category_ids = category_ids
     end
-
-    rescue => e
+  rescue StandardError => e
   end
 
   def to_model
