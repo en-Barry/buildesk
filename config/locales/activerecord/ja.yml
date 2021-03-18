@@ -18,6 +18,8 @@ ja:
         role: 'タイプ'
       post:
         body: '本文'
+        images: '画像'
+        category_ids: 'カテゴリー'
       comment:
         body: 'コメント'
   users:

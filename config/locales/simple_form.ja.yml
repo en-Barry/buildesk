@@ -7,10 +7,12 @@ ja:
       mark: '*'
     error_notification:
       default_message: "エラーがあります。確認してください。"
+      images: '画像'
+      category_ids: 'カテゴリー'
     labels:
       defaults:
       posts_form:
-        image: '画像'
+        images: '画像'
         caption: 'キャプション'
         body: '本文'
-        categories: 'カテゴリー'
+        category_ids: 'カテゴリー'

@@ -1,7 +1,7 @@
 .box.box-primary
   = simple_form_for @form do |f|
     .box-body
-      = f.input :images, as: :file, input_html: { multiple: true }
+      = f.input :images, as: :file, input_html: { multiple: true }, accept: 'image/*'
 
       = f.input :body, as: :text
 

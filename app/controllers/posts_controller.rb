@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def update
     @form = PostsForm.new(post_params, post: @post)
 
-    if @form.save
+    if @form.update
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destory!
+    @post.destroy!
     redirect_to root_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 

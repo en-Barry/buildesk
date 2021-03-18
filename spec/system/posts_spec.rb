@@ -164,9 +164,9 @@ RSpec.describe 'Posts', type: :system do
       context "自分の投稿の場合" do
         it "編集・削除ボタンが表示される" do
           login(user)
-          visit post_path(post)
-          expect(page).to have_selector("#button-edit-#{post.id}")
-          expect(page).to have_selector("#button-delete-#{post.id}")  
+          visit post_path(post_by_user)
+          expect(page).to have_selector("#button-edit-#{post_by_user.id}")
+          expect(page).to have_selector("#button-delete-#{post_by_user.id}")  
         end
       end
       
