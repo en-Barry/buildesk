@@ -18,6 +18,7 @@ ja:
         role: 'タイプ'
       post:
         body: '本文'
+        area: 'ジャンル'
         images: '画像'
         category_ids: 'カテゴリー'
       comment:
