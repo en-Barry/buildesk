@@ -1,0 +1,6 @@
+ja:
+  enums:
+    post:
+      area:
+        around: 'デスク全体'
+        focus: '特定の箇所やアイテム'

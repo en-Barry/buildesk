@@ -6,6 +6,7 @@ class PostsForm
   mount_uploader :image, PostImageUploader
 
   attribute :body, :string
+  attribute :area, :integer
   attribute :images
   attribute :category_ids
   attribute :user_id, :integer
@@ -63,6 +64,7 @@ class PostsForm
   def post_params
     {
       body: body,
+      area: area,
       user_id: user_id
     }
   end
@@ -70,6 +72,7 @@ class PostsForm
   def default_attributes
     {
       body: @post.body,
+      area: @post.area,
       user_id: @post.user_id,
       images: @post.post_images.map(&:image),
       category_ids: @post.post_categories
