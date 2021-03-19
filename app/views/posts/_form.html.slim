@@ -5,7 +5,7 @@
 
       = f.input :body, as: :text
 
-      = f.input :type
+      = f.select :area, Post.areas.keys
 
       = f.input :category_ids, as: :check_boxes, collection: Category.all, include_hidden: false
 

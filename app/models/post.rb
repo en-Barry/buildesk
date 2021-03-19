@@ -5,5 +5,5 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
 
-  enum role: { around: 0, focus: 1 }
+  enum area: { around: 0, focus: 1 }
 end
