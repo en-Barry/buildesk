@@ -40,6 +40,9 @@ gem 'carrierwave', '2.1.1'
 # Storage
 gem 'mini_magick', '4.11.0'
 
+# Model
+gem 'enum_help'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
