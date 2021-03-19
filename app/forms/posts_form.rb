@@ -6,6 +6,7 @@ class PostsForm
   mount_uploader :image, PostImageUploader
 
   attribute :body, :string
+  attribute :type, :integer
   attribute :images
   attribute :category_ids
   attribute :user_id, :integer
@@ -63,6 +64,7 @@ class PostsForm
   def post_params
     {
       body: body,
+      type: type,
       user_id: user_id
     }
   end
