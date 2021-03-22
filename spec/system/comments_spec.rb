@@ -9,9 +9,6 @@ RSpec.describe "Comments", type: :system do
   let!(:post) { create(:post) }
   let!(:comment_by_me) { create(:comment, user: me, post: post) }
   let!(:comment_by_another) { create(:comment, post: post) }
-  let!(:post_with_engineer) { create(:post, :with_engineer) }
-  let!(:post_with_writer) { create(:post, :with_writer) }
-  let!(:post_with_mediacreator) { create(:post, :with_mediacreator) }
 
   describe "コメントのCRUD" do
     before do
