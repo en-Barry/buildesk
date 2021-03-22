@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :post_images, only: %i[create]
     resources :comments, only: %i[create update destroy], shallow: true
+    resources :likes, only: %i[create destroy], shallow: true
   end
 end
