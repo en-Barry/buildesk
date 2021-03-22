@@ -18,10 +18,12 @@
             li class='list-inline-item'
               = render 'posts/crud_menus', post: @post if current_user.present? && current_user.own?(@post)
             li class='list-inline-item'
-              - if already_liked?(@post)
-                = いいね済み
+              - if current_user.present? && current_user.already_liked?(@post)
+                = link_to like_path(@post), method: :post, id: "button-like-#{@post.id}" do
+                  i class="fas fa-heart"
               - else 
-                = いいねしてない
+                = link_to like_path(@post), method: :delete, id: "button-like-#{@post.id}" do
+                  i class="far fa-heart"
     
     = render 'comments/form', { post: @post, comment: @comment }
     p
