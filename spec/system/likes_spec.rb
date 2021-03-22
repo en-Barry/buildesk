@@ -10,14 +10,14 @@ RSpec.describe "Likes", type: :system do
       it "いいねボタンが表示される" do
         login(user)
         visit post_path(post_by_others)
-        expect(page).to have_selector("#button-good-#{post_by_others.id}")  
+        expect(page).to have_selector("#button-like-#{post_by_others.id}")  
       end
     end
     context "自分の投稿の場合" do
       it "いいねボタンが表示されない" do
         login(user)
         visit post_path(post_by_uesr)
-        expect(page).not_to have_selector("#button-good-#{post_by_uesr.id}")  
+        expect(page).not_to have_selector("#button-like-#{post_by_uesr.id}")  
       end
     end
     
