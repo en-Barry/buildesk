@@ -16,14 +16,9 @@
             li class='list-inline-item'
               = l @post.created_at, format: :short
             li class='list-inline-item'
-              = render 'posts/crud_menus', post: @post if current_user.present? && current_user.own?(@post)
+              = render 'posts/crud_menus', post: @post if current_user&.own?(@post)
             li class='list-inline-item'
-              - if current_user.liked_by?(@post)
-                = link_to like_path(@post), method: :delete, id: "button-like-#{@post.id}" do
-                  i class="fas fa-heart"
-              - else 
-                = link_to post_likes_path(@post), method: :post, id: "button-like-#{@post.id}" do
-                  i class="far fa-heart"
+              = render 'likes/like', post: @post unless current_user&.own?(@post)
     
     = render 'comments/form', { post: @post, comment: @comment }
     p
