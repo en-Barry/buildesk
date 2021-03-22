@@ -19,7 +19,7 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  def already_liked?(post)
-    self.likes.exists?(post_id: post.id)
+  def liked_by?(post)
+    likes.where(post_id: post.id).exists?
   end
 end
