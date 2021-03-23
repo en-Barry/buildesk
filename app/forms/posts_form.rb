@@ -52,8 +52,8 @@ class PostsForm
 
       @post.category_ids = category_ids
     end
-    rescue ActiveRecord::RecordNotFound
-      false
+  rescue ActiveRecord::RecordNotFound
+    false
   end
 
   def to_model

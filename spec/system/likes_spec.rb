@@ -77,8 +77,6 @@ RSpec.describe "Likes", type: :system do
           expect(page).to have_selector('.far.fa-heart'), 'いいねボタンに変化していません'  
         end
       end
-      
     end
-    
   end
 end
