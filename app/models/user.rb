@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :password, length: { in: 8..30 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -16,5 +17,9 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def liked_by?(post)
+    likes.where(post_id: post.id).exists?
   end
 end

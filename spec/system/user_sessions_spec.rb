@@ -6,9 +6,6 @@ RSpec.describe 'UserSessions', type: :system do
   end
   
   let(:user) { create(:user) }
-  let!(:category_engineer) { create(:category, :engineer) }
-  let!(:category_writer) { create(:category, :writer) }
-  let!(:category_media_creator) { create(:category, :media_creator) }
 
   describe 'ログイン前' do
     context 'フォームの入力値が正常' do
