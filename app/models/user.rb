@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   validates :password, length: { in: 8..30 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -21,5 +22,13 @@ class User < ApplicationRecord
 
   def liked_by?(post)
     likes.where(post_id: post.id).exists?
+  end
+
+  def like(post)
+    like_posts << post
+  end
+
+  def unlike(post)
+    like_posts.delete(post)
   end
 end
