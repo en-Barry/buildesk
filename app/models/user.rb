@@ -20,8 +20,8 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  def liked_by?(post)
-    likes.where(post_id: post.id).exists?
+  def liked?(post)
+    post.likes.pluck(:user_id).include?(id)
   end
 
   def like(post)
