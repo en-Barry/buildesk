@@ -4,6 +4,10 @@ RSpec.describe "Likes", type: :system do
   let(:user) { create(:user) }
   let!(:post_by_uesr) { create(:post, user: user) }
   let!(:post_by_others) { create(:post) }
+  
+  before do
+    driven_by(:rack_test)
+  end
 
   describe "いいね機能" do
     context "他人の投稿の場合" do
