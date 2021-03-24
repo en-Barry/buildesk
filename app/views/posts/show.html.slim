@@ -17,9 +17,10 @@
               = l @post.created_at, format: :short
             li class='list-inline-item'
               = render 'posts/crud_menus', post: @post if current_user&.own?(@post)
-            li class='list-inline-item'
-              - unless current_user&.own?(@post)
+            - unless current_user&.own?(@post)
+              li class='list-inline-item'
                 = render 'likes/like', post: @post
+              li class='list-inline-item'
                 = render 'bookmarks/bookmark', post: @post
     
     = render 'comments/form', { post: @post, comment: @comment }
