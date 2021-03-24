@@ -36,6 +36,10 @@ ja:
       title: '投稿詳細'
     edit:
       title: '投稿編集'
+    likes:
+      title: 'いいねした投稿'
+    bookmarks:
+      title: 'ブックマークした投稿'
   categories:
     show:
       title: 'カテゴリー別投稿一覧'
