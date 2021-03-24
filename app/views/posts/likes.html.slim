@@ -1,0 +1,9 @@
+= content_for :title, t('.title')
+.container
+  h1 
+    | Posts#likes
+  p
+  .new_arrival
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @like_posts.exists?
+        = render @like_posts
