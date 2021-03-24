@@ -37,4 +37,12 @@ class User < ApplicationRecord
   def bookmarked?(post)
     post.bookmarks.pluck(:user_id).include?(id)
   end
+
+  def bookmark(post)
+    bookmark_posts << post
+  end
+
+  def unbookmark(post)
+    bookmark_posts.delete(post)
+  end
 end
