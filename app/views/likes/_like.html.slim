@@ -1,4 +1,4 @@
-- if current_user&.liked_by?(post)
+- if current_user&.liked?(post)
   = link_to like_path(post), method: :delete, id: "button-like-#{post.id}" do
     i class="fas fa-heart"
 - else 

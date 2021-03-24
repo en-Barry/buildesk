@@ -38,6 +38,24 @@ RSpec.describe "Likes", type: :system do
         end
       end
     end
+
+    describe "ブックマークした投稿の一覧表示" do
+      context 'ログインしていない場合' do
+        it "ログインページにリダイレクトされる" do
+          visit likes_posts_path
+          expect(current_path).to eq(login_path), 'ログインページにリダイレクトされていません'
+        end
+      end
+
+      context "ログインしてる場合" do
+        it "ブックマークした投稿が表示される" do
+          login(user)
+          visit likes_posts_path
+          expect(page).to have_selector("#post-id-#{post_by_others_and_liked.id}"), 'いいねした投稿が表示されていません'
+          expect(page).not_to have_selector("#post-id-#{post_by_others.id}"), 'いいねしていない投稿が表示されています'
+        end  
+      end
+    end
     
     describe "いいねの作成" do
       context "ログインしていない場合" do
