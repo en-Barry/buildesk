@@ -1,0 +1,6 @@
+- if current_user&.bookmarked?(post)
+  = link_to bookmark_path(post), method: :delete, id: "button-bookmark-#{post.id}" do
+    i class="fas fa-bookmark"
+- else 
+  = link_to post_bookmarks_path(post), method: :post, id: "button-bookmark-#{post.id}" do
+    i class="far fa-bookmark"
