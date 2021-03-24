@@ -33,4 +33,8 @@ class User < ApplicationRecord
   def unlike(post)
     like_posts.delete(post)
   end
+
+  def bookmarked?(post)
+    post.bookmarks.pluck(:user_id).include?(id)
+  end
 end
