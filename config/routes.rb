@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create update destroy], shallow: true
     resources :likes, only: %i[create destroy], shallow: true
     get 'likes', on: :collection
+    resources :bookmarks, only: %i[create destroy], shallow: true
+    get 'bookmarks', on: :collection
   end
 end
