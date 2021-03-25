@@ -33,6 +33,7 @@ gem 'simple_form'
 
 # Seeds
 gem 'faker'
+gem 'seed-fu'
 
 # Uploader
 gem 'carrierwave', '2.1.1'
