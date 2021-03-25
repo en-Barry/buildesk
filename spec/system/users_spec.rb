@@ -6,6 +6,9 @@ RSpec.describe 'Users', type: :system do
   end
   
   let(:user) { create(:user) }
+  let(:user_others) { create(:user) }
+  let!(:post) { create(:post, user: user) }
+  let!(:post_by_others) { create(:post, user: user_others)}
 
   describe 'ログイン前' do
     describe 'ユーザー新規登録' do
@@ -45,6 +48,19 @@ RSpec.describe 'Users', type: :system do
           expect(page).to have_content('ユーザー登録に失敗しました')
           expect(page).to have_content('メールアドレスはすでに存在します')
         end
+      end
+    end
+  end
+
+  describe "ログイン後" do
+    context "マイページの表示" do
+      it "ページが正しく表示される" do
+        login(user)
+        visit user_path(user)
+        expect(page).to have_selector("user-id-#{user.id}"), 'ユーザー情報が表示されていません'
+        expect(page).not_to have_selector("user-id-#{user_others.id}"), '別のユーザー情報が表示されています'
+        expect(page).to have_selector("post-id-#{post.id}"), 'ユーザーの投稿が表示されていません'
+        expect(page).not_to have_selector("post-id-#{post_by_others.id}"), '他人の投稿が表示されています'  
       end
     end
   end
