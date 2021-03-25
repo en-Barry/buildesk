@@ -1,8 +1,8 @@
 10.times do
-  User.seed do |s|
-    s.name = Faker::Name.name,
-    s.email = Faker::Internet.email,
-    s.password = 'password',
-    s.password_confirmation = 'password'
-  end
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
 end

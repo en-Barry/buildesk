@@ -1,7 +1,8 @@
-5.times do
+5.times do |n|
   Post.seed do |s|
-    s.body = "test_#{s}",
-    s.area = 0,
+    s.id = n
+    s.body = "test"
+    s.area = 0
     s.user_id = User.offset(rand(User.count)).first.id
   end
 end

@@ -1,24 +1,12 @@
-PostImages.seed(
-  images: Rails.root.join('app/assets/images/20210226_233834.jpg')
-  post_id: Post.offset(Post.count).first
-)
+require 'fileutils'
+Dir.chdir 'public/uploads/post_image/image/'
+FileUtils.rm(Dir.glob('*.*'))
 
-PostImages.seed(
-  images: Rails.root.join('app/assets/images/20210226_233834.jpg')
-  post_id: Post.offset(Post.count)[2]
-)
-
-PostImages.seed(
-  images: Rails.root.join('app/assets/images/20210226_233834.jpg')
-  post_id: Post.offset(Post.count)[3]
-)
-
-PostImages.seed(
-  images: Rails.root.join('app/assets/images/20210226_233834.jpg')
-  post_id: Post.offset(Post.count)[4]
-)
-
-PostImages.seed(
-  images: Rails.root.join('app/assets/images/20210226_233834.jpg')
-  post_id: Post.offset(Post.count)[5]
+PostImage.seed(
+  :id,
+  { image: Rails.root.join('app/assets/images/20210226_233834.jpg').open, post_id: Post.find(0).id },
+  { image: Rails.root.join('app/assets/images/20210226_233834.jpg').open, post_id: Post.find(1).id },
+  { image: Rails.root.join('app/assets/images/20210226_233834.jpg').open, post_id: Post.find(2).id },
+  { image: Rails.root.join('app/assets/images/20210226_233834.jpg').open, post_id: Post.find(3).id },
+  { image: Rails.root.join('app/assets/images/20210226_233834.jpg').open, post_id: Post.find(4).id }
 )
