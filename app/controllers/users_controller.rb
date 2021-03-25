@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      login(params[:user][:email], params[:user][:password])
       redirect_to root_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
