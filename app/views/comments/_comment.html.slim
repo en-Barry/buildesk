@@ -1,6 +1,6 @@
 tr id="comment-#{comment.id}"
   td style="width: 60px"
-    = image_tag "sample.jpg", class: 'rounded-circle', size: '50x50'
+    = image_tag comment.user.image_url, class: 'rounded-circle', size: '50x50'
   td 
     h3 class="small"
       = comment.user.name 
