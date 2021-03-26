@@ -2,11 +2,6 @@
   = simple_form_for @form do |f|
     .box-body
       = f.input :images, as: :file, input_html: { multiple: true }, accept: 'image/*'
-      = f.hidden_field :images_cache
-      .mt-3.mb-3
-        = image_tag @form.image.url,
-                    id: 'preview',
-                    size: '300x200'
 
       = f.input :body, as: :text
 
