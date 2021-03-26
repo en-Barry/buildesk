@@ -86,7 +86,7 @@ RSpec.describe 'Users', type: :system do
           fill_in 'ユーザーネーム', with: 'username'
           fill_in '自己紹介', with: 'description_test'
           attach_file 'プロフィール画像', "#{Rails.root}/spec/fixtures/20210227_005224.jpg"
-          click_on '保存する'
+          click_on '更新する'
           expect(current_path).to eq(), 'ページが正しく遷移していません'
           expect(page).to have_content('プロフィールの編集に成功しました'), 'サクセスメッセージが表示されていません'  
         end
@@ -95,7 +95,7 @@ RSpec.describe 'Users', type: :system do
         it "更新に失敗する" do
           visit edit_profile_path(user)
           fill_in 'ユーザーネーム', with: nil
-          click_on '保存する'
+          click_on '更新する'
           expect(current_path).to eq(), 'ページが正しく遷移していません'
           expect(page).to have_content('プロフィールの編集に失敗しました'), 'エラーメッセージが表示されていません'
         end
