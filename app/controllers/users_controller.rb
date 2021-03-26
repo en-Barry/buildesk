@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post = current_user.posts.includes(:user).order(created_at: :desc)
+    @posts = current_user.posts.includes(:user).order(created_at: :desc)
   end
 
   def create
