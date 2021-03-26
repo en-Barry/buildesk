@@ -1,0 +1,12 @@
+= content_for :title, t('.title')
+
+= image_tag @user.image, class: 'rounded-circle', size: '100x100'
+= @user.name
+- if @user.description.present?
+  = @user.description
+
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+  - if @posts.present?
+    = render @posts
+  - else
+    = '投稿がありません'
