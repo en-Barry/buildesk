@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[edit update]
 
-  def :edit end
+  def edit; end
 
   def update
     if @user.update(user_params)
