@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+    @post = current_user.posts.includes(:user).order(created_at: :desc)
+  end
+
   def create
     @user = User.new(user_params)
 
