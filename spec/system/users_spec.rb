@@ -88,7 +88,8 @@ RSpec.describe 'Users', type: :system do
           attach_file 'プロフィール画像', "#{Rails.root}/spec/fixtures/20210227_005224.jpg"
           click_on '更新する'
           expect(current_path).to eq(edit_profile_path(user)), 'ページが正しく遷移していません'
-          expect(page).to have_content('プロフィールを更新しました'), 'サクセスメッセージが表示されていません'  
+          expect(page).to have_content('プロフィールを更新しました'), 'サクセスメッセージが表示されていません'
+          expect(page).to have_selector("img[src$='20210227_005224.jpg']"), '登録した画像が表示されていません' 
         end
       end
       context "ユーザーネームが未入力" do
