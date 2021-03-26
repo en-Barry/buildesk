@@ -2,7 +2,15 @@
   = simple_form_for(@user, url: profile_path) do |f|
     .box-body
       = f.input :name
+
       = f.input :image, as: :file
+      = f.hidden_field :image_cache
+      .mt-3.mb-3
+        = image_tag @user.image.url,
+                    class: 'rounded-circle',
+                    id: 'preview',
+                    size: '100x100'
+
       = f.input :description
 
     .box-footer
