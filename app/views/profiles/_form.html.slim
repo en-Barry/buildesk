@@ -1,0 +1,9 @@
+.box.box-primary
+  = simple_form_for(@user, url: profile_path) do |f|
+    .box-body
+      = f.input :name
+      = f.input :image, as: :file
+      = f.input :description
+
+    .box-footer
+      = f.button :submit, class: %w[btn btn-primary]
