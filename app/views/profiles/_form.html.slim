@@ -6,7 +6,7 @@
       = f.input :image, as: :file
       = f.hidden_field :image_cache
       .mt-3.mb-3
-        = image_tag @user.image.url,
+        = image_tag @user.image.url(:thumb),
                     class: 'rounded-circle',
                     id: 'preview',
                     size: '100x100'
