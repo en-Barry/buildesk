@@ -122,7 +122,7 @@ Rails.application.config.sorcery.configure do |config|
     name: 'name',
     email: 'screen_name',
     description: 'description',
-    image: 'profile_image'
+    remote_image_url: 'profile_image_url_https'
   }
   #
   # config.facebook.key = ""
