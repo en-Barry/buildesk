@@ -62,19 +62,19 @@ RSpec.describe 'Users', type: :system do
       context "自分のマイページを表示" do
         it "正しく表示される" do
           visit user_path(user)
-          expect(page).to have_selector("user-id-#{user.id}"), 'ユーザー情報が表示されていません'
-          expect(page).not_to have_selector("user-id-#{user_others.id}"), '別のユーザー情報が表示されています'
-          expect(page).to have_selector("post-id-#{post.id}"), 'ユーザーの投稿が表示されていません'
-          expect(page).not_to have_selector("post-id-#{post_by_others.id}"), '他人の投稿が表示されています'  
+          expect(page).to have_selector("#user-id-#{user.id}"), 'ユーザー情報が表示されていません'
+          expect(page).not_to have_selector("#user-id-#{user_others.id}"), '別のユーザー情報が表示されています'
+          expect(page).to have_selector("#post-id-#{post.id}"), 'ユーザーの投稿が表示されていません'
+          expect(page).not_to have_selector("#post-id-#{post_by_others.id}"), '他人の投稿が表示されています'  
         end
       end
       context "他人のマイページを表示" do
         it "正しく表示される" do
           visit user_path(user_others)
-          expect(page).not_to have_selector("user-id-#{user.id}"), '自分のユーザー情報が表示されています'
-          expect(page).to have_selector("user-id-#{user_others.id}"), 'ユーザー情報が表示されていません'
-          expect(page).not_to have_selector("post-id-#{post.id}"), '自分の投稿が表示されています'
-          expect(page).to have_selector("post-id-#{post_by_others.id}"), 'ユーザーの投稿が表示されていません'
+          expect(page).not_to have_selector("#user-id-#{user.id}"), '自分のユーザー情報が表示されています'
+          expect(page).to have_selector("#user-id-#{user_others.id}"), 'ユーザー情報が表示されていません'
+          expect(page).not_to have_selector("#post-id-#{post.id}"), '自分の投稿が表示されています'
+          expect(page).to have_selector("#post-id-#{post_by_others.id}"), 'ユーザーの投稿が表示されていません'
         end
       end
     end
