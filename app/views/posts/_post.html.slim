@@ -6,7 +6,8 @@ div id="post-id-#{post.id}"
       .card-body
         ul class='list-inline'
           li class='list-inline-item'
-            = image_tag post.user.image_url, class: 'rounded-circle', size: '25x25'
+            = link_to user_path(post.user) do
+              = image_tag post.user.image_url, class: 'rounded-circle', size: '25x25'
           li class='list-inline-item'
             = post.user.name
           li class='list-inline-item'
