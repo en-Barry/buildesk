@@ -9,9 +9,15 @@
       p
       - if @user.description.present?
         = @user.description
+    .row
+      - if current_user == @user
+        .col-md-6
+          = link_to 'いいねした投稿', likes_posts_path
+        .col-md-6
+          = link_to 'ブックマークした投稿', bookmarks_posts_path
 
-  .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-    - if @posts.present?
-      = render @posts
-    - else
-      = '投稿がありません'
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - if @posts.present?
+        = render @posts
+      - else
+        = '投稿がありません'
