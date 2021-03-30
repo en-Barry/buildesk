@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create show]
   resources :categories, only: %i[index show], param: :name
   resources :posts do
     resources :post_images, only: %i[create]
@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i[create destroy], shallow: true
     get 'bookmarks', on: :collection
   end
+
+  resource :profile, only: %i[edit update]
 end

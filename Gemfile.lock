@@ -308,6 +308,9 @@ GEM
       tilt
     scss_lint (0.59.0)
       sass (~> 3.5, >= 3.5.5)
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -407,6 +410,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails
   scss_lint
+  seed-fu
   simple_form
   slim-rails
   slim_lint

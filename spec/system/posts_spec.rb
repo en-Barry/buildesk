@@ -94,28 +94,14 @@ RSpec.describe 'Posts', type: :system do
     end
 
     describe "投稿の詳細" do
-      context "ログインしていない場合" do
-        it "ログインページにリダイレクトされる" do
-          visit post_path(post)
-          expect(current_path).to eq(login_path)
-          expect(page).to have_content('ログインしてください')
+      it "投稿の詳細が表示される" do
+        visit posts_path
+        within "#post-id-#{post.id}" do
+          click_on 'post-img'
         end
-      end
-
-      context "ログインしている場合" do
-        before do
-          post
-          login(user)
-        end
-
-        it "投稿の詳細が表示される" do
-          visit posts_path
-          within "#post-id-#{post.id}" do
-            click_on 'post-img'
-          end
-          expect(page).to have_content(post.user.name)
-          expect(page).to have_content(post.body)
-        end
+        expect(current_path).to eq(post_path(post)), '詳細ページに遷移していません'  
+        expect(page).to have_content(post.user.name), 'ユーザーの名前が表示されていません'
+        expect(page).to have_content(post.body), '投稿内容が表示されていません'
       end
     end
     

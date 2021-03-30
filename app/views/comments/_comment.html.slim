@@ -1,6 +1,6 @@
 tr id="comment-#{comment.id}"
   td style="width: 60px"
-    = image_tag "sample.jpg", class: 'rounded-circle', size: '50x50'
+    = image_tag comment.user.image_url, class: 'rounded-circle', size: '50x50'
   td 
     h3 class="small"
       = comment.user.name 
@@ -14,7 +14,7 @@ tr id="comment-#{comment.id}"
       button class="btn btn-success js-button-comment-update" data-comment-id="#{comment.id}"
         = '更新'
 
-  - if current_user.own?(comment)
+  - if current_user&.own?(comment)
     td class="action"
       ul class="list-inline justify-content-center" style="float: right;"
         li class="list-inline-item"

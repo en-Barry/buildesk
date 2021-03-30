@@ -6,7 +6,3 @@
     password_confirmation: 'password'
   )
 end
-
-Category.create!(name: 'Engineer')
-Category.create!(name: 'Writer')
-Category.create!(name: 'MediaCreator')

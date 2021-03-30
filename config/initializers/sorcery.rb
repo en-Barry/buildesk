@@ -122,7 +122,7 @@ Rails.application.config.sorcery.configure do |config|
     name: 'name',
     email: 'screen_name',
     description: 'description',
-    image: 'profile_image'
+    remote_image_url: 'profile_image_url_https'
   }
   #
   # config.facebook.key = ""
@@ -169,7 +169,7 @@ Rails.application.config.sorcery.configure do |config|
   config.google.user_info_mapping = {
     email: 'email',
     name: 'name',
-    image: 'picture'
+    remote_image_url: 'picture'
   }
   config.google.scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
   #

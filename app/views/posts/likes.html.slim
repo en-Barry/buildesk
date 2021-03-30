@@ -7,3 +7,5 @@
     .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
       - if @like_posts.present?
         = render @like_posts
+      - else
+        = 'いいねした投稿がありません'

@@ -4,6 +4,7 @@ ja:
     register: 'ユーザー登録'
     logout: 'ログアウト'
     post: '投稿'
+    profile: 'プロフィール'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
@@ -43,6 +44,9 @@ ja:
   categories:
     show:
       title: 'カテゴリー別投稿一覧'
+  profiles:
+    edit:
+      title: 'プロフィール編集'
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"

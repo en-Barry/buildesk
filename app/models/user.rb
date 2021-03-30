@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
+  mount_uploader :image, UserImageUploader
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -16,7 +18,7 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { in: 1..20 }
-  validates :description, length: { maximum: 160 }
+  validates :description, length: { maximum: 200 }
 
   def own?(object)
     id == object.user_id

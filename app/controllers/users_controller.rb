@@ -5,10 +5,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+    @posts = current_user.posts.includes(:user).order(created_at: :desc)
+  end
+
   def create
     @user = User.new(user_params)
 
     if @user.save
+      login(params[:user][:email], params[:user][:password])
       redirect_to root_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
