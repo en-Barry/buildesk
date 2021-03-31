@@ -10,7 +10,8 @@
         .card-body
           ul class='list-inline'
             li class='list-inline-item'
-              = image_tag @post.user.image_url, class: 'rounded-circle', size: '30x30'
+              = link_to user_path(@post.user) do
+                = image_tag @post.user.image_url, class: 'rounded-circle', size: '30x30'
             li class='list-inline-item'
               = @post.user.name
             p

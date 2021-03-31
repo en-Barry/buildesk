@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create show]
 
   def new
     @user = User.new
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = current_user.posts.includes(:user).order(created_at: :desc)
+    @posts = @user.posts.includes(:user).order(created_at: :desc)
   end
 
   def create

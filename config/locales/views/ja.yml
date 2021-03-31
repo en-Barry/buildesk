@@ -25,6 +25,8 @@ ja:
   users:
     new:
       title: 'ユーザー登録'
+    show:
+      title: "%{user}のマイページ"
   user_sessions:
     new:
       title: 'ログイン'
