@@ -65,7 +65,9 @@ RSpec.describe 'Users', type: :system do
           expect(page).to have_selector("#user-id-#{user.id}"), 'ユーザー情報が表示されていません'
           expect(page).not_to have_selector("#user-id-#{user_others.id}"), '別のユーザー情報が表示されています'
           expect(page).to have_selector("#post-id-#{post.id}"), 'ユーザーの投稿が表示されていません'
-          expect(page).not_to have_selector("#post-id-#{post_by_others.id}"), '他人の投稿が表示されています'  
+          expect(page).not_to have_selector("#post-id-#{post_by_others.id}"), '他人の投稿が表示されています'
+          expect(page).to have_selector("#user-link-id-#{user.id}"), 'いいねやブックマークページへのリンクが表示されていません'
+          expect(page).not_to have_selector("user-link-id-#{user_others.id}"), '他人のいいねやブックマークページへのリンクが表示されています'   
         end
       end
       context "他人のマイページを表示" do
