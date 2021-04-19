@@ -1,3 +1,4 @@
+//モーダル表示
 .item-search-modal-wrapper {
   position: fixed;
   top: 0;
@@ -6,19 +7,21 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
-  display: none;
+  display: none; //通常時は非表示
 }
 
 .modal {
   position: absolute;
-  top: 20%;
-  left: 34%;
+  top: 10%;
+  left: 10%;
   background-color: #e6ecf0;
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: 450px;
+  width: 80%;
   height: auto;
+  max-height: 80%; //スクロール時に必要
   text-align: center;
+  overflow: auto; //スクロール時に必要
 }
 
 .fa-times {
@@ -27,4 +30,13 @@
   right: 12px;
   color: rgba(128, 128, 128, 0.46);
   cursor: pointer;
+}
+
+//商品一覧表示レイアウト
+.search-item {
+  display: inline-block;
+  width: 200px;
+	height: 100px;
+  margin: 10px;
+  font-size: 12px;
 }
