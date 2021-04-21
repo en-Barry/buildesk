@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
+gem 'gon', '~> 6.4'
 
 # Database
 gem 'mysql2', '>= 0.4.4'
@@ -23,7 +24,7 @@ gem 'html2slim'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '>= 5.1.3'
 gem 'slim-rails'
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 
 # Authentication
 gem 'sorcery'
