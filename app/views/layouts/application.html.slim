@@ -5,6 +5,7 @@ html
       = page_title(yield(:title))
     = csrf_meta_tags
     = csp_meta_tag
+
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css", rel: "stylesheet", integrity: "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl", crossorigin: "anonymous"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
