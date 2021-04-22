@@ -1,0 +1,8 @@
+- items.first(10).each do |item|
+  .search-item
+    .item
+      = image_tag(item[:image], size:'150x150')
+      p
+      = item[:name]
+      p
+      = "¥#{item[:price]}"
