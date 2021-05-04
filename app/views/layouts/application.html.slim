@@ -13,7 +13,7 @@ html
   
     meta property="og:site_name" content="Buildesk（ビルデスク）"
     meta name="twitter:card" content="summary_large_image"
-    = yeild(:ogp)
+    = yield(:ogp)
   body
     - if logged_in?
       = render 'shared/header'
