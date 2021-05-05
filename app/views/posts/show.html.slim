@@ -2,7 +2,7 @@
 = content_for :ogp
   meta property="og:type" content="post"
   meta property="og:url" content="#{request.url}"
-  meta property="og:title" content="#{@post.user.name}さんのデスク環境｜Buildesk（ビルデスク）"
+  meta property="og:title" content="#{@post.user.name}さんのデスク環境｜#{l @post.created_at, format: :simple}｜Buildesk（ビルデスク）"
   meta property="og:description" content="#{@post.body}"
   meta property="og:image" content="#{@post.post_images.first.image_url}"
 
