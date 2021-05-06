@@ -21,22 +21,28 @@ ja:
     Other: 'その他'
   top:
     index:
+      og_title: '快適なデスク環境をビルドしよう'
+      og_description: 'Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。こだわりを持つリモートワーカーのデスクを参考にして、生産性アップにつなげよう。'
       New Arrival: '新着'
   users:
     new:
       title: 'ユーザー登録'
     show:
-      title: "%{user}のマイページ"
+      title: "%{user}のデスク環境"
+      og_title: '%{user}のデスク集'
   user_sessions:
     new:
       title: 'ログイン'
   posts:
     index:
       title: '投稿一覧'
+      og_title: '最新のデスク写真を一気見！'
     new:
       title: '新規投稿'
     show:
       title: '投稿詳細'
+      og_title: "%{user}さんのデスク環境｜%{data}"
+      og_description: ''
     edit:
       title: '投稿編集'
     likes:
