@@ -1,5 +1,4 @@
-- set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
-
+= content_for :title, t('.title') 
 .container
   h1
     | Posts#show
@@ -27,8 +26,6 @@
               li class='list-inline-item'
                 = render 'bookmarks/bookmark', post: @post
     
-    = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank' 
-    p
     = render 'comments/form', { post: @post, comment: @comment }
     p
     = render 'comments/comments', { comments: @comments }
