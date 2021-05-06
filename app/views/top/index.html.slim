@@ -1,9 +1,4 @@
-= content_for :ogp
-  meta property="og:type" content="website"
-  meta property="og:url" content="#{request.url}"
-  meta property="og:title" content="快適なデスク環境をビルドしよう｜Buildesk"
-  meta property="og:description" content="Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。こだわりを持つリモートワーカーのデスクを参考にして、生産性アップにつなげよう。"
-  meta property="og:image" content="#{image_url('app_ogp.png')}"
+- set_meta_tags og: { title: t('.og_title'), description: t('.og_description') }
 
 .container
   h1
