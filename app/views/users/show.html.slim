@@ -6,6 +6,7 @@
     .col
       = image_tag @user.image.url, class: 'rounded-circle', size: '100x100'
       = @user.name
+      = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank'
       p
       - if @user.description.present?
         = @user.description
