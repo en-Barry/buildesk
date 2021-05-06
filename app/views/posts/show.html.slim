@@ -27,7 +27,7 @@
               li class='list-inline-item'
                 = render 'bookmarks/bookmark', post: @post
     
-    = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}/&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank' 
+    = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank' 
     p
     = render 'comments/form', { post: @post, comment: @comment }
     p
