@@ -19,8 +19,8 @@ class Api::V1::ItemsController < ApplicationController
 
   private
 
-  def search_by_rakuten(keyword)
-    items = [] #メソッドが呼ばれる毎に空にしておく
+  def search_by_rakuten(_keyword)
+    items = [] # メソッドが呼ばれる毎に空にしておく
 
     if params[:keyword]
       results = RakutenWebService::Ichiba::Item.search(
@@ -36,7 +36,7 @@ class Api::V1::ItemsController < ApplicationController
           image: result['mediumImageUrls'][0].gsub('?_ex=128x128', ''),
           rakuten_url: result['itemUrl']
         }
-        items << item #ハッシュ化したデータを配列に入れる
+        items << item # ハッシュ化したデータを配列に入れる
       end
     end
     items
