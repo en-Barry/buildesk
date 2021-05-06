@@ -20,9 +20,5 @@ Rails.application.routes.draw do
     get 'bookmarks', on: :collection
   end
 
-  scope module: 'api/v1' do
-    get 'search', to: 'items#search'
-  end
-
   resource :profile, only: %i[edit update]
 end
