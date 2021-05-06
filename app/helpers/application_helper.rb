@@ -16,6 +16,7 @@ module ApplicationHelper
 
   def default_og
     {
+      site_name: :site,
       title: :title,
       description: :description,
       url: request.url,
