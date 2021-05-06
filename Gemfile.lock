@@ -145,6 +145,8 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
+    meta-tags (2.14.0)
+      actionpack (>= 3.2.0, < 6.2)
     method_source (1.0.0)
     mimemagic (0.3.5)
     mini_magick (4.11.0)
@@ -229,6 +231,8 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.3)
+    rakuten_web_service (1.13.0)
+      json (~> 2.3)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -350,6 +354,9 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unicode-display_width (2.0.0)
@@ -393,6 +400,7 @@ DEPENDENCIES
   html2slim
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  meta-tags
   mini_magick (= 4.11.0)
   mysql2 (>= 0.4.4)
   pry
@@ -403,6 +411,7 @@ DEPENDENCIES
   rails (= 6.0.3.5)
   rails-i18n (>= 5.1.3)
   rails_best_practices
+  rakuten_web_service
   redis-rails
   rspec-rails (~> 4.0.1)
   rubocop
@@ -418,6 +427,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

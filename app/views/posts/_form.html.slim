@@ -7,7 +7,28 @@
 
       = f.input :area, as: :select, collection: Post.areas_i18n.invert
 
+      = f.label :items
+        #item-search-show.btn.btn-primary
+          <i class="fas fa-tags"></i> アイテムを選択する
+
       = f.input :category_ids, as: :check_boxes, collection: Category.all, include_hidden: false
 
     .box-footer
       = f.button :submit, '投稿する', class: %w[btn btn-primary]
+
+/ モーダル部分
+#item-search-modal.item-search-modal-wrapper
+  .modal
+    #close-modal
+      i.fa.fa-2x.fa-times
+    #item-search-box.item-search-box
+      = form_with(url: search_path, method: :get, id: 'item_search') do |f|
+        .item-search-body
+          = f.text_field :keyword, id: 'js-search-keyword', placeholder: 'キーワードを入力'
+
+        .item-search-footer
+          = f.submit '検索', id: 'js-search-button', class: %w[btn btn-primary]
+    / 検索結果
+    #item_list
+    / 選択商品詳細
+    #item_detail

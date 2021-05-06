@@ -23,7 +23,7 @@ gem 'html2slim'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '>= 5.1.3'
 gem 'slim-rails'
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 
 # Authentication
 gem 'sorcery'
@@ -43,6 +43,12 @@ gem 'mini_magick', '4.11.0'
 
 # Model
 gem 'enum_help'
+
+# アイテム情報取得API
+gem 'rakuten_web_service'
+
+# SEO/OGP対策
+gem 'meta-tags'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_324_101_859) do
+ActiveRecord::Schema.define(version: 20_210_402_125_034) do
   create_table 'authentications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.integer 'user_id', null: false
     t.string 'provider', null: false
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(version: 20_210_324_101_859) do
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['post_id'], name: 'index_comments_on_post_id'
     t.index ['user_id'], name: 'index_comments_on_user_id'
+  end
+
+  create_table 'item_tags', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.bigint 'item_id', null: false
+    t.bigint 'post_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['item_id'], name: 'index_item_tags_on_item_id'
+    t.index ['post_id'], name: 'index_item_tags_on_post_id'
+  end
+
+  create_table 'items', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'name'
+    t.string 'image'
+    t.string 'price'
+    t.string 'rakuten_url'
+    t.string 'amazon_url'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
   create_table 'likes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
@@ -100,6 +119,8 @@ ActiveRecord::Schema.define(version: 20_210_324_101_859) do
   add_foreign_key 'bookmarks', 'users'
   add_foreign_key 'comments', 'posts'
   add_foreign_key 'comments', 'users'
+  add_foreign_key 'item_tags', 'items'
+  add_foreign_key 'item_tags', 'posts'
   add_foreign_key 'likes', 'posts'
   add_foreign_key 'likes', 'users'
   add_foreign_key 'post_categories', 'categories'

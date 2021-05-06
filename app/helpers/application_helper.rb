@@ -1,7 +1,32 @@
 module ApplicationHelper
-  def page_title(page_title = '')
-    base_title = 'desktour'
+  def default_meta_tags
+    {
+      site: 'Buildesk（ビルデスク）',
+      reverse: true,
+      separator: '|',
+      og: default_og,
+      twitter: default_twitter_card,
+      icon: [
+        { href: image_url('buidesk_favicon.png') }
+      ]
+    }
+  end
 
-    page_title.empty? ? base_title : page_title + ' | ' + base_title
+  private
+
+  def default_og
+    {
+      site_name: :site,
+      title: :og_title,
+      description: :description,
+      url: request.url,
+      image: image_url('app_ogp.png')
+    }
+  end
+
+  def default_twitter_card
+    {
+      card: 'summary_large_image'
+    }
   end
 end
