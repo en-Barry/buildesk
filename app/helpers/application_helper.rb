@@ -17,7 +17,7 @@ module ApplicationHelper
   def default_og
     {
       site_name: :site,
-      title: :title,
+      title: :og_title,
       description: :description,
       url: request.url,
       image: image_url('app_ogp.png')

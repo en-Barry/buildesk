@@ -1,4 +1,4 @@
-- set_meta_tags title: t('.title'), og: { title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
+- set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
 
 .container
   h1
