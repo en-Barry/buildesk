@@ -66,7 +66,8 @@ class PostsController < ApplicationController
       :body,
       :area,
       { images: [] },
-      { category_ids: [] }
+      { category_ids: [] },
+      { items: [] }
     ).merge(user_id: current_user.id)
   end
 end
