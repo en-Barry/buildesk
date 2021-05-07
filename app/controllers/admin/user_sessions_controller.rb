@@ -6,7 +6,7 @@ class Admin::UserSessionsController < Admin::BaseController
   end
 
   def create
-    @user = user.login(params[:email], params[:password])
+    @user = login(params[:email], params[:password])
 
     if @user.admin?
       redirect_back_or_to admin_root_path, success: t('.success')
