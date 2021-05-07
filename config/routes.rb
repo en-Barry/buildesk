@@ -25,4 +25,12 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[edit update]
+
+  # 管理者用
+  namespace :admin do
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+  end
+  
 end
