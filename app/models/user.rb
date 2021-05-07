@@ -20,6 +20,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { in: 1..20 }
   validates :description, length: { maximum: 200 }
 
+  enum role: { general: 0, admin: 1 }
+
   def own?(object)
     id == object.user_id
   end
