@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload'
+  
+    = display_meta_tags(default_meta_tags)
+  body
+    = render 'shared/flash_message'
+    = yield
