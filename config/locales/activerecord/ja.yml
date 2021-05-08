@@ -2,6 +2,7 @@ ja:
   defaults:
     message:
       require_login: 'ログインしてください'
+      not_authorized: '権限がありません'
   activerecord:
     models:
       user: 'ユーザー'
