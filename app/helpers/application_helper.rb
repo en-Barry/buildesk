@@ -7,7 +7,7 @@ module ApplicationHelper
       og: default_og,
       twitter: default_twitter_card,
       icon: [
-        { href: image_url('buidesk_favicon.png') }
+        { href: image_url('buildesk_favicon.png') }
       ]
     }
   end
