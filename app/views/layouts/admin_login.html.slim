@@ -10,10 +10,11 @@ html
     = csrf_meta_tags
     = csp_meta_tag
 
-    = stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "admin", media: 'all'
   
     = display_meta_tags(default_meta_tags)
 
   body.hold-transition.login-page
-    = render 'shared/flash_message'
-    = yield
+    div
+      = render 'shared/flash_message'
+      = yield
