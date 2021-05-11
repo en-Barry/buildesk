@@ -33,5 +33,4 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     root 'dashboards#index'
   end
-  
 end
