@@ -61,4 +61,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
       simple: "%Y/%m/%d"
+  admin:
+    user_sessions:
+      new:
+        title: '管理者用ログイン'
+    dashboards:
+      index:
+        title: 'ダッシュボード'
       
