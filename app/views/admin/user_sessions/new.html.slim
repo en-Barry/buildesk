@@ -3,21 +3,21 @@ div
     .login-logo
       h1
         | ログイン
-      .card-body.login-card-body
-        = form_with url: admin_login_path, method: :post, local: true do |f|
-          .form-group
-            = f.label :email, User.human_attribute_name(:email)
-            .input-group.mb-3
-              = f.text_field :email, class: "form-control", placeholder: "Email"
-              .input-group-append
-                .input-group-text
-                  span.fas.fa-envelope
-          .form-group
-            = f.label :password, User.human_attribute_name(:password)
-            .input-group.mb-3
-              = f.password_field :password, class: "form-control", placeholder: "Password"
-              .input-group-append
-                .input-group-text
-                  span.fas.fa-lock
-          .actions
-            = f.submit (t "defaults.login"), class: "btn btn-primary col-12"
+  .card
+    .card-body.login-card-body
+      = form_with url: admin_login_path, local: true do |f|
+        = f.label :email, User.human_attribute_name(:email)
+        .input-group.mb-3
+          = f.text_field :email, class: 'form-control', placeholder: :email
+          .input-group-append
+            .input-group-text
+              span.fas.fa-envelope
+        = f.label :password, User.human_attribute_name(:password)
+        .input-group.mb-3
+          = f.password_field :password, class: 'form-control', placeholder: :password
+          .input-group-append
+            .input-group-text
+              span.fas.fa-lock
+        .row
+          .col-12
+            = f.submit (t 'defaults.login'), class: 'btn btn-block btn-primary'
