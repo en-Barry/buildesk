@@ -1,0 +1,29 @@
+aside.main-sidebar.sidebar-dark-primary.elevation-4
+  a.brand-link[href="index3.html"]
+    = image_tag 'buildesk_favicon.png', class: 'brand-image img-circle elevation-3'
+    span.brand-text.font-weight-light
+      | Buildesk
+  .sidebar
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image
+        = image_tag current_user.image_url, class: 'img-circle elevation-2'
+      .info
+        a.d-block[href="#"]
+          = current_user.name
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
+        li.nav-item
+          = link_to '#', class: "nav-link" do
+            i.nav-icon.far.fa-user
+            p
+              |  ユーザー一覧 
+        li.nav-item
+          = link_to '#', class: "nav-link" do
+            i.nav-icon.fas.fa-mouse
+            p
+              |  アイテム一覧
+        li.nav-item
+          = link_to '#', class: "nav-link" do
+            i.nav-icon.far.fa-file-image
+            p
+              |  投稿一覧
