@@ -1,0 +1,25 @@
+- set_meta_tags title: t('.title')
+
+div
+  .login-box
+    .login-logo
+      h1
+        | ログイン
+  .card
+    .card-body.login-card-body
+      = form_with url: admin_login_path, local: true do |f|
+        = f.label :email, User.human_attribute_name(:email)
+        .input-group.mb-3
+          = f.text_field :email, class: 'form-control', placeholder: :email
+          .input-group-append
+            .input-group-text
+              span.fas.fa-envelope
+        = f.label :password, User.human_attribute_name(:password)
+        .input-group.mb-3
+          = f.password_field :password, class: 'form-control', placeholder: :password
+          .input-group-append
+            .input-group-text
+              span.fas.fa-lock
+        .row
+          .col-12
+            = f.submit (t 'defaults.login'), class: 'btn btn-block btn-primary'

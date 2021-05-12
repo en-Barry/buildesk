@@ -2,6 +2,7 @@ ja:
   defaults:
     message:
       require_login: 'ログインしてください'
+      not_authorized: '権限がありません'
   activerecord:
     models:
       user: 'ユーザー'
@@ -33,3 +34,10 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  admin:
+    user_sessions:
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+      destroy:
+        success: 'ログアウトしました'

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'admin', media: 'all'
+    = javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload'
+  
+    = display_meta_tags(default_meta_tags)
+  body.hold-transition.sidebar-mini.layout-fixed
+  .wrapper
+    = render 'admin/shared/header'
+    = render 'admin/shared/sidebar'
+
+    .content-wrapper 
+      = render 'shared/flash_message'
+      = yield
+
+    = render 'admin/shared/footer'
