@@ -4,3 +4,7 @@ ja:
       area:
         around: 'デスク全体'
         focus: '特定の箇所やアイテム'
+    user:
+      role:
+        admin: '管理者'
+        general: '一般'
