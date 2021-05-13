@@ -16,7 +16,8 @@ ja:
         password_confirmation: 'パスワード確認'
         description: '自己紹介'
         image: 'プロフィール画像'
-        role: 'タイプ'
+        role: '権限'
+        created_at: '作成日時'
       post:
         body: '本文'
         area: 'ジャンル'
