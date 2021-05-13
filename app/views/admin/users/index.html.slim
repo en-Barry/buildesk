@@ -1,0 +1,13 @@
+table.table.table-striped
+  thead
+    tr
+      th[scope="col"]
+        = 'id'
+      th[scope="col"]
+        = t('activerecord.attributes.user.name')
+      th[scope="col"]
+        = t('activerecord.attributes.user.role')
+      th[scope="col"]
+        = t('activerecord.attributes.user.created_at')
+  tbody
+    = render @users

@@ -1,0 +1,13 @@
+tr
+  th[scope="row"]
+    = user.id
+  td
+    = link_to user.name, admin_user_path(user)
+  td
+    = user.role
+  td
+    = l(user.created_at, format: :short)
+  td
+    = link_to '編集', edit_admin_user_path(user), class: %i[btn btn-success]
+  td
+    = link_to '削除', admin_user_path(user), method: :delete, class: %i[btn btn-danger]
