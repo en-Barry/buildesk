@@ -9,6 +9,8 @@
           .box-body
             = f.input :name
 
+            = f.input :email
+
             = f.input :image, as: :file, class: 'form-control mb-3', accept: 'image/*'
             = f.hidden_field :image_cache
             .mt-3.mb-3
