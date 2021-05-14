@@ -42,6 +42,6 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def item_params
-
+    params.require(:item).permit(:item_code, :name, :price, :rakuten_url, :amazon_url, :image)
   end
 end
