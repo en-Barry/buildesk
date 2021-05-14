@@ -8,6 +8,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '投稿'
+      item: 'アイテム'
       comment: 'コメント'
     attributes:
       user:
