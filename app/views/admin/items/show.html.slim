@@ -1,2 +1,45 @@
-h1 Admin::Items#show
-p Find me in app/views/admin/items/show.html.slim
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        | item#show
+      .text-right.mb-3
+        = link_to '編集', edit_admin_item_path(@item), class: %i[btn btn-success]
+        = link_to '削除', admin_item_path(@item), method: :delete, class: %i[btn btn-danger], data: { confirm: t('defaults.message.delete_confirm') }
+      table.table.table-bordered.bg-white
+        tbody
+          tr
+            th[scope="row"]
+              | ID
+            td
+              = @item.id
+          tr
+            th[scope="row"]
+              | 商品名
+            td
+              = @item.name
+          tr
+            th[scope="row"]
+              | 価格
+            td
+              = @item.price
+          tr
+            th[scope="row"]
+              | 商品イメージ
+            td
+              = image_tag @item.image_url, size: '300x300'
+          tr
+            th[scope="row"]
+              | 楽天リンク
+            td
+              = @item.rakuten_url if @item.rakuten_url.present?
+          tr
+            th[scope="row"]
+              | Amazonリンク
+            td
+              = @item.amazon_url if @item.amazon_url.present?
+          tr
+            th[scope="row"]
+              | 作成日時
+            td
+              = l(@item.created_at, format: :short)

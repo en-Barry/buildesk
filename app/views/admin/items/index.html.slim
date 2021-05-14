@@ -1,2 +1,11 @@
-h1 Admin::Items#index
-p Find me in app/views/admin/items/index.html.slim
+table.table.table-striped
+  thead
+    tr
+      th[scope="col"]
+        = 'id'
+      th[scope="col"]
+        = t('activerecord.attributes.item.name')
+      th[scope="col"]
+        = t('activerecord.attributes.user.created_at')
+  tbody
+    = render @items
