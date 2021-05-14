@@ -27,17 +27,17 @@
             th[scope="row"]
               | 商品イメージ
             td
-              = image_tag @item.image_url, size: '300x300'
+              = image_tag @item.image, width: 300, height: 'auto'
           tr
             th[scope="row"]
               | 楽天リンク
             td
-              = @item.rakuten_url if @item.rakuten_url.present?
+              = text_url_to_link(@item.rakuten_url).html_safe if @item.rakuten_url.present?
           tr
             th[scope="row"]
               | Amazonリンク
             td
-              = @item.amazon_url if @item.amazon_url.present?
+              = text_url_to_link(@item.amazon_url).html_safe if @item.amazon_url.present?
           tr
             th[scope="row"]
               | 作成日時
