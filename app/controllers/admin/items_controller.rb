@@ -16,7 +16,7 @@ class Admin::ItemsController < Admin::BaseController
   def create
     @item = Item.new(user_params)
     if @item.save
-      redirect_to admin_item_path(@item), , success: t('defaults.message.created', item: Item.model_name.human)
+      redirect_to admin_item_path(@item), success: t('defaults.message.created', item: Item.model_name.human)
     else
       edirect_to admin_item_path(@item), danger: t('defaults.message.not_created', item: Item.model_name.human)
     end
