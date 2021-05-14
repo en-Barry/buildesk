@@ -2,10 +2,10 @@
   .row
     .col-md-10.offset-md-1.col-lg-8.offset-lg-2
       h1
-        | Profile#edit
+        | User#edit
 
       .box.box-primary
-        = simple_form_for(@user, url: profile_path) do |f|
+        = simple_form_for(@user, url: admin_user_path) do |f|
           .box-body
             = f.input :name
 
