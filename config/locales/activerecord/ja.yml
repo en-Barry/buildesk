@@ -3,6 +3,7 @@ ja:
     message:
       require_login: 'ログインしてください'
       not_authorized: '権限がありません'
+      delete_confirm: '削除しますか？'
   activerecord:
     models:
       user: 'ユーザー'
