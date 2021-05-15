@@ -6,7 +6,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
   .sidebar
     .user-panel.mt-3.pb-3.mb-3.d-flex
       .image
-        = image_tag current_user.image_url, class: 'img-circle elevation-2'
+        = image_tag current_user.image_url(:thumb), class: 'img-circle elevation-2'
       .info
         = link_to admin_user_path(current_user), class: 'd-block' do
           = current_user.name
