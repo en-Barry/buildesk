@@ -5,6 +5,7 @@ ja:
     logout: 'ログアウト'
     post: '投稿'
     profile: 'プロフィール'
+    unspecified: '指定なし'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
