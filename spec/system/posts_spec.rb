@@ -93,40 +93,38 @@ RSpec.describe 'Posts', type: :system do
       end
     end
 
-    describe "投稿の詳細" do
-      it "投稿の詳細が表示される" do
+    describe '投稿の詳細' do
+      it '投稿の詳細が表示される' do
         visit posts_path
         within "#post-id-#{post.id}" do
           click_on 'post-img'
         end
-        expect(current_path).to eq(post_path(post)), '詳細ページに遷移していません'  
+        expect(current_path).to eq(post_path(post)), '詳細ページに遷移していません'
         expect(page).to have_content(post.user.name), 'ユーザーの名前が表示されていません'
         expect(page).to have_content(post.body), '投稿内容が表示されていません'
       end
     end
-    
-    describe "投稿の編集" do
+
+    describe '投稿の編集' do
       let(:post_by_user) { create(:post, user: user) }
       let(:post_by_others) { create(:post) }
 
-      context "他人の投稿の場合" do
-        it "編集・削除ボタンが表示されない" do
+      context '他人の投稿の場合' do
+        it '編集・削除ボタンが表示されない' do
           login(user)
           visit post_path(post_by_others)
           expect(page).not_to have_selector("#button-edit-#{post_by_others.id}")
-          expect(page).not_to have_selector("#button-delete-#{post_by_others.id}")  
+          expect(page).not_to have_selector("#button-delete-#{post_by_others.id}")
         end
       end
-      context "自分の投稿の場合" do
-        it "編集・削除ボタンが表示される" do
+      context '自分の投稿の場合' do
+        it '編集・削除ボタンが表示される' do
           login(user)
           visit post_path(post_by_user)
           expect(page).to have_selector("#button-edit-#{post_by_user.id}")
-          expect(page).to have_selector("#button-delete-#{post_by_user.id}")  
+          expect(page).to have_selector("#button-delete-#{post_by_user.id}")
         end
       end
-      
     end
-    
   end
 end
