@@ -65,8 +65,24 @@ ja:
   admin:
     user_sessions:
       new:
-        title: '管理者用ログイン'
+        title: 'ログイン（管理画面）'
     dashboards:
       index:
-        title: 'ダッシュボード'
+        title: 'ダッシュボード（管理画面）'
+    users:
+      index: 
+        title: 'ユーザー一覧（管理画面）'
+      show:
+        title: 'ユーザー詳細（管理画面）'
+      edit:
+        title: 'ユーザー編集（管理画面）'
+    items:
+      index:
+        title: 'アイテム一覧（管理画面）'
+      show:
+        title: 'アイテム詳細（管理画面）'
+      new:
+        title: 'アイテム登録（管理画面）'
+      edit:
+        title: 'アイテム編集（管理画面）' 
       

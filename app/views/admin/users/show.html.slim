@@ -2,7 +2,7 @@
   .row
     .col-md-10.offset-md-1.col-lg-8.offset-lg-2
       h1
-        | User#show
+        = t('.title')
       .text-right.mb-3
         = link_to '編集', edit_admin_user_path(@user), class: %i[btn btn-success]
         = link_to '削除', admin_user_path(@user), method: :delete, class: %i[btn btn-danger], data: { confirm: t('defaults.message.delete_confirm') }
@@ -15,21 +15,21 @@
               = @user.id
           tr
             th[scope="row"]
-              | 権限
+              = t('activerecord.attributes.user.role')
             td
               = @user.role
           tr
             th[scope="row"]
-              | 氏名
+              = t('activerecord.attributes.user.name')
             td
               = @user.name
           tr
             th[scope="row"]
-              | アイコン
+              = t('activerecord.attributes.user.image')
             td
               = image_tag @user.image_url, size: '200x200'
           tr
             th[scope="row"]
-              | 作成日時
+              = t('activerecord.attributes.user.created_at')
             td
               = l(@user.created_at, format: :short)

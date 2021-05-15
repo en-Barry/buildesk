@@ -25,6 +25,7 @@ ja:
         area: 'ジャンル'
         images: '画像'
         category_ids: 'カテゴリー'
+        created_at: '作成日時'
       comment:
         body: 'コメント'
       item:
@@ -34,6 +35,7 @@ ja:
         image: '商品画像'
         rakuten_url: '楽天URL'
         amazon_url: 'AmazonURL'
+        created_at: '作成日時'
   users:
     create:
       success: 'ユーザー登録しました'
