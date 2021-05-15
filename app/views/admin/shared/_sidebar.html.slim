@@ -13,17 +13,17 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
     nav.mt-2
       ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
         li.nav-item
-          = link_to admin_users_path, class: "nav-link" do
+          = link_to admin_users_path, class: "nav-link #{active_if('admin/users')}" do
             i.nav-icon.far.fa-user
             p
               |  ユーザー一覧 
         li.nav-item
-          = link_to admin_items_path, class: "nav-link" do
+          = link_to admin_items_path, class: "nav-link #{active_if('admin/items')}" do
             i.nav-icon.fas.fa-mouse
             p
               |  アイテム一覧
         li.nav-item
-          = link_to '#', class: "nav-link" do
+          = link_to '#', class: "nav-link #{active_if('admin/posts')}" do
             i.nav-icon.far.fa-file-image
             p
               |  投稿一覧

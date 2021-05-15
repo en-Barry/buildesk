@@ -24,6 +24,11 @@ module ApplicationHelper
     text
   end
 
+  # アクティブ化を判断
+  def active_if(path)
+    path == controller_path ? 'active' : ''
+  end
+
   private
 
   def default_og
