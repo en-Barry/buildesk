@@ -27,6 +27,13 @@ ja:
         category_ids: 'カテゴリー'
       comment:
         body: 'コメント'
+      item:
+        item_code: '商品コード'
+        name: '商品名'
+        price: '価格'
+        image: '商品画像'
+        rakuten_url: '楽天URL'
+        amazon_url: 'AmazonURL'
   users:
     create:
       success: 'ユーザー登録しました'
