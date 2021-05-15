@@ -3,7 +3,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def index
     @search = Item.ransack(params[:q])
-    @items = @search.result(distinct: true).page(params[:page])
+    @items = @search.result(distinct: true)
   end
 
   def new
