@@ -2,7 +2,7 @@
   .row
     .col-md-10.offset-md-1.col-lg-8.offset-lg-2
       h1
-        | item#new
+        = t('.title')
 
       .box.box-primary
         = simple_form_for(@item, url: admin_items_path) do |f|
