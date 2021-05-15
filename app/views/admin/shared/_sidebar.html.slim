@@ -1,5 +1,5 @@
 aside.main-sidebar.sidebar-dark-primary.elevation-4
-  a.brand-link[href="index3.html"]
+  = link_to admin_root_path, class: 'brand-link' do
     = image_tag 'buildesk_favicon.png', class: 'brand-image img-circle elevation-3'
     span.brand-text.font-weight-light
       | Buildesk
@@ -8,7 +8,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
       .image
         = image_tag current_user.image_url, class: 'img-circle elevation-2'
       .info
-        a.d-block[href="#"]
+        = link_to admin_user_path(current_user), class: 'd-block' do
           = current_user.name
     nav.mt-2
       ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
