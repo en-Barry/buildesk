@@ -1,3 +1,18 @@
+.container.mb-5.pt-2
+  h1
+    = t('.title')
+  .row
+    .col-md-12.mb-3
+      = search_form_for @search, url: admin_items_path do |f|
+        .row
+          .form-inline.align-items-center.mx-auto
+            .col-auto
+              = f.search_field :item_code_cont, class: 'form-control', placeholder: '検索コード'
+            .col-auto
+              = f.search_field :name_cont, class: 'form-control', placeholder: '検索ワード'
+            .col-auto
+              = f.submit value: '検索', class: 'btn btn-primary'
+              
 table.table.table-striped
   thead
     tr
@@ -6,6 +21,6 @@ table.table.table-striped
       th[scope="col"]
         = t('activerecord.attributes.item.name')
       th[scope="col"]
-        = t('activerecord.attributes.user.created_at')
+        = t('activerecord.attributes.item.created_at')
   tbody
     = render @items
