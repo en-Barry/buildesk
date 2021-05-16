@@ -2,6 +2,11 @@
   = simple_form_for @form do |f|
     .box-body
       = f.input :images, as: :file, input_html: { multiple: true }, accept: 'image/*'
+      .mt-3.mb-3
+        = image_tag '', id: 'post_img_prev', size: '300x300'
+        p
+        = link_to '削除', id: 'delete_img'
+            
 
       = f.input :body, as: :text
 
