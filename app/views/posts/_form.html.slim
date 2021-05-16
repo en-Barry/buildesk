@@ -3,7 +3,7 @@
     .box-body
       = f.input :images, as: :file, input_html: { multiple: true }, accept: 'image/*'
       .mt-3.mb-3
-        = image_tag '', id: 'post_img_prev', size: '300x300'
+        = image_tag '', id: 'post_img_prev', size: '400x300'
         p
         = link_to '削除', id: 'delete_img'
             
