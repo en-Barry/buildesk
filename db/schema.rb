@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_402_125_034) do
+ActiveRecord::Schema.define(version: 20_210_514_113_032) do
   create_table 'authentications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.integer 'user_id', null: false
     t.string 'provider', null: false
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20_210_402_125_034) do
     t.string 'amazon_url'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'item_code', null: false
   end
 
   create_table 'likes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|

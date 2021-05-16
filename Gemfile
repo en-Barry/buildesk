@@ -44,11 +44,14 @@ gem 'mini_magick', '4.11.0'
 # Model
 gem 'enum_help'
 
-# アイテム情報取得API
+# 外部API
 gem 'rakuten_web_service'
 
 # SEO/OGP対策
 gem 'meta-tags'
+
+# Search
+gem 'ransack'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

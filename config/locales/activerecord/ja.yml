@@ -3,10 +3,12 @@ ja:
     message:
       require_login: 'ログインしてください'
       not_authorized: '権限がありません'
+      delete_confirm: '削除しますか？'
   activerecord:
     models:
       user: 'ユーザー'
       post: '投稿'
+      item: 'アイテム'
       comment: 'コメント'
     attributes:
       user:
@@ -16,14 +18,24 @@ ja:
         password_confirmation: 'パスワード確認'
         description: '自己紹介'
         image: 'プロフィール画像'
-        role: 'タイプ'
+        role: '権限'
+        created_at: '作成日時'
       post:
         body: '本文'
         area: 'ジャンル'
         images: '画像'
         category_ids: 'カテゴリー'
+        created_at: '作成日時'
       comment:
         body: 'コメント'
+      item:
+        item_code: '商品コード'
+        name: '商品名'
+        price: '価格'
+        image: '商品画像'
+        rakuten_url: '楽天URL'
+        amazon_url: 'AmazonURL'
+        created_at: '作成日時'
   users:
     create:
       success: 'ユーザー登録しました'

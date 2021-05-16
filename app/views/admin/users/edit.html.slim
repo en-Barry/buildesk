@@ -1,0 +1,27 @@
+- set_meta_tags title: t('.title')
+
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t('.title')
+
+      .box.box-primary
+        = simple_form_for(@user, url: admin_user_path) do |f|
+          .box-body
+            = f.input :name
+
+            = f.input :email
+
+            = f.input :image, as: :file, class: 'form-control mb-3', accept: 'image/*'
+            = f.hidden_field :image_cache
+            .mt-3.mb-3
+              = image_tag @user.image.url,
+                          class: 'rounded-circle',
+                          id: 'preview',
+                          size: '100x100'
+
+            = f.input :role
+
+          .box-footer
+            = f.button :submit, class: %w[btn btn-primary]

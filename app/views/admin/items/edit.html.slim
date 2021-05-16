@@ -1,0 +1,23 @@
+- set_meta_tags title: t('.title')
+
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t('.title')
+
+      .box.box-primary
+        = simple_form_for(@item, url: admin_item_path) do |f|
+          .box-body
+            = f.input :item_code
+
+            = f.input :name
+
+            = f.input :price
+
+            = f.input :rakuten_url
+
+            = f.input :amazon_url
+
+          .box-footer
+            = f.button :submit, class: %w[btn btn-primary]

@@ -1,0 +1,52 @@
+- set_meta_tags title: t('.title')
+
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t('.title')
+      .text-right.mb-3
+        = link_to '編集', edit_admin_item_path(@item), class: %i[btn btn-success]
+        = link_to '削除', admin_item_path(@item), method: :delete, class: %i[btn btn-danger], data: { confirm: t('defaults.message.delete_confirm') }
+      table.table.table-bordered.bg-white
+        tbody
+          tr
+            th[scope="row"]
+              | ID
+            td
+              = @item.id
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.item_code')
+            td
+              = @item.item_code
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.name')
+            td
+              = @item.name
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.price')
+            td
+              = @item.price
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.image')
+            td
+              = image_tag @item.image, width: 300, height: 'auto'
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.rakuten_url')
+            td
+              = text_url_to_link(@item.rakuten_url).html_safe if @item.rakuten_url.present?
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.amazon_url')
+            td
+              = text_url_to_link(@item.amazon_url).html_safe if @item.amazon_url.present?
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.item.created_at')
+            td
+              = l(@item.created_at, format: :short)

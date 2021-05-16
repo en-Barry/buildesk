@@ -1,0 +1,30 @@
+- set_meta_tags title: t('.title')
+
+.container.mb-5.pt-2
+  h1
+    = t('.title')
+  .row
+    .col-md-12.mb-3
+      = search_form_for @search, url: admin_users_path do |f|
+        .row
+          .form-inline.align-items-center.mx-auto
+            .col-auto
+              = f.search_field :name_cont, class: 'form-control', placeholder: '検索ワード'
+            .col-auto
+              = f.select :role_eq, User.roles_i18n.invert.map{ |key, value| [key, User.roles[value]] }, {include_blank: t('defaults.unspecified')}, class: 'form-control'
+            .col-auto
+              = f.submit value: '検索', class: 'btn btn-primary'
+
+  table.table.table-striped
+    thead
+      tr
+        th[scope="col"]
+          = 'id'
+        th[scope="col"]
+          = t('activerecord.attributes.user.name')
+        th[scope="col"]
+          = t('activerecord.attributes.user.role')
+        th[scope="col"]
+          = t('activerecord.attributes.user.created_at')
+    tbody
+      = render @users
