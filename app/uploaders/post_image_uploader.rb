@@ -38,7 +38,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   version :main do
-    process resize_and_pad: [1200, 900, '#2b2b2b']
+    process resize_and_pad: [1200, 900, '#1a1a1a']
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
