@@ -11,6 +11,6 @@ User.create!(
   name: 'Mikasa',
   email: 'mikasa@attack.com',
   password: 'aaaaaaaa',
-  password_confirmation: 'aaaaaaaa'
+  password_confirmation: 'aaaaaaaa',
   role: 1
 )
