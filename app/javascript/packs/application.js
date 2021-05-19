@@ -11,7 +11,9 @@ require("channels")
 require('jquery')
 require('bootstrap')
 
-require('../packs/item_search.js')
+require('../packs/item_search')
+require('../packs/user_edit')
+require('../packs/post_edit')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

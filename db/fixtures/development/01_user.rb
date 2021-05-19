@@ -6,3 +6,11 @@
     password_confirmation: 'password'
   )
 end
+
+User.create!(
+  name: 'Mikasa',
+  email: 'mikasa@attack.com',
+  password: 'aaaaaaaa',
+  password_confirmation: 'aaaaaaaa',
+  role: 1
+)
