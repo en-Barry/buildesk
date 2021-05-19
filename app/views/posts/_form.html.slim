@@ -3,6 +3,8 @@
     .box-body
       = f.input :images, as: :file, input_html: { multiple: true }, accept: 'image/*'
       .mt-3.mb-3
+        = '推奨サイズ: 4x3'
+        p
         = image_tag '', id: 'post_img_prev', width: '400'
         p
         = link_to '削除', id: 'delete_img'
