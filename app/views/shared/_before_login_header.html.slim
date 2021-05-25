@@ -1,12 +1,23 @@
-= link_to t('DeskTour'), root_path
-p
-.container
-  .row
-    .col-md-2
-      = link_to t('defaults.login'), login_path
-    .col-md-2
-      = link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter)
-    .col-md-2
-      = link_to 'Login with Google', auth_at_provider_path(:provider => :google)
-    .col-md-2
-      = link_to t('defaults.register'), new_user_path
+nav.is-dark.navbar[role="navigation" aria-label="main navigation"]
+  .navbar-brand
+    .navbar-item
+      = link_to root_path, data: { turbolinks: false }
+        = image_tag 'buildesk_logo.png', size: '112x28'
+    a.navbar-burger[role="button" aria-label="menu" aria-expanded="false" data-target="navMenu"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"] 
+  #navMenu.navbar-menu
+    .navbar-end
+      .navbar-item
+        = link_to t('defaults.login'), login_path, class: 'button is-rounded has-text-black has-text-weight-semibold', data: { turbolinks: false }
+
+nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
+  .navbar-brand
+    a.navbar-item.is-expanded.is-block.has-text-centered
+      i.fa.fa-home
+    a.navbar-item.is-expanded.is-block.has-text-centered
+      i.fa.fa-search
+    a.navbar-item.is-expanded.is-block.has-text-centered
+      i.fa.fa-user
+      
