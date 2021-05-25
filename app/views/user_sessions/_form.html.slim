@@ -1,11 +1,10 @@
-.box.box-primary
-  = form_with url: login_path, method: :post, local: true do |f|
-    .field
-      = f.label :email, User.human_attribute_name(:email)
-      = f.text_field :email
-    .field
-      = f.label :password, User.human_attribute_name(:password)
-      = f.password_field :password
+= form_with url: login_path, method: :post, local: true do |f|
+  .field
+    = f.label :email, User.human_attribute_name(:email)
+    = f.text_field :email
+  .field
+    = f.label :password, User.human_attribute_name(:password)
+    = f.password_field :password
 
-    .actions
-      = f.submit t('defaults.login'), class: %w[btn btn-primary]
+  .actions
+    = f.submit t('defaults.login'), class: %w[btn btn-primary]
