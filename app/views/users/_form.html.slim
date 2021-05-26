@@ -1,9 +1,16 @@
 = simple_form_for @user do |f|
-  .box-body
-    = f.input :name
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-
-  .box-footer
-    = f.button :submit, class: %w[btn btn-primary]
+  .field
+    .control
+      = f.input :name, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :email, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :password, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :password_confirmation, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.button :submit, class: %w[has-text-light has-text-weight-bold button is-dark is-fullwidth]
