@@ -1,13 +1,17 @@
 - set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
 
+section.hero.is-dark.is-medium
+  .hero-body
+    .container
+      p.title.has-text-weight-bold
+        |  Buildesk 
+      p.subtitle
+        |  リモートワークをハックしよう
 .container
-  h1
-    | Top#index
-  p
-  .new_arrival
-    h3
+  section.section#new_arrival
+    h1.title.is-3.has-text-weight-bold
       = t('.New Arrival')
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-      - if @posts.present?
-        = render @posts
+    - if @posts.present?
+      = render @posts
+      p.has-text-right
         = link_to t('.show more'), posts_path
