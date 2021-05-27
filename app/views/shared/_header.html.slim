@@ -27,6 +27,10 @@ nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
       i.fa.fa-home
       p.is-size-7
         | Home
+    = link_to bookmarks_posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      i.far.fa-bookmark
+      p.is-size-7
+        | Bookmark
     = link_to new_post_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       span.icon
         i.far.fa-plus-square
