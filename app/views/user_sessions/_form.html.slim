@@ -1,12 +1,12 @@
 = form_with url: login_path, method: :post, local: true do |f|
   .field
     p.control.has-icons-left
-      = f.text_field :email, class: 'input', placeholder: 'メールアドレス'
+      = f.text_field :email, class: 'input', placeholder: User.human_attribute_name(:email)
       span.icon.is-small.is-left
         i.fa.fa-envelope
   .field
     p.control.has-icons-left
-      = f.password_field :password, class: 'input', placeholder: 'パスワード'
+      = f.password_field :password, class: 'input', placeholder: User.human_attribute_name(:password)
       span.icon.is-small.is-left
         i.fa.fa-lock
   .field
