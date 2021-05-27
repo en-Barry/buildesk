@@ -2,13 +2,6 @@
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
 
-// 自作ファイル
+// 追加ファイル
 @import 'item_search_modal';
-
-// ボトムナビゲーションをスマホ表示
-@media(min-width: 768px) {
-  .is-fixed-bottom {
-    display: none;
-  }
-}
-  
+@import 'bulma_override';
