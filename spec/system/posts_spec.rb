@@ -80,7 +80,7 @@ RSpec.describe 'Posts', type: :system do
           click_button '投稿する'
           expect(current_path).to eq(posts_path)
           expect(page).to have_content('投稿しました')
-          within('.new_arrival') do
+          within('#new_arrival') do
             expect(page).to have_content(user.name)
           end
         end
