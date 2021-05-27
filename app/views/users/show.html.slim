@@ -22,3 +22,7 @@
         = render @posts
       - else
         = '投稿がありません'
+    
+  = link_to t('defaults.logout'), logout_path, method: :delete
+  p
+  = link_to 'プロフィール編集', edit_profile_path, data: { turbolinks: false } 
