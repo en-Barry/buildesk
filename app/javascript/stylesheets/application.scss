@@ -4,3 +4,11 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 // 自作ファイル
 @import 'item_search_modal';
+
+// ボトムナビゲーションをスマホ表示
+@media(min-width: 768px) {
+  .is-fixed-bottom {
+    display: none;
+  }
+}
+  

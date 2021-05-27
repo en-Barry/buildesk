@@ -19,4 +19,20 @@ nav.is-dark.navbar[role="navigation" aria-label="main navigation"]
             = link_to 'プロフィール編集', edit_profile_path, class: 'navbar-item', data: { turbolinks: false }
             hr.navbar-divider
             = link_to t('defaults.logout'), logout_path, class: 'navbar-item', method: :delete
-      
+
+/ ボトムナビゲーションバー
+nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
+  .navbar-brand
+    = link_to root_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      i.fa.fa-home
+      p.is-size-7
+        | Home
+    = link_to new_post_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      span.icon
+        i.far.fa-plus-square
+      p.is-size-7
+        | Post
+    = link_to user_path(current_user.id), class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      i.fa.fa-user
+      p.is-size-7
+        | Mypage 
