@@ -1,12 +1,21 @@
-// ボトムナビゲーションをスマホ表示
+/* ボトムナビをスマホ表示 */
 @media(min-width: 768px) {
   .is-fixed-bottom {
     display: none;
   }
 }
 
+/* ヘッダーナビをスマホで非表示 */
 @media(max-width: 768px) {
   .is-fixed-top {
     display: none;
   }
 }
+
+/* hero-1を定義 */
+.hero-1 {
+  @extend .hero !optional;
+  background-size: cover;
+  background-position: center;
+}
+
