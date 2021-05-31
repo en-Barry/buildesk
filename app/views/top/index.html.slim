@@ -1,18 +1,21 @@
 - set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
 
-section.hero.hero-1.is-medium[style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(#{asset_path('vadim-sherbakov-RcdV8rnXSeE-unsplash.jpg')})"]
+section.hero.hero-1[style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(#{asset_path('vadim-sherbakov-RcdV8rnXSeE-unsplash.jpg')})"]
   .hero-body
-    .container
+    .container.section
       p.title.has-text-weight-bold
         |  Buildesk 
       p.subtitle.has-text-light
         |  リモートワークをハックしよう
-section.section#new_arrival
-  .container
-    h1.title.is-3.has-text-weight-bold
-      = t('.New Arrival')
-    .tile.is-ancestor
-      - if @posts.present?
-        = render @posts
-    p.has-text-right
-      = link_to t('.show more'), posts_path
+main
+  .container        
+    section.section#new_arrival
+      .columns
+        .column
+          h1.title.is-3.has-text-weight-bold
+            = t('.New Arrival')
+          .tile.is-ancestor
+            - if @posts.present?
+              = render @posts
+          p.has-text-right
+            = link_to t('.show more'), posts_path
