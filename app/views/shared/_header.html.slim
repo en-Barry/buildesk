@@ -27,15 +27,18 @@ nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
       i.fa.fa-home
       p.is-size-7
         | Home
-    = link_to bookmarks_posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
-      i.far.fa-bookmark
+    = link_to posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      i.fa.fa-bolt
       p.is-size-7
-        | Bookmark
+        | New
     = link_to new_post_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
-      span.icon
-        i.far.fa-plus-square
+      i.fa.fa-plus-square
       p.is-size-7
         | Post
+    = link_to bookmarks_posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+      i.fa.fa-bookmark
+      p.is-size-7
+        | List
     = link_to user_path(current_user.id), class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       i.fa.fa-user
       p.is-size-7
