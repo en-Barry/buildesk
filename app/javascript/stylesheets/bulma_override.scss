@@ -5,13 +5,6 @@
   }
 }
 
-/* ヘッダーナビをスマホで非表示 */
-@media(max-width: 768px) {
-  .is-fixed-top {
-    display: none;
-  }
-}
-
 /* hero-1を定義 */
 .hero-1 {
   @extend .hero !optional;
