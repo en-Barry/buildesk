@@ -1,34 +1,35 @@
 - set_meta_tags title: t('.title')
 
-section.section
-  .container.content.box
-    h1.title.has-text-centered.is-size-6 ログインまたは登録
-    hr
-    h2.title.has-text-left.is-size-5 Buildeskへようこそ
-    = render 'form'
-    hr
-    .content
-      p.is-size-7.has-text-centered
-        | または
-        p.buttons
-          button.button.is-info.is-fullwidth.has-text-centered
-            = link_to auth_at_provider_path(:provider => :twitter), class: 'has-text-light has-text-weight-semibold' do
-              span.icon-text
-                span.icon
-                  i.fab.fa-twitter 
-                span
-                  | Twitterで続行
-          button.button.is-danger.is-fullwidth.has-text-centered
-            = link_to auth_at_provider_path(:provider => :google), class: 'has-text-light has-text-weight-semibold' do
-              span.icon-text
-                span.icon
-                  i.fab.fa-google
-                span
-                  | Googleで続行
-          button.button.is-light.is-fullwidth.has-text-centered
-            = link_to new_user_path, class: 'has-text-black has-text-weight-semibold' do
-              span.icon-text
-                span.icon
-                  i.far.fa-envelope
-                span
-                  | メールアドレスで登録する
+main.columns.is-centered.section
+  .column.is-one-third
+    .container.content.box
+      h1.title.has-text-centered.is-size-6 ログインまたは登録
+      hr
+      h2.title.has-text-left.is-size-5 Buildeskへようこそ
+      = render 'form'
+      hr
+      .content
+        p.is-size-7.has-text-centered
+          | または
+          p.buttons
+            button.button.is-info.is-fullwidth.has-text-centered
+              = link_to auth_at_provider_path(:provider => :twitter), class: 'has-text-light has-text-weight-semibold' do
+                span.icon-text
+                  span.icon
+                    i.fab.fa-twitter 
+                  span
+                    | Twitterで続行
+            button.button.is-danger.is-fullwidth.has-text-centered
+              = link_to auth_at_provider_path(:provider => :google), class: 'has-text-light has-text-weight-semibold' do
+                span.icon-text
+                  span.icon
+                    i.fab.fa-google
+                  span
+                    | Googleで続行
+            button.button.is-light.is-fullwidth.has-text-centered
+              = link_to new_user_path, class: 'has-text-black has-text-weight-semibold' do
+                span.icon-text
+                  span.icon
+                    i.far.fa-envelope
+                  span
+                    | メールアドレスで登録する
