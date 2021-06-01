@@ -1,12 +1,13 @@
 - set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
 
-section.hero.hero-1[style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(#{asset_path('vadim-sherbakov-RcdV8rnXSeE-unsplash.jpg')})"]
+section.hero.hero-1.is-medium[style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(#{asset_path('vadim-sherbakov-RcdV8rnXSeE-unsplash.jpg')})"]
   .hero-body
-    .container.section
+    .container
       p.title.has-text-weight-bold
-        |  Buildesk 
+        |  快適なデスク環境を構築しよう
       p.subtitle.has-text-light
-        |  リモートワークをハックしよう
+        |  あなたのこだわりポイントは？
+      = link_to 'マイデスクを登録する', new_post_path, class: 'button is-primary is-inverted is-small has-text-weight-semibold', data: { turbolinks: false }
 main
   .container        
     section.section#new_arrival
