@@ -1,12 +1,13 @@
 - set_meta_tags title: t('.title')
 
-.container
-  h1 
-    | Posts#likes
-  p
-  #new_arrival
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-      - if @like_posts.present?
-        = render @like_posts
-      - else
-        = 'いいねした投稿がありません'
+main.columns.is-centered
+  .column.is-three-quarters
+    section.section#new_arrival
+      .container
+        p.title.has-text-weight-bold
+          = t('.title')
+        .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
+          - if @like_posts.present?
+            = render partial: 'post_image', collection: @like_posts
+          - else
+            = 'いいねした投稿がありません'
