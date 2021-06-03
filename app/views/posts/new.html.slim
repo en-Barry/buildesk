@@ -1,7 +1,11 @@
 - set_meta_tags title: t('.title')
 
-.container
-  h1 
-    | Posts#new
-  p
-    = render 'form'
+main.columns.is-centered.section
+  .column.is-three-quarters
+    section
+      .content
+        h1.title.is-size-4.has-centered
+          | 新しいデスクを投稿
+        hr
+      .content
+        = render 'form'
