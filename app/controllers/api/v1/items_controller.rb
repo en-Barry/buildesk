@@ -3,6 +3,8 @@ class Api::V1::ItemsController < ApplicationController
 
   def new; end
 
+  def show; end
+
   # def search
   #   if params[:keyword]
   #     @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
