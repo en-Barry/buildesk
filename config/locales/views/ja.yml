@@ -5,6 +5,8 @@ ja:
     logout: 'ログアウト'
     post: '投稿'
     profile: 'プロフィール'
+    like: 'いいね'
+    bookmark: 'ブックマーク'
     unspecified: '指定なし'
     message:
       created: "%{item}しました"

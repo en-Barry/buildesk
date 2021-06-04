@@ -1,0 +1,8 @@
+.column.is-half-mobile.is-one-third-desktop
+  - if item_image.items.present?
+    .card
+      div id="item-id-#{item_image.id}"   
+        .card-image
+          figure.image
+            = link_to item_path(item_image)
+              = image_tag item_image.items[0].image, alt: 'item-img'

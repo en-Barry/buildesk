@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes(:user, :item_tags, :post_images).order(created_at: :desc)
+    @posts = @user.posts.includes(:user, :items, :post_images).order(created_at: :desc)
   end
 
   def create

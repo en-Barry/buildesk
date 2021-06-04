@@ -1,28 +1,68 @@
 - set_meta_tags title: t('.title', user: @user.name), og: { og_title: t('.og_title', user: @user.name) }
 
-.container
-  p
-  div id="user-id-#{@user.id}"
-    .col
-      = image_tag @user.image.url, class: 'rounded-circle', size: '100x100'
-      = @user.name
-      = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank'
-      p
-      - if @user.description.present?
-        = @user.description
-    - if current_user == @user
-      div id="user-link-id-#{@user.id}"
-        .col-md-6
-          = link_to 'いいねした投稿', likes_posts_path
-        .col-md-6
-          = link_to 'ブックマークした投稿', bookmarks_posts_path
+main.columns.is-centered
+  .column.is-three-quarters
+    section.section#new_arrival
+      .container
+        .columns id="user-id-#{@user.id}"
+          .column.is-two-fifths
+            .card
+              .card-content
+                .media
+                  .media-left
+                    figure.image.is-96x96
+                      = image_tag @user.image.url(:thumb), class: 'is-rounded'
+                  .media-content
+                    p.title.is-3.has-text-weight-bold
+                      = @user.name
+                    p.subtitle.is-6
+                      = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false }
+                    p
+                      - if @user.description.present?
+                        = @user.description
+              footer.card-footer id="user-link-id-#{@user.id}"
+                - if current_user == @user
+                  = link_to likes_posts_path, class: 'card-footer-item'
+                    span.icon-text
+                      i.fas.fa-heart
+                      span
+                        = ' Like'
+                  = link_to bookmarks_posts_path, class: 'card-footer-item'
+                    span.icon-text
+                      i.fa.fa-bookmark
+                      span
+                        = ' List'
+                p.card-footer-item
+                  = link_to "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
+                    span.icon-text
+                      i.fas.fa-share
+                      span
+                        = ' Twitter'
+          .column.is-half
+            p.title.has-text-weight-bold.is-4
+              - if current_user == @user
+                | マイデスク
+              - else
+                = "#{@user.name} のデスク"
+            .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+              - if @posts.present?
+                = render partial: 'posts/post_image', collection: @posts
+              - else
+                = '投稿がありません'
+            hr
+            p.title.has-text-weight-bold.is-4
+              - if current_user == @user
+                | マイアイテム
+              - else
+                = "#{@user.name} のGear"
+            p.subtitle.is-6
+              | 投稿に紐づいたアイテム
+            .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+              - if @posts.present?
+                = render partial: 'items/item_image', collection: @posts
+              - else
+                = '投稿がありません'
 
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-      - if @posts.present?
-        = render @posts
-      - else
-        = '投稿がありません'
-    
-  = link_to t('defaults.logout'), logout_path, method: :delete
-  p
-  = link_to 'プロフィール編集', edit_profile_path, data: { turbolinks: false } 
+    - if logged_in? && current_user == @user
+      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'button is-mobile-only'
+            

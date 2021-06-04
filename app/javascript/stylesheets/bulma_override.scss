@@ -1,6 +1,10 @@
-/* ボトムナビをスマホ表示 */
+/* スマホでのみ表示 */
 @media(min-width: 768px) {
   .is-fixed-bottom {
+    display: none;
+  }
+
+  .is-mobile-only {
     display: none;
   }
 }
