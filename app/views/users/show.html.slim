@@ -18,8 +18,7 @@ main.columns.is-centered
                     p.subtitle.is-6
                       = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false }
                     p
-                      - if @user.description.present?
-                        = @user.description
+                      = @user.description if @user.description.present?
               footer.card-footer id="user-link-id-#{@user.id}"
                 - if current_user == @user
                   = link_to likes_posts_path, class: 'card-footer-item'
@@ -32,18 +31,14 @@ main.columns.is-centered
                       i.fa.fa-bookmark
                       span
                         = ' List'
-                p.card-footer-item
-                  = link_to "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
-                    span.icon-text
-                      i.fas.fa-share
-                      span
-                        = ' Twitter'
+                = link_to "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
+                  span.icon-text
+                    i.fas.fa-share
+                    span
+                      = ' Twitter'
           .column.is-half
             p.title.has-text-weight-bold.is-4
-              - if current_user == @user
-                | マイデスク
-              - else
-                = "#{@user.name} のデスク"
+              = "#{@user.name}のデスク"
             .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
               - if @posts.present?
                 = render partial: 'posts/post_image', collection: @posts
@@ -51,10 +46,7 @@ main.columns.is-centered
                 = '投稿がありません'
             hr
             p.title.has-text-weight-bold.is-4
-              - if current_user == @user
-                | マイアイテム
-              - else
-                = "#{@user.name} のGear"
+              = "#{@user.name}のGear"
             p.subtitle.is-6
               | 投稿に紐づいたアイテム
             .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
@@ -63,6 +55,6 @@ main.columns.is-centered
               - else
                 = '投稿がありません'
 
-    - if logged_in? && current_user == @user
+    - if current_user == @user
       = link_to t('defaults.logout'), logout_path, method: :delete, class: 'button is-mobile-only'
             

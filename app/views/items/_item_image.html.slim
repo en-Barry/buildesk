@@ -1,8 +1,8 @@
-.column.is-half-mobile.is-one-third-desktop
-  - if item_image.items.present?
-    .card
-      div id="item-id-#{item_image.id}"   
+- if item_image.items.present?
+  - item_image.items.each do |item|
+    .column.is-half-mobile.is-one-third-desktop
+      .card id="item-id-#{item.id}" 
         .card-image
           figure.image
-            = link_to item_path(item_image)
-              = image_tag item_image.items[0].image, alt: 'item-img'
+            = link_to item_path(item)
+              = image_tag item.image, alt: 'item-img'

@@ -1,7 +1,6 @@
 .column.is-half-mobile.is-one-third-desktop
-  .card
-    div id="post-id-#{post_image.id}"   
-      .card-image
-        figure.image
-          = link_to post_path(post_image)
-            = image_tag post_image.post_images.first.image_url(:thumb), alt: 'post-img'
+  .card id="post-id-#{post_image.id}"
+    .card-image
+      figure.image
+        = link_to post_path(post_image)
+          = image_tag post_image.post_images.first.image_url(:thumb), alt: 'post-img'
