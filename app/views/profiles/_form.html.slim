@@ -1,4 +1,4 @@
-= form_with model: @user, local: true do |f|
+= form_with model: @user, url: profile_path, local: true do |f|
   .field
     label.label
       = f.label :name
@@ -24,7 +24,7 @@
       = image_tag @user.image.url(:thumb),
                   class: 'is-rounded',
                   id: 'preview'
-                  
+
   .field
     label.label
       = f.label :description
