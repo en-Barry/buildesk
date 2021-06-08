@@ -38,7 +38,7 @@ main.columns.is-centered
                       = ' Share'
           .column.is-half
             p.title.has-text-weight-bold.is-4
-              = "#{@user.name}のデスク"
+              = "#{@user.name}のデスク遍歴"
             .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
               - if @posts.present?
                 = render partial: 'posts/post_image', collection: @posts
