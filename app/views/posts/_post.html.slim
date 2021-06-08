@@ -1,22 +1,21 @@
 .tile.is-parent
   .card
     div id="post-id-#{post.id}"
-      .card-image
-        figure.image
-          = link_to post_path(post)
+      = link_to post_path(post)
+        .card-image
+          figure.image
             = image_tag post.post_images.first.image_url(:thumb), alt: 'post-img'
-      .card-content
-        .media
-          .media-left
-            figure.image.is-32x32
-              = link_to user_path(post.user)
+        .card-content
+          .media
+            .media-left
+              figure.image.is-32x32
                 = image_tag post.user.image_url(:thumb), class: 'is-rounded'
-          .media-content
-            p.title.is-6.has-text-weight-semibold
-              = post.user.name
-            p.subtitle.is-6
-              = l post.created_at, format: :short
-          .media-right
-            span.tag.is-light.is-rounded
-              .is-6
-                = post.categories[0].name
+            .media-content
+              p.title.is-6.has-text-weight-semibold
+                = post.user.name
+              p.subtitle.is-6
+                = l post.created_at, format: :short
+            .media-right
+              span.tag.is-light.is-rounded
+                .is-6
+                  = post.categories[0].name

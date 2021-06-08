@@ -1,8 +1,10 @@
-- if item_image.items.present?
-  - item_image.items.each do |item|
-    .column.is-half-mobile.is-one-third-desktop
-      .card id="item-id-#{item.id}" 
+- item_image.items.each do |item|
+  .column.is-half-mobile.is-one-third-desktop
+    .card id="item-id-#{item.id}"
+      = link_to item_path(item)
         .card-image
-          figure.image
-            = link_to item_path(item)
-              = image_tag item.image, alt: 'item-img'
+          figure.image.is-5by4
+            = image_tag item.image, alt: 'item-img'
+        .card-content
+          .content
+            = truncate(item.name, length: 20)
