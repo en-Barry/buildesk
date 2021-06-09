@@ -1,37 +1,69 @@
 - set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
 
-.container
-  h1
-    | Posts#show
-  .row
-    .col-sm-4.col-md-6
-      = image_tag @post.post_images.first.image_url(:main), size: '600x400'
-    .col-sm-3.col-md-6
-      .card
-        .card-body
-          ul class='list-inline'
-            li class='list-inline-item'
-              = link_to user_path(@post.user) do
-                = image_tag @post.user.image_url, class: 'rounded-circle', size: '30x30'
-            li class='list-inline-item'
-              = @post.user.name
-            p
-              = @post.body
-            li class='list-inline-item'
-              = l @post.created_at, format: :short
-            li class='list-inline-item'
-              = render 'posts/crud_menus', post: @post if current_user&.own?(@post)
-            - unless current_user&.own?(@post)
-              li class='list-inline-item'
-                = render 'likes/like', post: @post
-              li class='list-inline-item'
-                = render 'bookmarks/bookmark', post: @post
+main
+  section.section
+    .container
+      .columns
+        .column.is-10.is-offset-1
+          .columns.is-multiline
+            .column.is-12
+              .columns
+                .column.is-7
+                  figure.image.is-4by3.is-fullwidth-mobile
+                    = image_tag @post.post_images.first.image_url(:main)
+                .column.is-5
+                  .media
+                    .media-left
+                      figure.image.is-48x48
+                        = link_to user_path(@post.user)
+                          = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
+                    .media-content
+                      p.title.is-4
+                        = @post.user.name
+                      p.subtitle.is-6
+                        = l @post.created_at, format: :short
+                    .media-right
+                      span.tag.is-light.is-rounded
+                        = @post.categories[0].name
+                  .content
+                    = @post.body
+                  p.title.has-text-weight-bold.is-5
+                    | アイテム
+                  .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+                    = render 'items/item_image', { item_image: @post } if @post.items.present?
+            hr
+            / .column.is-12
+            /   .columns
+            /     .column.is-7
+            /       figure.image.is-4by3.is-fullwidth-mobile
+            /         = image_tag @post.post_images.first.image_url(:main)
+              
+  / .row
+  /   .col-sm-4.col-md-6
+  /     = image_tag @post.post_images.first.image_url(:main), size: '600x400'
+  /   .col-sm-3.col-md-6
+  /     .card
+  /       .card-body
+  /         ul class='list-inline'
+  /           li class='list-inline-item'
+  /             = link_to user_path(@post.user) do
+  /               = image_tag @post.user.image_url, class: 'rounded-circle', size: '30x30'
+  /           li class='list-inline-item'
+  /             = @post.user.name
+  /           p
+  /             = @post.body
+  /           li class='list-inline-item'
+  /             = l @post.created_at, format: :short
+  /           li class='list-inline-item'
+  /             = render 'posts/crud_menus', post: @post if current_user&.own?(@post)
+  /           - unless current_user&.own?(@post)
+  /             li class='list-inline-item'
+  /               = render 'likes/like', post: @post
+  /             li class='list-inline-item'
+  /               = render 'bookmarks/bookmark', post: @post
     
-    = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank' 
-    p
-    = render 'comments/form', { post: @post, comment: @comment }
-    p
-    = render 'comments/comments', { comments: @comments }
-
-
-      
+  /   = link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank' 
+  /   p
+  /   = render 'comments/form', { post: @post, comment: @comment }
+  /   p
+  /   = render 'comments/comments', { comments: @comments }
