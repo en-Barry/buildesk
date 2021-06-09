@@ -12,26 +12,39 @@ main
                   figure.image.is-4by3.is-fullwidth-mobile
                     = image_tag @post.post_images.first.image_url(:main)
                 .column.is-5
-                  .media
-                    .media-left
-                      figure.image.is-48x48
-                        = link_to user_path(@post.user)
-                          = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
-                    .media-content
-                      p.title.is-4
-                        = @post.user.name
-                      p.subtitle.is-6
-                        = l @post.created_at, format: :short
-                    .media-right
-                      span.tag.is-light.is-rounded
-                        = @post.categories[0].name
-                  .content
-                    = @post.body
+                  .box
+                    .media
+                      .media-left
+                        figure.image.is-48x48
+                          = link_to user_path(@post.user)
+                            = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
+                      .media-content
+                        p.title.is-4
+                          = @post.user.name
+                        p.subtitle.is-6
+                          = l @post.created_at, format: :short
+                      .media-right
+                        span.tag.is-light.is-rounded
+                          = @post.categories[0].name
+                    p.title.has-text-weight-bold.is-5
+                      | デスクメモ
+                    .block
+                      .p
+                        = @post.body
                   p.title.has-text-weight-bold.is-5
                     | アイテム
                   .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
                     = render 'items/item_image', { item_image: @post } if @post.items.present?
-            hr
+              
+              .columns.is-12
+                .column.is-7
+                  article.media
+                    figure.media-left
+                      p.image.is-48x48
+                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                    .media-content
+                      = render 'comments/form', { post: @post, comment: @comment }
+                  = render @comments
             / .column.is-12
             /   .columns
             /     .column.is-7
