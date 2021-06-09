@@ -1,9 +1,6 @@
 = form_with model: comment, url: [post, comment], local: true do |f|
   .field
     p.control
-      = f.label :body, class: 'label'
-  .field
-    p.control
       = f.text_area :body, class: 'textarea', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body)
   .field
     p.control

@@ -19,25 +19,36 @@ main
                           = link_to user_path(@post.user)
                             = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
                       .media-content
-                        p.title.is-4
+                        p.title.is-5
                           = @post.user.name
                         p.subtitle.is-6
                           = l @post.created_at, format: :short
                       .media-right
                         span.tag.is-light.is-rounded
                           = @post.categories[0].name
+                    br
+                      = render 'posts/crud_menus', post: @post if current_user&.own?(@post) 
+                    br
                     p.title.has-text-weight-bold.is-5
                       | デスクメモ
                     .block
                       .p
-                        = @post.body
+                        = safe_join(@post.body.split("\n"),tag(:br))
                   p.title.has-text-weight-bold.is-5
                     | アイテム
                   .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-                    = render 'items/item_image', { item_image: @post } if @post.items.present?
+                    - if @post.items.present?
+                      = render 'items/item_image', { item_image: @post }
+                    - else
+                      .column
+                        .p.has-text-centered
+                          | Not registered..
               
               .columns.is-12
                 .column.is-7
+                  p.title.has-text-weight-bold.is-5
+                    = t('activerecord.models.comment')
+                  = render @comments
                   -  if logged_in?
                     article.media
                       figure.media-left
@@ -45,7 +56,7 @@ main
                           = image_tag current_user.image_url(:thumb), class: 'is-rounded'
                       .media-content
                         = render 'comments/form', { post: @post, comment: @comment }
-                  = render @comments
+                  
             / .column.is-12
             /   .columns
             /     .column.is-7

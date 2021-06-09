@@ -12,12 +12,10 @@ article.media
         small
           = time_ago_in_words(comment.created_at)
           = "前"
-        br
-          div id="js-comment-#{comment.id}"
-            = simple_format(comment.body)
+        = safe_join(comment.body.split("\n"),tag(:br))
     - if logged_in?
       nav.level.is-mobile
-        .lebel-left
+        .level-left
           a.level-item
             | Reply
   .media-right
