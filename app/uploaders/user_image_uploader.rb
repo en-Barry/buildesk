@@ -19,7 +19,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'sample.jpg'
+    ['user_logo_blue.png', 'user_logo_orange.png'].sample
   end
 
   # Process files as they are uploaded:
