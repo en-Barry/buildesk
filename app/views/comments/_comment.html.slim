@@ -8,18 +8,23 @@ article.media
         strong
           = link_to user_path(comment.user) do
             = comment.user.name
+        |    
+        small
+          = time_ago_in_words(comment.created_at)
+          = "前"
         br
           div id="js-comment-#{comment.id}"
             = simple_format(comment.body)
-        small
-          a
+    - if logged_in?
+      nav.level.is-mobile
+        .lebel-left
+          a.level-item
             | Reply
-          time
-            = time_ago_in_words(comment.created_at)
-            = "前"
-          p
-            = link_to '削除', comment_path(comment), method: :delete,
-                                                    data: { confirm: t('defaults.message.delete_confirm') }
+  .media-right
+    - if current_user&.own?(comment)
+      = link_to comment_path(comment), method: :delete,
+                                        data: { confirm: t('defaults.message.delete_confirm') } do
+        button.delete
       
     
       

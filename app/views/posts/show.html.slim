@@ -38,12 +38,13 @@ main
               
               .columns.is-12
                 .column.is-7
-                  article.media
-                    figure.media-left
-                      p.image.is-48x48
-                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
-                    .media-content
-                      = render 'comments/form', { post: @post, comment: @comment }
+                  -  if logged_in?
+                    article.media
+                      figure.media-left
+                        p.image.is-48x48
+                          = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                      .media-content
+                        = render 'comments/form', { post: @post, comment: @comment }
                   = render @comments
             / .column.is-12
             /   .columns
