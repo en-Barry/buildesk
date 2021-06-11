@@ -1,61 +1,103 @@
 - set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
 
+.hero.is-small
+  .columns.is-centered
+    .column.is-three-quarters
+      .hero-body
+        .container
+          .media
+            .media-left
+              figure.image.is-48x48
+                = link_to user_path(@post.user)
+                  = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
+            .media-content
+              p.title.is-4
+                = @post.user.name
+              p.subtitle.is-6.has-text-light
+                = 
+
 main
-  section.section
-    .container
-      .columns
-        .column.is-10.is-offset-1
-          .columns.is-multiline
-            .column.is-12
-              .columns
-                .column.is-7
-                  figure.image.is-4by3.is-fullwidth-mobile
-                    = image_tag @post.post_images.first.image_url(:main)
-                .column.is-5
-                  .box
-                    .media
-                      .media-left
-                        figure.image.is-48x48
-                          = link_to user_path(@post.user)
-                            = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
-                      .media-content
-                        p.title.is-5
-                          = @post.user.name
-                        p.subtitle.is-6
-                          = l @post.created_at, format: :short
-                      .media-right
-                        span.tag.is-light.is-rounded
-                          = @post.categories[0].name
-                    br
-                      = render 'posts/crud_menus', post: @post if current_user&.own?(@post) 
-                    br
-                    p.title.has-text-weight-bold.is-5
-                      | デスクメモ
-                    .block
-                      .p
-                        = safe_join(@post.body.split("\n"),tag(:br))
-                  p.title.has-text-weight-bold.is-5
-                    | アイテム
-                  .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-                    - if @post.items.present?
-                      = render 'items/item_image', { item_image: @post }
-                    - else
-                      .column
-                        .p.has-text-centered
-                          | Not registered..
-              
-              .columns.is-12
-                .column.is-7
-                  p.title.has-text-weight-bold.is-5
-                    = t('activerecord.models.comment')
-                  = render @comments
-                  -  if logged_in?
-                    article.media
-                      figure.media-left
-                        p.image.is-48x48
-                          = image_tag current_user.image_url(:thumb), class: 'is-rounded'
-                      .media-content
-                        = render 'comments/form', { post: @post, comment: @comment }
+  section.columns.is-centered
+    .column.is-three-quarters
+      .section
+        .container
+          .columns.is-12
+            .column.is-7
+              .column
+                figure.image.is-4by3.is-fullwidth-mobile
+                  = image_tag @post.post_images.first.image_url(:main)
+              .column.is-hidden-mobile
+                p.title.has-text-weight-bold.is-5
+                  = t('activerecord.models.comment')
+                = render @comments
+                -  if logged_in?
+                  article.media
+                    figure.media-left
+                      p.image.is-48x48
+                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                    .media-content
+                      = render 'comments/form', { post: @post, comment: @comment }
+            .column.is-5
+              .column.box
+                / .media
+                /   .media-left
+                /     figure.image.is-48x48
+                /       = link_to user_path(@post.user)
+                /         = image_tag @post.user.image_url(:thumb), class: 'is-rounded'
+                /   .media-content
+                /     p.title.is-5
+                /       = @post.user.name
+                /     p.subtitle.is-6
+                /       = l @post.created_at, format: :short
+                /   .media-right
+                /     span.tag.is-light.is-rounded
+                /       = @post.categories[0].name
+                p.title.has-text-weight-bold.is-5
+                  | デスクデータ
+                p.is-size-7
+                  = 'カテゴリー：'
+                  = link_to category_path(@post.categories[0].name) do
+                    = @post.categories[0].name
+                  = '　投稿日時：'
+                  = l @post.created_at, format: :short
+                br
+                = safe_join(@post.body.split("\n"),tag(:br))
+              .column
+                p.title.has-text-weight-bold.is-5
+                  | アイテム
+                .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+                  - if @post.items.present?
+                    = render 'items/item_image', { item_image: @post }
+                  - else
+                    .column
+                      .p.has-text-centered
+                        | Not registered..
+          .columns.is-12
+            .column
+              .column.is-hidden-desktop
+                p.title.has-text-weight-bold.is-5
+                  = t('activerecord.models.comment')
+                = render @comments
+                -  if logged_in?
+                  article.media
+                    figure.media-left
+                      p.image.is-48x48
+                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                    .media-content
+                      = render 'comments/form', { post: @post, comment: @comment }
+              / .tile
+              /   .tile.is-7.is-parent
+              /     .tile.is-child
+              /       p.title.has-text-weight-bold.is-5
+              /         = t('activerecord.models.comment')
+              /       = render @comments
+              /       -  if logged_in?
+              /         article.media
+              /           figure.media-left
+              /             p.image.is-48x48
+              /               = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+              /           .media-content
+              /             = render 'comments/form', { post: @post, comment: @comment }
                   
             / .column.is-12
             /   .columns
@@ -92,3 +134,30 @@ main
   /   = render 'comments/form', { post: @post, comment: @comment }
   /   p
   /   = render 'comments/comments', { comments: @comments }
+
+/ タイル表示
+/main
+  section.columns.is-centered
+    .column.is-three-quarters
+      .section
+        .container
+          .tile.is-ancestor
+            .tile.is-vertical.is-12
+              .tile
+                .tile.is-parent.is-7.is-vertical
+                  .tile.is-child.order1
+                    figure.image.is-4by3.is-fullwidth-mobile
+                      = image_tag @post.post_images.first.image_url(:main)
+                  .tile.is-child.order4
+                    p.title.has-text-weight-bold.is-5
+                      = t('activerecord.models.comment')
+                    = render @comments
+                    -  if logged_in?
+                      article.media
+                        figure.media-left
+                          p.image.is-48x48
+                            = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                        .media-content
+                          = render 'comments/form', { post: @post, comment: @comment }
+                .tile.is-parent.is-5.is-vertical
+                  .tile.is-child.box.order2
