@@ -1,21 +1,57 @@
 - set_meta_tags title: t('.title')
 
-.container
-  h1 
-    | Posts#edit
-  .box.box-primary
-    = simple_form_for @form do |f|
-      .box-body
-        .col-sm-4.col-md-6
-          - if @form.images.present?
-            - @form.images.each do |image|
-              = image_tag image.url, size: '600x400'
-
-        = f.input :body, as: :text
-
-        = f.input :area, as: :select, collection: Post.areas_i18n.invert
-
-        = f.input :category_ids, as: :check_boxes, collection: Category.all, include_hidden: false
-
-      .box-footer
-        = f.button :submit, '投稿する', class: %w[btn btn-primary]
+main.columns.is-centered.section
+  .column.is-three-quarters
+    section
+      .content
+        h1.title.is-size-4.has-centered
+          | 投稿を編集
+        hr
+      .content
+        = form_with model: @form, local: true do |f|
+          .field.is-horizontal
+            .field-label.is-normal
+              = f.label :images, 'デスク写真', class: 'label'
+            .field-body
+              .field
+                .control
+                  - @form.images.each do |image|
+                    = image_tag image.url, id: 'post_img_prev', class: 'is-4by3', width: '400'
+          .field.is-horizontal
+            .field-label.is-normal
+              = f.label :body, class: 'label'
+            .field-body
+              .field
+                .control
+                  = f.text_area :body, class: 'textarea', placeholder: 'こだわりのポイントや現状の不満点など'
+          .field.is-horizontal
+            .field-label.is-normal
+              = f.label :area, class: 'label'
+            .field-body
+              .control
+                .select
+                  = f.select :area, Post.areas_i18n.invert, include_blank: false
+          .field.is-horizontal
+            .field-label
+              = f.label :category_ids, class: 'label'
+            .field-body
+              .field
+                .control
+                  = f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b|
+                    = b.label class: 'checkbox has-text-weight-semibold' do
+                      = b.check_box + b.text
+          .field.is-horizontal
+            .field-label.is-normal
+              = f.label :items, class: 'label'
+            .field-body
+              .control
+                #item-search-show.button
+                  span.icon-text
+                    i.fas.fa-tags
+                    |  アイテムを選択する
+          .field.is-horizontal
+            .field-label
+            .field-body
+              .field
+                .control
+                  = f.submit '投稿する', class: %w[button is-light has-text-weight-semibold is-rounded]
