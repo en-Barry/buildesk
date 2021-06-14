@@ -58,6 +58,9 @@ ja:
   profiles:
     edit:
       title: 'プロフィール編集'
+  items:
+    show:
+      title: 'アイテム詳細'
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
