@@ -54,7 +54,4 @@ main.columns.is-centered
                 = render partial: 'items/item_image', collection: @posts
               - else
                 = '投稿がありません'
-
-    - if current_user == @user
-      = link_to t('defaults.logout'), logout_path, method: :delete, class: 'button is-mobile-only'
             
