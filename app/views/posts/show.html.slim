@@ -35,7 +35,7 @@ main
                   .tile.is-child.is-hidden-mobile
                     p.title.has-text-weight-bold.is-5
                       = t('activerecord.models.comment')
-                    #comments
+                    #desktop_comments
                       = render @comments
                       - if logged_in?
                         .media
@@ -93,7 +93,7 @@ main
               .tile.is-child
                 p.title.has-text-weight-bold.is-5
                   = t('activerecord.models.comment')
-                #comments
+                #mobile_comments
                   = render @comments
                   - if logged_in?
                     article.media

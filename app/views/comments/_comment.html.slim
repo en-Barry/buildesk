@@ -1,4 +1,4 @@
-article.media
+article.media id="comment-#{comment.id}"
   figure.media-left
     p.image.is-48x48
       = image_tag comment.user.image_url(:thumb), class: 'is-rounded'
@@ -17,5 +17,6 @@ article.media
   .media-right
     - if current_user&.own?(comment)
       = link_to comment_path(comment), method: :delete,
-                                        data: { confirm: t('defaults.message.delete_confirm') } do
+                                       class: 'edit-comment-button',
+                                       data: { confirm: t('defaults.message.delete_confirm') } do
         button.delete

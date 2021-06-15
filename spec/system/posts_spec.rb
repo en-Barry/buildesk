@@ -81,7 +81,7 @@ RSpec.describe 'Posts', type: :system do
           expect(current_path).to eq(posts_path)
           expect(page).to have_content('投稿しました')
           within('#new_arrival') do
-            expect(page).to have_content(user.name)
+            expect(page).to have_selector("img[src$='20210227_005224.jpg']")
           end
         end
         it '投稿の作成に失敗する' do
