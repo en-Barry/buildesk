@@ -53,3 +53,17 @@ ja:
         fail: 'ログインに失敗しました'
       destroy:
         success: 'ログアウトしました'
+
+  activemodel:
+    errors:
+      models:
+        posts_form:
+          attributes:
+            images:
+              invalid_images: 'をアップロードしてください'
+            category_ids:
+              invalid_category: 'を一つ以上選択してください'
+    attributes:
+      posts_form:
+        images: 'デスク写真'
+        category_ids: 'カテゴリー'

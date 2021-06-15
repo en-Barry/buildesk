@@ -12,12 +12,12 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_posts, through: :bookmarks, source: :post
 
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :email, uniqueness: true, presence: true
   validates :password, length: { in: 8..30 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
-  validates :email, uniqueness: true, presence: true
-  validates :name, presence: true, length: { in: 1..20 }
   validates :description, length: { maximum: 200 }
 
   enum role: { general: 0, admin: 1 }

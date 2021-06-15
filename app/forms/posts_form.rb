@@ -12,9 +12,9 @@ class PostsForm
   attribute :user_id, :integer
   attribute :items
 
-  validates :images, presence: true
-  validates :category_ids, presence: true
+  validates :images, presence: true, presence: { message: :invalid_images }
   validates :area, presence: true
+  validates :category_ids, presence: true, presence: { message: :invalid_category }
 
   validate :image_content_type
   validate :image_size

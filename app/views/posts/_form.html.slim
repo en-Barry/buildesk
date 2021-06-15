@@ -1,4 +1,5 @@
 = form_with model: @form, local: true do |f|
+  = render 'shared/error_messages', object: f.object
   .field.is-horizontal
     .field-label.is-normal
       = f.label :images, 'デスク写真', class: 'label'
