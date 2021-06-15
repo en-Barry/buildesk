@@ -29,13 +29,6 @@ RSpec.describe 'Likes', type: :system do
           expect(page).to have_selector('.fas.fa-heart'), 'いいね済みボタンが正しく表示されていません'
         end
       end
-      context '自分の投稿の場合' do
-        it 'いいねボタンが表示されない' do
-          login(user)
-          visit post_path(post_by_uesr)
-          expect(page).not_to have_selector("#button-like-#{post_by_uesr.id}")
-        end
-      end
     end
 
     describe 'ブックマークした投稿の一覧表示' do

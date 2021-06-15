@@ -29,13 +29,6 @@ RSpec.describe 'Bookmarks', type: :system do
           expect(page).to have_selector('.fas.fa-bookmark'), 'ブックマーク済みボタンが正しく表示されていません'
         end
       end
-      context '自分の投稿の場合' do
-        it 'ブックマークボタンが表示されない' do
-          login(user)
-          visit post_path(post_by_uesr)
-          expect(page).not_to have_selector("#button-bookmark-#{post_by_uesr.id}")
-        end
-      end
     end
 
     describe 'ブックマークした投稿の一覧表示' do

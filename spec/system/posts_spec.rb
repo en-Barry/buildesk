@@ -76,7 +76,7 @@ RSpec.describe 'Posts', type: :system do
           fill_in '本文', with: 'test'
           check 'Engineer'
           file_path = Rails.root.join('spec', 'fixtures', '20210227_005224.jpg')
-          attach_file '画像', file_path
+          attach_file 'デスク写真', file_path
           click_button '投稿する'
           expect(current_path).to eq(posts_path)
           expect(page).to have_content('投稿しました')

@@ -35,18 +35,19 @@ main
                   .tile.is-child.is-hidden-mobile
                     p.title.has-text-weight-bold.is-5
                       = t('activerecord.models.comment')
-                    = render @comments
-                    - if logged_in?
-                      .media
-                        figure.media-left
-                          p.image.is-48x48
-                            = image_tag current_user.image_url(:thumb), class: 'is-rounded'
-                        .media-content
-                          = render 'comments/form', { post: @post, comment: @comment }
-                    - else
-                      br
-                        p.has-text-centered
-                          | ログインするとコメントできます
+                    #comments
+                      = render @comments
+                      - if logged_in?
+                        .media
+                          figure.media-left
+                            p.image.is-48x48
+                              = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                          .media-content
+                            = render 'comments/form', { post: @post, comment: @comment }
+                      - else
+                        br
+                          p.has-text-centered
+                            | ログインするとコメントできます
 
             .tile.is-parent.is-vertical
               .tile.is-child
@@ -92,15 +93,16 @@ main
               .tile.is-child
                 p.title.has-text-weight-bold.is-5
                   = t('activerecord.models.comment')
-                = render @comments
-                - if logged_in?
-                  article.media
-                    figure.media-left
-                      p.image.is-48x48
-                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
-                    .media-content
-                      = render 'comments/form', { post: @post, comment: @comment }
-                - else
-                  br
-                    p.has-text-centered
-                      | ログインするとコメントできます
+                #comments
+                  = render @comments
+                  - if logged_in?
+                    article.media
+                      figure.media-left
+                        p.image.is-48x48
+                          = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                      .media-content
+                        = render 'comments/form', { post: @post, comment: @comment }
+                  - else
+                    br
+                      p.has-text-centered
+                        | ログインするとコメントできます
