@@ -4,10 +4,10 @@ html
     = csrf_meta_tags
     = csp_meta_tag
 
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    = stylesheet_link_tag "https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css"
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css", rel: "stylesheet", integrity: "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl", crossorigin: "anonymous"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js", integrity: "sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0", crossorigin: "anonymous"
   
     = display_meta_tags(default_meta_tags)
   body
@@ -17,3 +17,4 @@ html
       = render 'shared/before_login_header'
     = render 'shared/flash_message'
     = yield
+    = render 'shared/footer'

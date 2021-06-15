@@ -1,17 +1,36 @@
-.box.box-primary
-  = simple_form_for(@user, url: profile_path) do |f|
-    .box-body
-      = f.input :name
+= form_with model: @user, url: profile_path, local: true do |f|
+  .field
+    label.label
+      = f.label :name
+    .control.has-icons-left.has-icons-right
+      = f.text_field :name, class: 'input'
+      span.icon.is-small.is-left
+        i.fas.fa-user
+      span.icon
 
-      = f.input :image, as: :file
-      = f.hidden_field :image_cache
-      .mt-3.mb-3
-        = image_tag @user.image.url,
-                    class: 'rounded-circle',
-                    id: 'preview',
-                    size: '100x100'
+  .field
+    label.label
+      = f.label :image
+    .file.is-normal
+      label.file-label
+        = f.file_field :image, as: :file, accept: 'image/*', class: 'file-input'
+        span.file-cta
+          span.file-icon
+            i.fas.fa-upload
+          span.file-label
+            | ファイルを選択
+    = f.hidden_field :image_cache
+    figure.image.is-96x96
+      = image_tag @user.image.url(:thumb),
+                  class: 'is-rounded',
+                  id: 'preview'
 
-      = f.input :description
+  .field
+    label.label
+      = f.label :description
+    .control
+      = f.text_area :description, class: 'textarea'
 
-    .box-footer
-      = f.button :submit, class: %w[btn btn-primary]
+  .field.is-grouped
+    .control
+      = f.submit class: %w[button is-light has-text-weight-semibold is-rounded is-small]

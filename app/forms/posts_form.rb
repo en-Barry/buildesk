@@ -14,6 +14,7 @@ class PostsForm
 
   validates :images, presence: true
   validates :category_ids, presence: true
+  validates :area, presence: true
 
   validate :image_content_type
   validate :image_size

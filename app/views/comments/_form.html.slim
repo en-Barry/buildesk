@@ -1,6 +1,7 @@
-.col-md-6
-  = form_with model: comment, url: [post, comment], local: true do |f|
-    = f.label :body
-    = f.text_area :body, class: 'form-control', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body)
-
-    = f.submit t('defaults.post'), class: %w[btn btn-primary]
+= form_with model: comment, url: [post, comment], local: true do |f|
+  .field
+    p.control
+      = f.text_area :body, class: 'textarea', id: 'js-new-comment-body', row: 4, placeholder: Comment.human_attribute_name(:body)
+  .field
+    p.control
+      = f.submit t('defaults.post'), class: %w[button has-text-weight-semibold is-small]

@@ -14,3 +14,10 @@ User.create!(
   password_confirmation: 'aaaaaaaa',
   role: 1
 )
+
+User.create!(
+  name: 'Eren',
+  email: 'eren@attack.com',
+  password: 'aaaaaaaa',
+  password_confirmation: 'aaaaaaaa'
+)

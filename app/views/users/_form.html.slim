@@ -1,10 +1,16 @@
-.box.box-primary
-  = simple_form_for @user do |f|
-    .box-body
-      = f.input :name
-      = f.input :email
-      = f.input :password
-      = f.input :password_confirmation
-
-    .box-footer
-      = f.button :submit, class: %w[btn btn-primary]
+= simple_form_for @user do |f|
+  .field
+    .control
+      = f.input :name, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :email, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :password, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.input :password_confirmation, label_html: { class: 'label' }, input_html: { class: 'input' }
+  .field
+    .control
+      = f.button :submit, class: %w[has-text-weight-bold button is-success is-fullwidth]

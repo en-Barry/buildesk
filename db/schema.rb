@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_514_113_032) do
+ActiveRecord::Schema.define(version: 20_210_601_171_547) do
   create_table 'authentications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.integer 'user_id', null: false
     t.string 'provider', null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20_210_514_113_032) do
     t.bigint 'user_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'area', default: 0
+    t.integer 'area', default: 0, null: false
     t.index ['user_id'], name: 'index_posts_on_user_id'
   end
 

@@ -1,26 +1,21 @@
-tr id="comment-#{comment.id}"
-  td style="width: 60px"
-    = link_to user_path(comment.user) do
-      = image_tag comment.user.image_url, class: 'rounded-circle', size: '50x50'
-  td 
-    h3 class="small"
-      = comment.user.name 
-    div id="js-comment-#{comment.id}"
-      = simple_format(comment.body)
-    div id="js-textarea-comment-box-#{comment.id}" style="display: none;"
-      textarea id="js-textarea-comment-#{comment.body}" class="form-control mb-1"
-        = comment.body
-      button class="btn btn-light js-button-edit-comment-cancel" data-comment-id="#{comment.id}"
-        = 'キャンセル'
-      button class="btn btn-success js-button-comment-update" data-comment-id="#{comment.id}"
-        = '更新'
-
-  /- if current_user&.own?(comment)
-    td class="action"
-      ul class="list-inline justify-content-center" style="float: right;"
-        li class="list-inline-item"
-          a href="#" class='js-edit-comment-button' data-comment-id="#{comment.id}"
-            i class="fas fa-pen"
-        li class="list-inline-item"
-          a href="#" class='js-delete-comment-button' data-comment-id="#{comment.id}"
-            i class="fas fa-trash"
+article.media
+  figure.media-left
+    p.image.is-48x48
+      = image_tag comment.user.image_url(:thumb), class: 'is-rounded'
+  .media-content
+    .content
+      p
+        strong
+          = link_to user_path(comment.user), class: 'has-text-white' do
+            = comment.user.name
+        br
+        = safe_join(comment.body.split("\n"),tag(:br))
+        br    
+        small.has-text-grey-lighter.is-size-7
+          = time_ago_in_words(comment.created_at)
+          = "前"
+  .media-right
+    - if current_user&.own?(comment)
+      = link_to comment_path(comment), method: :delete,
+                                        data: { confirm: t('defaults.message.delete_confirm') } do
+        button.delete

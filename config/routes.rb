@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create show]
   resources :categories, only: %i[index show], param: :name
+  resources :items, only: %i[show]
   resources :posts do
     resources :post_images, only: %i[create]
     resources :comments, only: %i[create update destroy], shallow: true

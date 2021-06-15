@@ -1,7 +1,10 @@
 - set_meta_tags title: t('.title')
 
-.container
-  h1
-    = t('.title')
-  p
-  = render 'form'
+main.columns.is-centered.section
+  .column.is-half
+    .container.content.box
+      h1.title.has-text-centered.is-size-6
+        = t('.title')
+      hr
+      .content
+        = render 'form'

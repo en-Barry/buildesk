@@ -9,6 +9,8 @@
     "@rails/webpacker": "4.3.0",
     "admin-lte": "^3.1.0",
     "bootstrap": "^4.6.0",
+    "bulma": "^0.9.2",
+    "bulmaswatch": "^0.8.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"

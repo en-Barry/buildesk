@@ -1,14 +1,21 @@
-div id="post-id-#{post.id}"
-  .col
-    .card
+.tile.is-parent
+  .card
+    div id="post-id-#{post.id}"
       = link_to post_path(post)
-        = image_tag post.post_images.first.image_url(:thumb), alt: 'post-img', class: 'card-img-top', size: '300x300'
-      .card-body
-        ul class='list-inline'
-          li class='list-inline-item'
-            = link_to user_path(post.user) do
-              = image_tag post.user.image_url, class: 'rounded-circle', size: '25x25'
-          li class='list-inline-item'
-            = post.user.name
-          li class='list-inline-item'
-            = l post.created_at, format: :short
+        .card-image
+          figure.image
+            = image_tag post.post_images.first.image_url(:thumb), alt: 'post-img'
+        .card-content
+          .media
+            .media-left
+              figure.image.is-32x32
+                = image_tag post.user.image_url(:thumb), class: 'is-rounded'
+            .media-content
+              p.title.is-6.has-text-weight-semibold
+                = post.user.name
+              p.subtitle.is-6
+                = l post.created_at, format: :short
+            .media-right
+              span.tag.is-light.is-rounded
+                .is-6
+                  = post.categories[0].name

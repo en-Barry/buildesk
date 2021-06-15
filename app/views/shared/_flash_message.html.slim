@@ -1,4 +1,4 @@
 - if flash.present?
   - flash.each do |message_type, message|
-    = content_tag 'div', class: "alert alert-#{message_type}" do
+    = content_tag 'div', class: "notification is-#{message_type} has-text-weight-semibold" do
       = message

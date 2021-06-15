@@ -6,7 +6,7 @@
   h2 
     = t("category.#{@category.name}")+'のデスク'
   p
-  .new_arrival
+  #new_arrival
     .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
       - if @posts.present?
         = render @posts

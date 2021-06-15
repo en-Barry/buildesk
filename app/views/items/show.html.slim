@@ -1,0 +1,45 @@
+- set_meta_tags title: t('.title'), og: { og_title: t('.og_title') }
+
+main
+  section.columns.is-centered
+    .column.is-three-quarters
+      .section
+        .container
+          .tile.is-ancestor
+            .tile.is-5.is-parent.is-vertical
+              .tile
+                .tile.is-vertical
+                  .tile.is-child
+                    figure.image.is-4by3
+                      = image_tag @item.image
+
+            .tile.is-parent.is-vertical
+              .tile.is-child
+                .card
+                  header.card-header
+                    p.card-header-title.is-size-5
+                      | アイテムデータ
+                  .card-content
+                    .content
+                      p.has-text-weight-bold.is-size-5
+                        = @item.name
+                      p.is-size-5
+                        = "￥#{number_to_currency(@item.price)}"
+                      = link_to @item.rakuten_url, class: 'button is-link is-fullwidth', target: '_blank'
+                        span.icon-text
+                          span
+                            | 販売サイト
+                          span.icon
+                            i.fas.fa-external-link-alt
+                            
+            
+          hr
+          .tile.is-ancestor
+            .tile.is-parent.is-vertical
+              p.title.has-text-weight-bold.is-5
+                | このアイテムが使われている投稿
+              .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
+                - if @posts.present?
+                  = render partial: 'posts/post_image', collection: @posts
+                - else
+                  = '投稿がありません'

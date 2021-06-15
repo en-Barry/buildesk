@@ -19,7 +19,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    'sample.jpg'
+    'user_logo_orange.png'
   end
 
   # Process files as they are uploaded:
@@ -31,7 +31,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fill: [150, 150]
+    process resize_to_fill: [256, 256]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

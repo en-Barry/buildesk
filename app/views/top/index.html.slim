@@ -1,13 +1,22 @@
 - set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
 
-.container
-  h1
-    | Top#index
-  p
-  .new_arrival
-    h3
-      = t('.New Arrival')
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-      - if @posts.present?
-        = render @posts
-        = link_to t('.show more'), posts_path
+section.hero.hero-1.is-medium[style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(#{asset_path('vadim-sherbakov-RcdV8rnXSeE-unsplash.jpg')})"]
+  .hero-body
+    .container
+      p.title.has-text-weight-bold
+        |  快適なデスク環境を構築しよう
+      p.subtitle.has-text-light
+        |  あなたのこだわりポイントは？
+      = link_to 'マイデスクを投稿する', new_post_path, class: 'button is-primary is-inverted is-small has-text-weight-semibold', data: { turbolinks: false }
+main
+  .container        
+    section.section#new_arrival
+      .columns
+        .column
+          h1.title.is-3.has-text-weight-bold
+            = t('.New Arrival')
+          .tile.is-ancestor
+            - if @posts.present?
+              = render @posts
+          p.has-text-right
+            = link_to t('.show more'), posts_path
