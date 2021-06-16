@@ -8,7 +8,7 @@ $(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#user_image").change(function(){
+  $(document).on('change', '#user_image', function(){
     readURL(this);
   });
 });

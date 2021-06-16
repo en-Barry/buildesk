@@ -10,7 +10,7 @@ $(function() {
       reader.readAsDataURL(input.files[0]);
     }
   }
-  $("#post_images").change(function(){
+  $(document).on('change', '#post_images', function(){
       readURL(this);
   });
 
