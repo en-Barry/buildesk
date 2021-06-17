@@ -1,4 +1,8 @@
+const { Collapse } = require("bootstrap");
+
 $(function() {
+
+  // モーダルの表示・非表示
   $(document).on('click', '#item-search-show', function() {
     $(".modal").toggleClass("is-active");
   });
@@ -7,36 +11,37 @@ $(function() {
     $(".modal").removeClass("is-active");
   });
 
+  // 商品検索
   $(document).on('click', '#js-search-button', function(e) {
     e.preventDefault();
     var keyword = $('#js-search-keyword').val();
     $.ajax({
       url: '/search',
       type: "GET",
-      dataType: "json",
       async: true,
       data: { keyword: keyword },　//検索パラメーターの指定(:keyword)
     }).done(function (data) {
-      // var items = data.contents
-      // $("#item_list").html('');
-      // $.each(items, function(index, val) {
-      //   $("#item_list").append(`<div class="search-item item">` + `<img src=` + `"${val.image}" width="150" height="150">` + `<p></p>` + val.name + `<p></p>` + `¥` + val.price + `</div>`);
-      // });
-      // $("#item_list").css("display", "");
-      // $("#item_list").html(data.contents); //render json:{contents: contents}の内容表示
+      $("#item_list").css("display", "");
     });
     $('#js-search-keyword').val('');
   });
 
-  // $(this).on('click', '.item', function() {
-  //   var item = $(this)
-  //   $('#item_list').hide();
-  //   $('#item-search-box').hide();
-  //   $('#item_detail').append(item);
-  // });
+  // アイテムの選択、キャンセル
+  $(document).on('click', '.item', function() {
+    const item = $('.item-data', this).data();
+    $("#item_list").hide();
+    $("#item_detail").append(`商品名　${item.name}` + `<span class="item-data" data-amazon_url="${item.amazon_url}" data-image="${item.image}" data-item_code="${item.item_code}" data-name="${item.name}" data-price="${item.price}" data-rakuten_url="${item.rakuten_url}"></span>` + `<div class="button is-success item-select">このアイテムを選択</div>` + `<div class="button back-to-page">検索結果に戻る</div>`);
+    $(item).remove();
+  });
 
-  // $(document).on('click', '.item-search-modal-wrapper', function() {
-  //   $('#item-search-modal').fadeOut('fast');
-  // });
+  $(document).on('click', '.item-select', function() {
+    $(".modal").removeClass("is-active");
+    $("#item_list").empty();
+    $("#item_detail").empty();
+  });
 
+  $(document).on('click', '.back-to-page', function () {
+    $("#item_list").show();
+    $("#item_detail").html('');
+  });
 });

@@ -1,8 +1,13 @@
-- items.first(10).each do |item|
-  .search-item
-    .item
-      = image_tag(item[:image], size:'150x150')
-      p
-      = item[:name]
-      p
-      = "¥#{item[:price]}"
+- items.first(10).each_with_index do |item, index|
+  .column.is-half-mobile.is-one-third-desktop.item
+    div id="search-id-#{index}"
+      .item-image
+        figure.image.is-5by4
+          = image_tag(item[:image])
+      .item-name
+        p
+          = truncate(item[:name], length: 30)
+      .item-price
+        p
+          = "¥#{item[:price]}"
+      span.item-data[data-item_code="#{item[:item_code]}" data-name="#{item[:name]}" data-price="#{item[:price]}" data-image="#{item[:image]}" data-rakuten_url="#{item[:rakuten_url]}" data-amazon_url="#{item[:amazon_url]}"]item_
