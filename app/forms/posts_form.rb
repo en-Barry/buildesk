@@ -41,6 +41,15 @@ class PostsForm
       category_ids.each do |category_id|
         post.post_categories.create!(category_id: category_id)
       end
+
+      hash_items.each do |item|
+        
+        binding.pry
+        
+        # new_item = Item.new(item)
+        # new_item.save! unless Item.exists?(item_code: item.item_code)
+        # post.item_tags.create!(item_id: new_item.id)
+      end
     end
 
     true
@@ -94,5 +103,20 @@ class PostsForm
     images&.each do |image|
       errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes
     end
+  end
+
+  def hash_items
+    items&.each do |result|
+      item = {
+        item_code: result['item_code'],
+        name: result['name'],
+        price: result['price'],
+        image: result['image'],
+        rakuten_url: result['rakuten_url'],
+        amazon_url: result['amazon_url']
+      }
+      items << item
+    end
+    items
   end
 end
