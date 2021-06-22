@@ -57,11 +57,27 @@
     .field-label.is-normal
       = f.label :items, class: 'label'
     .field-body
-      .control
-        #item-search-show.button
-          span.icon-text
-            i.fas.fa-tags
-            |  アイテムを選択する
+      .field
+        .control
+          #item-search-show.button
+            span.icon-text
+              i.fas.fa-tags
+              |  アイテムを選択する
+
+          = f.hidden_field 'items1', multiple: true
+          = f.hidden_field 'items2', multiple: true
+          = f.hidden_field 'items3', multiple: true
+          = f.hidden_field 'items4', multiple: true
+          = f.hidden_field 'items5', multiple: true
+          / .tile.is-ancestor
+          /   .tile.is-parent.is-vertical
+          /     .tile.is-child
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control
+          #item-results.columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
 
   .field.is-horizontal
     .field-label
@@ -70,19 +86,24 @@
         .control
           = f.submit '投稿する', class: %w[button is-light has-text-weight-semibold is-rounded]
 
-/ モーダル部分
-#item-search-modal.item-search-modal-wrapper
-  .modal
-    #close-modal
-      i.fa.fa-2x.fa-times
-    #item-search-box.item-search-box
+#item-search-modal.modal
+  .modal-background
+  .modal-card
+    header.modal-card-head
+      .modal-card-title.has-text-weight-bold
+        = 'アイテムを検索'
+      button.delete[aria-label="close"]
+    section.modal-card-body.item-search-box
+      / 検索結果
+      #item_list.columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+      / 選択商品詳細
+      #item_detail
+    footer.modal-card-foot
       = form_with(url: search_path, method: :get, id: 'item_search') do |f|
-        .item-search-body
-          = f.text_field :keyword, id: 'js-search-keyword', placeholder: 'キーワードを入力'
-
-        .item-search-footer
-          = f.submit '検索', id: 'js-search-button', class: %w[btn btn-primary]
-  / 検索結果
-  #item_list
-  / 選択商品詳細
-  #item_detail
+        .field.has-addons.has-addons-centered
+          .control
+            = f.text_field :keyword, id: 'js-search-keyword', placeholder: 'キーワードを入力', class: 'input'
+          .control
+            = f.submit '検索', id: 'js-search-button', class: %w[button is-primary]
+          
+      

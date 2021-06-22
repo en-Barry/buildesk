@@ -11,10 +11,10 @@ class Api::V1::ItemsController < ApplicationController
   # end
 
   def search
-    # contents = render_to_string(partial: 'item_list', locals: {items: search_by_rakuten(params[:keyword])})
-    contents = search_by_rakuten(params[:keyword])
+    @items = search_by_rakuten(params[:keyword])
     # contentsをjsonに返す
-    render json: { contents: contents }
+    # contents = render_to_string(partial: 'item_list', locals: {items: search_by_rakuten(params[:keyword])})
+    # render json: { contents: contents }
   end
 
   private

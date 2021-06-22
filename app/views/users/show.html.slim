@@ -16,7 +16,7 @@ main.columns.is-centered
                     p.title.is-3.has-text-weight-bold
                       = @user.name
                     p.subtitle.is-6
-                      = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false }
+                      = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false } if current_user == @user
                     p
                       = @user.description if @user.description.present?
               footer.card-footer id="user-link-id-#{@user.id}"

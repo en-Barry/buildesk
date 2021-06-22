@@ -1,6 +1,25 @@
-= image_tag(item[:image], size:'300x300')
-= item[:name]
-= "¥#{item[:price]}"
+.tile.is-ancestor
+  .tile
+    figure.image.is-4by3
+      = image_tag @item.image
 
-#item-select.btn.btn-primary
-  <i class="fas fa-tags"></i> このアイテムを選択する
+  .tile
+    .card
+      header.card-header
+        p.card-header-title.is-size-5
+          | アイテムデータ
+      .card-content
+        .content
+          p.has-text-weight-bold.is-size-5
+            = @item.name
+          p.is-size-5
+            = "￥#{number_to_currency(@item.price)}"
+          = link_to @item.rakuten_url, class: 'button is-link is-fullwidth', target: '_blank'
+            span.icon-text
+              span
+                | 販売サイト
+              span.icon
+                i.fas.fa-external-link-alt
+
+    / #item-select.btn.btn-primary
+    /   <i class="fas fa-tags"></i> このアイテムを選択する

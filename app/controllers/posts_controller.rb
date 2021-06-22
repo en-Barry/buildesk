@@ -18,7 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @form = PostsForm.new(post_params)
-
     if @form.save
       redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
@@ -68,7 +67,12 @@ class PostsController < ApplicationController
       { images: [] },
       :image_cache,
       { category_ids: [] },
-      { items: [] }
+      { items1: [] },
+      { items2: [] },
+      { items3: [] },
+      { items4: [] },
+      { items5: [] }
+      # { items: [:item_code, :name, :image, :price, :rakuten_url, :amazon_url] }
     ).merge(user_id: current_user.id)
   end
 end
