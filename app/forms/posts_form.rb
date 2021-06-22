@@ -47,16 +47,15 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
 
-      
       items_params&.each do |item|
-        h_item = eval(item) #セキュリティホール的に非推奨らしい
+        h_item = eval(item) # セキュリティホール的に非推奨らしい
         new_item = Item.new(h_item)
-        unless Item.exists?(item_code: h_item[:item_code])
-          new_item.save!
-          post.item_tags.create!(item_id: new_item.id)
-        else
+        if Item.exists?(item_code: h_item[:item_code])
           exist_item = Item.find_by(item_code: h_item[:item_code])
           post.item_tags.create!(item_id: exist_item.id)
+        else
+          new_item.save!
+          post.item_tags.create!(item_id: new_item.id)
         end
       end
     end
@@ -93,7 +92,7 @@ class PostsForm
   def items_params
     items = (items1 + items2 + items3 + items4 + items5).reject(&:empty?)
     if items.empty?
-      return nil
+      nil
     else
       items
     end

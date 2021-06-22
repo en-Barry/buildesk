@@ -72,7 +72,7 @@ class PostsController < ApplicationController
       { items3: [] },
       { items4: [] },
       { items5: [] }
-      #{ items: [:item_code, :name, :image, :price, :rakuten_url, :amazon_url] }
+      # { items: [:item_code, :name, :image, :price, :rakuten_url, :amazon_url] }
     ).merge(user_id: current_user.id)
   end
 end
