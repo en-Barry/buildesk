@@ -11,6 +11,9 @@ class PostsForm
   attribute :category_ids
   attribute :user_id, :integer
   attribute :items
+  attribute :items1
+  attribute :items2
+  attribute :items3
 
   validates :images, presence: true, presence: { message: :invalid_images }
   validates :area, presence: true
@@ -42,13 +45,16 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
 
-      hash_items.each do |item|
-        
-        binding.pry
-        
-        # new_item = Item.new(item)
-        # new_item.save! unless Item.exists?(item_code: item.item_code)
-        # post.item_tags.create!(item_id: new_item.id)
+      items_params&.each do |item|
+        h_item = eval(item) #セキュリティホール的に非推奨らしい
+        new_item = Item.new(h_item)
+        unless Item.exists?(item_code: h_item[:item_code])
+          new_item.save!
+          post.item_tags.create!(item_id: new_item.id)
+        else
+          exist_item = Item.find_by(item_code: h_item[:item_code])
+          post.item_tags.create!(item_id: exist_item.id)
+        end
       end
     end
 
@@ -81,6 +87,11 @@ class PostsForm
     }
   end
 
+  def items_params
+    items = (items1 + items2 + items3).delete("")
+    return nil if items.empty?
+  end
+
   def default_attributes
     {
       body: @post.body,
@@ -103,20 +114,5 @@ class PostsForm
     images&.each do |image|
       errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes
     end
-  end
-
-  def hash_items
-    items&.each do |result|
-      item = {
-        item_code: result['item_code'],
-        name: result['name'],
-        price: result['price'],
-        image: result['image'],
-        rakuten_url: result['rakuten_url'],
-        amazon_url: result['amazon_url']
-      }
-      items << item
-    end
-    items
   end
 end
