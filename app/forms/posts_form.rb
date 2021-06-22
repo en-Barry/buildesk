@@ -14,6 +14,8 @@ class PostsForm
   attribute :items1
   attribute :items2
   attribute :items3
+  attribute :items4
+  attribute :items5
 
   validates :images, presence: true, presence: { message: :invalid_images }
   validates :area, presence: true
@@ -45,6 +47,7 @@ class PostsForm
         post.post_categories.create!(category_id: category_id)
       end
 
+      
       items_params&.each do |item|
         h_item = eval(item) #セキュリティホール的に非推奨らしい
         new_item = Item.new(h_item)
@@ -88,8 +91,12 @@ class PostsForm
   end
 
   def items_params
-    items = (items1 + items2 + items3 + items4 + items5).delete("")
-    return nil if items.empty?
+    items = (items1 + items2 + items3 + items4 + items5).reject(&:empty?)
+    if items.empty?
+      return nil
+    else
+      items
+    end
   end
 
   def default_attributes
