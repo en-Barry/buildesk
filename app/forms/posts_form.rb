@@ -88,7 +88,7 @@ class PostsForm
   end
 
   def items_params
-    items = (items1 + items2 + items3).delete("")
+    items = (items1 + items2 + items3 + items4 + items5).delete("")
     return nil if items.empty?
   end
 
