@@ -71,11 +71,11 @@
         p.help.has-text-grey-lighter.is-size-7.has-text-weight-semibold
           | アイテムは5つまで選択可能
 
-          = f.hidden_field 'items1', multiple: true
-          = f.hidden_field 'items2', multiple: true
-          = f.hidden_field 'items3', multiple: true
-          = f.hidden_field 'items4', multiple: true
-          = f.hidden_field 'items5', multiple: true
+      = f.hidden_field 'items1', multiple: true
+      = f.hidden_field 'items2', multiple: true
+      = f.hidden_field 'items3', multiple: true
+      = f.hidden_field 'items4', multiple: true
+      = f.hidden_field 'items5', multiple: true
 
   .field.is-horizontal
     .field-label
@@ -83,7 +83,7 @@
     .field-body
       .field
         .control
-          #item-results
+          #item-results.columns.is-marginless.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
 
   .field.is-horizontal
     .field-label
