@@ -21,11 +21,11 @@ ja:
         role: '権限'
         created_at: '作成日時'
       post:
-        body: '本文'
+        body: 'メモ'
         area: 'ジャンル'
-        images: '画像'
+        images: 'デスク写真'
         category_ids: 'カテゴリー'
-        created_at: '作成日時'
+        items: 'アイテム'
       comment:
         body: 'コメント'
       item:
@@ -67,3 +67,4 @@ ja:
       posts_form:
         images: 'デスク写真'
         category_ids: 'カテゴリー'
+        items: 'アイテム'

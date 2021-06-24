@@ -4,6 +4,11 @@ ja:
       area:
         around: 'デスク全体'
         focus: '特定の箇所やアイテム'
+    category:
+      name:
+        Engineer: 'エンジニア'
+        MediaCreator: 'メディアクリエイター'
+        Writer: 'ライター / エディター'
     user:
       role:
         admin: '管理者'

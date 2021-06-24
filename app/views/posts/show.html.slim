@@ -15,7 +15,8 @@ section.hero.is-small
                 = link_to user_path(@post.user), class: 'has-text-white' do
                   = @post.user.name
               p.subtitle.is-7.has-text-light
-                = 'カテゴリー：'
+                = t('activerecord.attributes.post.category_ids')
+                = '：'
                 = link_to category_path(@post.categories[0].name) do
                   = @post.categories[0].name 
 
@@ -53,7 +54,7 @@ main
               .card
                 header.card-header
                   p.card-header-title.is-size-5
-                    | デスクデータ
+                    | デスクメモ
                   .card-header-icon
                     span.icon
                       = render 'likes/like', post: @post

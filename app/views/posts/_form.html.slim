@@ -2,7 +2,7 @@
   = render 'shared/error_messages', object: f.object
   .field.is-horizontal
     .field-label.is-normal
-      = f.label :images, 'デスク写真', class: 'label'
+      = f.label :images, class: 'label'
     .field-body.columns.is-marginless
       .column
         .control
@@ -56,7 +56,9 @@
         .control
           = f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b|
             = b.label class: 'checkbox has-text-weight-semibold' do
-              = b.check_box + b.text
+              = b.check_box + " #{b.text}　"
+        p.help.has-text-grey-lighter.is-size-7
+          | デスク用途に近しいものを選択してください
               
   .field.is-horizontal
     .field-label.is-normal
@@ -68,8 +70,8 @@
             span.icon-text
               i.fas.fa-tags
               |  アイテムを選択する
-        p.help.has-text-grey-lighter.is-size-7.has-text-weight-semibold
-          | アイテムは5つまで選択可能
+        p.help.has-text-grey-lighter.is-size-7
+          | アイテムは5つまで選択可能です
 
       = f.hidden_field 'items1', multiple: true
       = f.hidden_field 'items2', multiple: true
