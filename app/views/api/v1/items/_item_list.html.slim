@@ -1,13 +1,13 @@
 - items.first(10).each_with_index do |item, index|
   .column.is-half-mobile.is-one-third-desktop.item
-    div id="search-id-#{index}"
-      .item-image
-        figure.image.is-5by4
+    .card id="search-id-#{index}"
+      .card-image
+        figure.image.is-1by1
           = image_tag(item[:image])
-      .item-name
-        p
-          = truncate(item[:name], length: 30)
-      .item-price
-        p
-          = "¥#{item[:price]}"
-      span.item-data[data-item_code="#{item[:item_code]}" data-name="#{item[:name]}" data-price="#{item[:price]}" data-image="#{item[:image]}" data-rakuten_url="#{item[:rakuten_url]}" data-amazon_url="#{item[:amazon_url]}"]
+      .card-content
+        .content
+          p
+            = truncate(item[:name], length: 30)
+          .has-text-right.is-size-6.has-text-grey-light
+            = "#{number_to_currency(item[:price])}"
+          span.item-data[data-item_code="#{item[:item_code]}" data-name="#{item[:name]}" data-price="#{item[:price]}" data-image="#{item[:image]}" data-rakuten_url="#{item[:rakuten_url]}" data-amazon_url="#{item[:amazon_url]}"]
