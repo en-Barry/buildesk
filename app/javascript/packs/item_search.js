@@ -24,13 +24,17 @@ $(function() {
       $("#item_list").css("display", "");
     });
     $('#js-search-keyword').val('');
+    $("#item_detail").empty();
   });
 
   // アイテムの選択、キャンセル
   $(document).on('click', '.item', function() {
     const item = $('.item-data', this).data();
+    var item_image = '<div class="item-image"> <figure class="image is-5by4">'
+    var item_name = '<div class="item-name">'
+    var button = '<div class="field is-grouped"><p class="control"><button class="button is-success item-select">このアイテムを選択</button></p><p class="control"><button class="button back-to-page">検索結果に戻る</button></p></div>'
     $("#item_list").hide();
-    $("#item_detail").append(`商品名　${item.name}` + `<span class="detail-item-data" data-detail-item='{ "amazon_url":"${item.amazon_url}", "image":"${item.image}", "item_code":"${item.item_code}", "name":"${item.name}", "price":"${item.price}", "rakuten_url":"${item.rakuten_url}" }'></span>` + `<div class="button is-success item-select">このアイテムを選択</div>` + `<div class="button back-to-page">検索結果に戻る</div>`);
+    $("#item_detail").append(`<div class="columns"><div class="column">` + item_image + `<img src="${item.image}"></figure></div></div>` + `<div class="column">` + item_name + `<p>${item.name}</p></div>` +　`<br></br>` + button + `</div></div>` + `<span class="detail-item-data" data-detail-item='{ "amazon_url":"${item.amazon_url}", "image":"${item.image}", "item_code":"${item.item_code}", "name":"${item.name}", "price":"${item.price}", "rakuten_url":"${item.rakuten_url}" }'></span>`);
     $(item).remove();
   });
 
@@ -42,6 +46,7 @@ $(function() {
     var item3 = $("#post_items3").val();
     var item4 = $("#post_items4").val();
     // アイテム表示用のHTML変数
+    var columns = '<div class="columns is-marginless is-multiline is-mobile is-variable is-1-desktop is-1-mobile"></div>'
     var column = '<div class="column is-half-mobile is-one-third-desktop">'
     var item_image = '<div class="item-image"> <figure class="image is-5by4">'
     var item_name = '<div class="item-name">'
@@ -49,7 +54,7 @@ $(function() {
     // アイテムを5つまでフィールドに登録、表示
     if (item1 == "") {
       $("#post_items1").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
-      $("#item-results").append(column + item_image + `<img src="${select_item.image}"></figure></div>` + item_name + `<p>${select_item.name.substr(0, 40)}...</p></div>` + item_price + `<p>¥${select_item.price}</p></div></div>`);
+      $("#item-results").append(columns + column + item_image + `<img src="${select_item.image}"></figure></div>` + item_name + `<p>${select_item.name.substr(0, 40)}...</p></div>` + item_price + `<p>¥${select_item.price}</p></div></div>`);
     } else if (item1 != "" && item2 == "") {
       $("#post_items2").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
       $("#item-results").append(column + item_image + `<img src="${select_item.image}"></figure></div>` + item_name + `<p>${select_item.name.substr(0, 40)}...</p></div>` + item_price + `<p>¥${select_item.price}</p></div></div>`)

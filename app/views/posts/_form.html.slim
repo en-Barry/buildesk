@@ -3,9 +3,9 @@
   .field.is-horizontal
     .field-label.is-normal
       = f.label :images, 'デスク写真', class: 'label'
-    .field-body.columns
+    .field-body.columns.is-marginless
       .column
-        .content
+        .control
           #post-file-upload.file.has-name.is-fullwidth
             label.file-label.is-normal
               = f.file_field :images, multiple: true, accept: 'image/*', class: 'file-input'
@@ -16,12 +16,17 @@
                   | ファイルを選択
               span.file-name
                 | アップロードされてません
-        .content
-          dl
-            dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
-              | 画像形式: JPEG/PNG
-            dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
-              | 推奨サイズ: 4x3
+        dl
+          dt.help.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+            | 画像形式: JPEG/PNG
+          dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+            | 推奨サイズ: 4x3
+        / .content
+        /   dl
+        /     dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+        /       | 画像形式: JPEG/PNG
+        /     dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+        /       | 推奨サイズ: 4x3
       .column
         .media-content
           .media-right
@@ -63,24 +68,26 @@
             span.icon-text
               i.fas.fa-tags
               |  アイテムを選択する
+        p.help.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+          | アイテムは5つまで選択可能
 
           = f.hidden_field 'items1', multiple: true
           = f.hidden_field 'items2', multiple: true
           = f.hidden_field 'items3', multiple: true
           = f.hidden_field 'items4', multiple: true
           = f.hidden_field 'items5', multiple: true
-          / .tile.is-ancestor
-          /   .tile.is-parent.is-vertical
-          /     .tile.is-child
-  .field.is-horizontal
-    .field-label
-    .field-body
-      .field
-        .control
-          #item-results.columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
 
   .field.is-horizontal
     .field-label
+      <!-- Left empty for spacing -->
+    .field-body
+      .field
+        .control
+          #item-results
+
+  .field.is-horizontal
+    .field-label
+      <!-- Left empty for spacing -->
     .field-body
       .field
         .control
@@ -95,7 +102,7 @@
       button.delete[aria-label="close"]
     section.modal-card-body.item-search-box
       / 検索結果
-      #item_list.columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
+      #item_list.columns.is-marginless.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
       / 選択商品詳細
       #item_detail
     footer.modal-card-foot
