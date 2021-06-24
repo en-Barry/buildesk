@@ -1,7 +1,7 @@
 - set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
 
-.hero.is-small
-  .columns.is-centered.is-marginless
+section.hero.is-small
+  .columns.is-centered.is-gapless
     .column.is-three-quarters
       .hero-body
         .container
@@ -105,3 +105,4 @@ main
                   br
                     p.has-text-centered
                       | ログインするとコメントできます
+      br

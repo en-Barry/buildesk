@@ -2,8 +2,9 @@
 
 main.columns.is-centered.is-marginless
   .column.is-three-quarters
-    section.section#new_arrival
+    section#new_arrival
       .container
+        br
         .columns id="user-id-#{@user.id}"
           .column.is-two-fifths
             .card
@@ -54,4 +55,4 @@ main.columns.is-centered.is-marginless
                 = render partial: 'items/item_image', collection: @posts
               - else
                 = '投稿がありません'
-            
+        br      
