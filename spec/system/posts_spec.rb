@@ -73,7 +73,7 @@ RSpec.describe 'Posts', type: :system do
         end
 
         it '投稿が作成に成功する' do
-          fill_in '本文', with: 'test'
+          fill_in 'メモ', with: 'test'
           check 'Engineer'
           file_path = Rails.root.join('spec', 'fixtures', '20210227_005224.jpg')
           attach_file 'デスク写真', file_path
