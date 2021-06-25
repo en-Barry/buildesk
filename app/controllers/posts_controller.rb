@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @form = PostsForm.new(post_params, post: @post)
-    
+
     if @form.update
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
