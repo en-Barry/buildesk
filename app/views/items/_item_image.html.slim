@@ -7,4 +7,8 @@
             = image_tag item.image, alt: 'item-img'
         .card-content
           .content
-            = truncate(item.name, length: 30)
+            p
+              = truncate(item.name, length: 30)
+              br
+              small
+                = "¥#{number_to_currency(item.price, unit: '')}"

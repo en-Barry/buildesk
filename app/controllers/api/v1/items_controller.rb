@@ -3,18 +3,8 @@ class Api::V1::ItemsController < ApplicationController
 
   def new; end
 
-  # def search
-  #   if params[:keyword]
-  #     @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
-  #     #render json: { status: 'success', data: @items }
-  #   end
-  # end
-
   def search
     @items = search_by_rakuten(params[:keyword])
-    # contentsをjsonに返す
-    # contents = render_to_string(partial: 'item_list', locals: {items: search_by_rakuten(params[:keyword])})
-    # render json: { contents: contents }
   end
 
   private
@@ -23,18 +13,18 @@ class Api::V1::ItemsController < ApplicationController
     items = [] # メソッドが呼ばれる毎に空にしておく
 
     if params[:keyword]
-      results = RakutenWebService::Ichiba::Item.search(
+      results = RakutenWebService::Ichiba::Product.search(
         keyword: params[:keyword],
-        hits: 10,
-        imageFlag: 1
+        hits: 10
       )
       results.each do |result|
         item = {
-          item_code: result['itemCode'],
-          name: result['itemName'],
-          price: result['itemPrice'],
-          image: result['mediumImageUrls'][0].gsub('?_ex=128x128', ''),
-          rakuten_url: result['itemUrl']
+          item_code: result['productId'],
+          name: result['productName'],
+          maker: result['makerName'],
+          price: result['averagePrice'],
+          image: result['mediumImageUrl'].gsub('?_ex=128x128', ''),
+          rakuten_url: result['affiliateUrl']
         }
         items << item # ハッシュ化したデータを配列に入れる
       end

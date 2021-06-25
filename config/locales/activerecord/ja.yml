@@ -21,16 +21,17 @@ ja:
         role: '権限'
         created_at: '作成日時'
       post:
-        body: '本文'
+        body: 'メモ'
         area: 'ジャンル'
-        images: '画像'
+        images: 'デスク写真'
         category_ids: 'カテゴリー'
-        created_at: '作成日時'
+        items: 'アイテム'
       comment:
         body: 'コメント'
       item:
         item_code: '商品コード'
         name: '商品名'
+        maker: 'メーカー'
         price: '価格'
         image: '商品画像'
         rakuten_url: '楽天URL'
@@ -67,3 +68,4 @@ ja:
       posts_form:
         images: 'デスク写真'
         category_ids: 'カテゴリー'
+        items: 'アイテム'

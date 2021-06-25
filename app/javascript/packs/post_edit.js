@@ -26,7 +26,7 @@ $(function() {
   fileInput.onchange = () => {
     if (fileInput.files.length > 0) {
       const fileName = document.querySelector('#post-file-upload .file-name');
-      fileName.textContent = fileInput.files[0].name;
+      fileName.textContent = fileInput.files[0].name + ` /計${fileInput.files.length}枚`;
     }
   }
 });

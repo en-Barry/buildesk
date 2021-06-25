@@ -5,8 +5,8 @@ class PostsForm
 
   mount_uploader :image, PostImageUploader
 
-  attribute :body, :string
-  attribute :area, :integer
+  attribute :body
+  attribute :area
   attribute :images
   attribute :category_ids
   attribute :user_id, :integer
@@ -50,6 +50,7 @@ class PostsForm
       items_params&.each do |item|
         h_item = eval(item) # セキュリティホール的に非推奨らしい
         new_item = Item.new(h_item)
+
         if Item.exists?(item_code: h_item[:item_code])
           exist_item = Item.find_by(item_code: h_item[:item_code])
           post.item_tags.create!(item_id: exist_item.id)
@@ -104,7 +105,8 @@ class PostsForm
       area: @post.area,
       user_id: @post.user_id,
       images: @post.post_images.map(&:image),
-      category_ids: @post.post_categories
+      category_ids: @post.post_categories,
+      items: @post.items
     }
   end
 

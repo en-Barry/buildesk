@@ -1,29 +1,3 @@
-// //モーダル表示
-// .item-search-modal-wrapper {
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   background-color: rgba(0, 0, 0, 0.6);
-//   z-index: 100;
-//   display: none; //通常時は非表示
-// }
-
-// .modal {
-//   position: absolute;
-//   top: 10%;
-//   left: 10%;
-//   background-color: #e6ecf0;
-//   padding: 20px 0 40px;
-//   border-radius: 10px;
-//   width: 80%;
-//   height: auto;
-//   max-height: 80%; //スクロール時に必要
-//   text-align: center;
-//   overflow: auto; //スクロール時に必要
-// }
-
 .fa-times {
   position: absolute;
   top: 12px;
