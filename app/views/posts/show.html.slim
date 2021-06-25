@@ -18,7 +18,15 @@ section.hero.is-small
                 = t('activerecord.attributes.post.category_ids')
                 = '：'
                 = link_to category_path(@post.categories[0].name) do
-                  = @post.categories[0].name 
+                  = @post.categories[0].name
+                - if @post.categories[1].present?
+                  = ' / '
+                  = link_to category_path(@post.categories[1].name) do
+                    = @post.categories[1].name
+                - if @post.categories[2].present?
+                  = ' / '
+                  = link_to category_path(@post.categories[2].name) do
+                    = @post.categories[2].name
 
 main
   section.columns.is-centered.is-marginless

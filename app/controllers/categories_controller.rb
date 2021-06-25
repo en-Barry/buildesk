@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(name: params[:name])
-    @posts = @category.post_categories.includes(post: :user).order(created_at: :desc)
+    @posts = @category.posts.includes(:user, :post_images, :categories).order(created_at: :desc)
   end
 
   private

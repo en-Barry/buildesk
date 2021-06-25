@@ -1,12 +1,12 @@
-= content_for :title, t('.title')
-.container
-  h1
-    | Categories#show
-  p
-  h2 
-    = t("category.#{@category.name}")+'のデスク'
-  p
-  #new_arrival
-    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
-      - if @posts.present?
-        = render @posts
+- set_meta_tags title: t('.title'), og: { og_title: t('.og_title')}
+
+main.columns.is-centered.is-marginless
+  .column.is-three-quarters
+    section#new_arrival
+      .container
+        br
+        p.title.has-text-weight-bold
+          = t("category.#{@category.name}")+'のデスク'
+        .columns.is-multiline.is-variable.is-3-desktop.is-1-mobile
+          - if @posts.present?
+            = render partial: 'posts/post_3col', collection: @posts
