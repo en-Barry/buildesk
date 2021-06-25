@@ -22,7 +22,7 @@ class Api::V1::ItemsController < ApplicationController
           item_code: result['productId'],
           name: result['productName'],
           maker: result['makerName'],
-          price: result['usedExcludeMinPrice'],
+          price: result['averagePrice'],
           image: result['mediumImageUrl'].gsub('?_ex=128x128', ''),
           rakuten_url: result['affiliateUrl']
         }

@@ -21,10 +21,12 @@ main
                       | アイテムデータ
                   .card-content
                     .content
+                      p.is-size-6
+                        = @item.maker
                       p.has-text-weight-bold.is-size-5
                         = @item.name
-                      p.is-size-5
-                        = "￥#{number_to_currency(@item.price)}"
+                      p.is-size-6
+                        = "¥#{number_to_currency(@item.price, unit: '')}"
                       = link_to @item.rakuten_url, class: 'button is-link is-fullwidth', target: '_blank'
                         span.icon-text
                           span

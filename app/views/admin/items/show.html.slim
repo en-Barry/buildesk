@@ -27,6 +27,11 @@
               = @item.name
           tr
             th[scope="row"]
+              = t('activerecord.attributes.item.maker')
+            td
+              = @item.maker
+          tr
+            th[scope="row"]
               = t('activerecord.attributes.item.price')
             td
               = @item.price

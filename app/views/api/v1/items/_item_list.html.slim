@@ -9,5 +9,5 @@
           p
             = truncate(item[:name], length: 30)
           .has-text-right.is-size-6.has-text-grey-light
-            = "#{number_to_currency(item[:price])}"
-          span.item-data[data-item_code="#{item[:item_code]}" data-name="#{item[:name]}" data-price="#{item[:price]}" data-image="#{item[:image]}" data-rakuten_url="#{item[:rakuten_url]}" data-amazon_url="#{item[:amazon_url]}"]
+            = "¥#{number_to_currency(item[:price], unit: '')}"
+          span.item-data[data-item_code="#{item[:item_code]}" data-name="#{item[:name]}" data-maker="#{item[:maker]}" data-price="#{item[:price]}" data-image="#{item[:image]}" data-rakuten_url="#{item[:rakuten_url]}" data-amazon_url="#{item[:amazon_url]}"]
