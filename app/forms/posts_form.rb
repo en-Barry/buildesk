@@ -5,8 +5,8 @@ class PostsForm
 
   mount_uploader :image, PostImageUploader
 
-  attribute :body, :string
-  attribute :area, :integer
+  attribute :body
+  attribute :area
   attribute :images
   attribute :category_ids
   attribute :user_id, :integer
@@ -65,6 +65,7 @@ class PostsForm
   end
 
   def update
+    
     return false if invalid?
 
     ActiveRecord::Base.transaction do
@@ -105,7 +106,8 @@ class PostsForm
       area: @post.area,
       user_id: @post.user_id,
       images: @post.post_images.map(&:image),
-      category_ids: @post.post_categories
+      category_ids: @post.post_categories,
+      items: @post.items
     }
   end
 

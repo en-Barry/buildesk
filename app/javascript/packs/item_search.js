@@ -45,6 +45,7 @@ $(function() {
     var item2 = $("#post_items2").val();
     var item3 = $("#post_items3").val();
     var item4 = $("#post_items4").val();
+    var item5 = $("#post_items5").val();
     // アイテム表示用のHTML変数
     var card_image = '<div class="card-image"> <figure class="image is-5by4">'
     var card_content = '<div class="card-content"><div class="content">'
@@ -55,15 +56,16 @@ $(function() {
     } else if (item1 != "" && item2 == "") {
       $("#post_items2").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", maker: "${select_item.maker}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
       $("#item-results").append('<div class="column is-half-mobile is-one-third-desktop" id="item-id-2"><div class="card"><button class="delete" type="button" id="delete_button2"></button>' + card_image + `<img src="${select_item.image}"></figure></div>` + card_content + `<p>${select_item.name.substr(0, 20)}...</p>` + `<p>¥${select_item.price}</p></div></div>`)
-    } else if (item1 != "" && item2 == "" && item3 == "") {
+    } else if (item1 != "" && item2 !== "" && item3 == "") {
       $("#post_items3").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", maker: "${select_item.maker}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
       $("#item-results").append('<div class="column is-half-mobile is-one-third-desktop" id="item-id-3"><div class="card"><button class="delete" type="button" id="delete_button3"></button>' + card_image + `<img src="${select_item.image}"></figure></div>` + card_content + `<p>${select_item.name.substr(0, 20)}...</p>` + `<p>¥${select_item.price}</p></div></div>`)
-    } else if (item1 != "" && item2 == "" && item3 == "" && item4 == "") {
+    } else if (item1 != "" && item2 !== "" && item3 !== "" && item4 == "") {
       $("#post_items4").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", maker: "${select_item.maker}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
       $("#item-results").append('<div class="column is-half-mobile is-one-third-desktop" id="item-id-4"><div class="card"><button class="delete" type="button" id="delete_button4"></button>' + card_image + `<img src="${select_item.image}"></figure></div>` + card_content + `<p>${select_item.name.substr(0, 20)}...</p>` + `<p>¥${select_item.price}</p></div></div>`)
-    } else {
+    } else if (item1 != "" && item2 !== "" && item3 !== "" && item4 !== "" && item5 == "") {
       $("#post_items5").val(`{ item_code: "${select_item.item_code}", name: "${select_item.name}", maker: "${select_item.maker}", price: "${select_item.price}", image: "${select_item.image}", rakuten_url: "${select_item.rakuten_url}", amazon_url: "${select_item.amazon_url}" }`);
       $("#item-results").append('<div class="column is-half-mobile is-one-third-desktop" id="item-id-5"><div class="card"><button class="delete" type="button" id="delete_button5"></button>' + card_image + `<img src="${select_item.image}"></figure></div>` + card_content + `<p>${select_item.name.substr(0, 20)}...</p>` + `<p>¥${select_item.price}</p></div></div>`)
+    } else {
     };
     // モーダル表示の切り替え
     $(".modal").removeClass("is-active");

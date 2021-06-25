@@ -64,16 +64,17 @@ main
                       = render 'crud_menus', post: @post
                 .card-content
                   .content
-                    - if @post.body.present?
-                      = safe_join(@post.body.split("\n"),tag(:br))
-                    - else
-                      p.has-text-centered
-                        | No comment..
-                  p
-                    time
-                      = l @post.created_at, format: :short
+                    p
+                      - if @post.body.present?
+                        = safe_join(@post.body.split("\n"),tag(:br))
+                      - else
+                        p.has-text-centered
+                          | No comment..
+                    small.has-text-grey-light
+                      time
+                        = l @post.created_at, format: :short
                 footer.card-footer
-                  = link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.user.name}のデスク&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
+                  = link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.user.name}のデスクをチェック&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
                     span.icon-text
                       i.fab.fa-twitter
                       = 'シェアする'

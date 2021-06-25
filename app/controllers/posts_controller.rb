@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
   def update
     @form = PostsForm.new(post_params, post: @post)
-
+    
     if @form.update
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
@@ -72,7 +72,6 @@ class PostsController < ApplicationController
       { items3: [] },
       { items4: [] },
       { items5: [] }
-      # { items: [:item_code, :name, :image, :price, :rakuten_url, :amazon_url] }
     ).merge(user_id: current_user.id)
   end
 end
