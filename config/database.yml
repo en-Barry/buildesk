@@ -12,11 +12,13 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: root
-  host: 127.0.0.1
-  port: 3357
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  pool: 5
+  username: <%= ENV['AWS_BUILDESK_USERNAME'] %>
+  password: <%= ENV['AWS_BUILDESK_PASSWORD'] %>
+  host: <%= ENV['AWS_BUILDESK_HOST'] %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -50,6 +52,5 @@ test:
 #
 production:
   <<: *default
-  database: desktour_production
-  username: desktour
-  password: <%= ENV['DESKTOUR_DATABASE_PASSWORD'] %>
+  database: aws_buildesk_production
+ 
