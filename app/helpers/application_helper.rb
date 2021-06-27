@@ -9,7 +9,7 @@ module ApplicationHelper
       og: default_og,
       twitter: default_twitter_card,
       icon: [
-        { href: image_url('buildesk_favicon.png') }
+        { href: image_url('/images/buildesk_favicon.png') }
       ]
     }
   end
@@ -37,7 +37,7 @@ module ApplicationHelper
       title: :og_title,
       description: :description,
       url: request.url,
-      image: image_url('app_ogp.png')
+      image: image_url('/images/app_ogp.png')
     }
   end
 
