@@ -12,7 +12,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    @user.uuid ||= SecureRandom.alphanumeric(10)
+    
     if @user.save
       login(params[:user][:email], params[:user][:password])
       redirect_to root_path, success: t('.success')
@@ -25,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :description, :image, :uuid)
   end
 end
