@@ -16,7 +16,7 @@ header.is-dark.navbar.is-fixed-top[role="navigation" aria-label="main navigation
           a.navbar-link
             = truncate(current_user.name, length: 12)
           .navbar-dropdown.is-right
-            = link_to 'マイページ', user_path(current_user.id), class: 'navbar-item', data: { turbolinks: false }
+            = link_to 'マイページ', user_path(current_user), class: 'navbar-item', data: { turbolinks: false }
             = link_to 'プロフィール編集', edit_profile_path, class: 'navbar-item', data: { turbolinks: false }
             hr.navbar-divider
             = link_to t('defaults.logout'), logout_path, class: 'navbar-item', method: :delete
@@ -40,7 +40,7 @@ nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
       i.fa.fa-bookmark
       p.is-size-7
         | List
-    = link_to user_path(current_user.id), class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
+    = link_to user_path(current_user), class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       i.fa.fa-user
       p.is-size-7
         | Mypage 

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(uuid: params[:uuid])
     @posts = @user.posts.includes(:user, :items, :post_images).order(created_at: :desc)
   end
 

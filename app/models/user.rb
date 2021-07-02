@@ -50,4 +50,8 @@ class User < ApplicationRecord
   def unbookmark(post)
     bookmark_posts.delete(post)
   end
+
+  def to_param
+    uuid
+  end
 end
