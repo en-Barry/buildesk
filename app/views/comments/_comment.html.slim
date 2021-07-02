@@ -1,6 +1,6 @@
 article.media id="comment-#{comment.id}"
   figure.media-left
-    p.image.is-48x48
+    p.image.is-32x32
       = link_to user_path(comment.user), class: 'has-text-white' do
         = image_tag comment.user.image_url(:thumb), class: 'is-rounded'
   .media-content

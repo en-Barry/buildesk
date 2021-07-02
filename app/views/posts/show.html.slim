@@ -14,19 +14,9 @@ section.hero.is-small
               p.title.has-text-weight-bold.is-5
                 = link_to user_path(@post.user), class: 'has-text-white' do
                   = truncate(@post.user.name, length: 15)
-              p.subtitle.is-7.has-text-light
-                = t('activerecord.attributes.post.category_ids')
-                = '：'
-                = link_to category_path(@post.categories[0].name) do
-                  = @post.categories[0].name
-                - if @post.categories[1].present?
-                  = ' / '
-                  = link_to category_path(@post.categories[1].name) do
-                    = @post.categories[1].name
-                - if @post.categories[2].present?
-                  = ' / '
-                  = link_to category_path(@post.categories[2].name) do
-                    = @post.categories[2].name
+              p.subtitle.is-7
+                = link_to user_path(@post.user), class: 'has-text-grey-lighter' do
+                  = "@#{@post.user.uuid}"
 
 main
   section.columns.is-centered.is-marginless
@@ -34,28 +24,28 @@ main
       .container
         .tile.is-ancestor
           .tile.is-7.is-parent.is-vertical
-            .tile
+            /.tile
               .tile.is-vertical
-                .tile.is-child
-                  figure.image.is-4by3
-                    = image_tag @post.post_images.first.image_url(:main)
-                / デスクトップ表示用コメント欄
-                .tile.is-child.is-hidden-mobile
-                  p.title.has-text-weight-bold.is-5
-                    = t('activerecord.models.comment')
-                  #desktop_comments
-                    = render @comments
-                    - if logged_in?
-                      .media
-                        figure.media-left
-                          p.image.is-48x48
-                            = image_tag current_user.image_url(:thumb), class: 'is-rounded'
-                        .media-content
-                          = render 'comments/form', { post: @post, comment: @comment }
-                    - else
-                      br
-                        p.has-text-centered
-                          | ログインするとコメントできます
+            .tile.is-child
+              figure.image.is-4by3
+                = image_tag @post.post_images.first.image_url(:main)
+            / デスクトップ表示用コメント欄
+            .tile.is-child.is-hidden-mobile
+              p.title.has-text-weight-bold.is-5
+                = t('activerecord.models.comment')
+              #desktop_comments
+                = render @comments
+                - if logged_in?
+                  .media
+                    figure.media-left
+                      p.image.is-48x48
+                        = image_tag current_user.image_url(:thumb), class: 'is-rounded'
+                    .media-content
+                      = render 'comments/form', { post: @post, comment: @comment }
+                - else
+                  br
+                    p.has-text-centered
+                      | ログインするとコメントできます
 
           .tile.is-parent.is-vertical
             .tile.is-child
@@ -72,15 +62,30 @@ main
                       = render 'crud_menus', post: @post
                 .card-content
                   .content
+                    small.has-text-grey-light
+                      = t('activerecord.attributes.post.category_ids')
+                      = '：'
+                      = link_to category_path(@post.categories[0].name) do
+                        = @post.categories[0].name
+                      - if @post.categories[1].present?
+                        = ' / '
+                        = link_to category_path(@post.categories[1].name) do
+                          = @post.categories[1].name
+                      - if @post.categories[2].present?
+                        = ' / '
+                        = link_to category_path(@post.categories[2].name) do
+                          = @post.categories[2].name
+                    hr
                     p
                       - if @post.body.present?
                         = safe_join(@post.body.split("\n"),tag(:br))
                       - else
                         p.has-text-centered
                           | No comment..
+                    hr
                     small.has-text-grey-light
                       time
-                        = l @post.created_at, format: :short
+                        = l @post.created_at, format: :long
                 footer.card-footer
                   = link_to "https://twitter.com/share?url=#{request.url}&text=#{@post.user.name}のデスクをチェック&hashtags=Buildesk,mynewgear,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
                     span.icon-text
