@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_624_174_632) do
+ActiveRecord::Schema.define(version: 20_210_701_205_310) do
   create_table 'authentications', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
     t.integer 'user_id', null: false
     t.string 'provider', null: false
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20_210_624_174_632) do
     t.text 'description'
     t.string 'image'
     t.integer 'role', default: 0, null: false
+    t.string 'uuid', null: false
     t.index ['email'], name: 'index_users_on_email', unique: true
   end
 

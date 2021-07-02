@@ -20,6 +20,7 @@ ja:
         image: 'プロフィール画像'
         role: '権限'
         created_at: '作成日時'
+        uuid: 'アカウント名'
       post:
         body: 'メモ'
         area: 'ジャンル'

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
-  resources :users, only: %i[new create show]
+  resources :users, only: %i[new create show], param: :uuid
   resources :categories, only: %i[index show], param: :name
   resources :items, only: %i[show]
   resources :posts do

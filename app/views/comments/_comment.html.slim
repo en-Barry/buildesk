@@ -1,20 +1,19 @@
 article.media id="comment-#{comment.id}"
   figure.media-left
-    p.image.is-48x48
+    p.image.is-32x32
       = link_to user_path(comment.user), class: 'has-text-white' do
         = image_tag comment.user.image_url(:thumb), class: 'is-rounded'
   .media-content
     .content
       p
-        strong
-          = link_to user_path(comment.user), class: 'has-text-white' do
-            = comment.user.name
+        = link_to user_path(comment.user), class: 'has-text-white' do
+          strong
+            = truncate(comment.user.name, length: 12)
+          small.has-text-grey-lighter  
+            = " @#{comment.user.uuid} "
+            = " ･ #{time_ago_in_words(comment.created_at)}"
         br
         = safe_join(comment.body.split("\n"),tag(:br))
-        br    
-        small.has-text-grey-lighter.is-size-7
-          = time_ago_in_words(comment.created_at)
-          = "前"
   .media-right
     - if current_user&.own?(comment)
       = link_to comment_path(comment), method: :delete,

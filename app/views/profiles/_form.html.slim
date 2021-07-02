@@ -5,8 +5,17 @@
       = f.label :name
     .control.has-icons-left.has-icons-right
       = f.text_field :name, class: 'input'
-      span.icon.is-small.is-left
+      span.icon.is-left
         i.fas.fa-user
+      span.icon
+
+  .field
+    label.label
+      = f.label :uuid
+    .control.has-icons-left.has-icons-right
+      = f.text_field :uuid, class: 'input'
+      span.icon.is-left.has-text-weight-bold
+        | ＠
       span.icon
 
   .field
@@ -35,3 +44,5 @@
   .field.is-grouped
     .control
       = f.submit class: %w[button is-light has-text-weight-semibold is-rounded is-small]
+    .control
+      = link_to 'キャンセル', :back, class: %w[button is-dark has-text-weight-semibold is-rounded is-small]

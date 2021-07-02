@@ -24,7 +24,7 @@
             th[scope="row"]
               = t('activerecord.attributes.user.name')
             td
-              = @user.name
+              = truncate(@user.name, length: 20)
           tr
             th[scope="row"]
               = t('activerecord.attributes.user.image')

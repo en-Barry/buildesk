@@ -5,22 +5,26 @@ main.columns.is-centered.is-marginless
     section#new_arrival
       .container
         br
-        .columns id="user-id-#{@user.id}"
+        .columns id="user-id-#{@user.uuid}"
           .column.is-two-fifths
             .card
               .card-content
                 .media
                   .media-left
-                    figure.image.is-96x96
+                    figure.image.is-48x48
                       = image_tag @user.image.url(:thumb), class: 'is-rounded'
                   .media-content
-                    p.title.is-3.has-text-weight-bold
+                    p.title.is-4.has-text-weight-bold
                       = @user.name
                     p.subtitle.is-6
-                      = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false } if current_user == @user
-                    p
-                      = @user.description if @user.description.present?
-              footer.card-footer id="user-link-id-#{@user.id}"
+                      = "@#{@user.uuid}"
+                .content
+                  = @user.description if @user.description.present?
+                  br
+                  .has-text-right.is-size-7
+                    = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false } if current_user == @user
+                    
+              footer.card-footer id="user-link-id-#{@user.uuid}"
                 - if current_user == @user
                   = link_to likes_posts_path, class: 'card-footer-item'
                     span.icon-text
@@ -39,7 +43,7 @@ main.columns.is-centered.is-marginless
                       = ' Share'
           .column.is-half
             p.title.has-text-weight-bold.is-4
-              = "#{@user.name}のデスク遍歴"
+              = "#{truncate(@user.name, length: 12)}のデスク遍歴"
             .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
               - if @posts.present?
                 = render partial: 'posts/post_image', collection: @posts
@@ -47,7 +51,7 @@ main.columns.is-centered.is-marginless
                 = '投稿がありません'
             hr
             p.title.has-text-weight-bold.is-4
-              = "#{@user.name}のGear"
+              = "#{truncate(@user.name, length: 12)}のGear"
             p.subtitle.is-6
               | 投稿に紐づいたアイテム
             .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
