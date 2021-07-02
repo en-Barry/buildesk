@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.uuid ||= SecureRandom.alphanumeric(10)
-    
+
     if @user.save
       login(params[:user][:email], params[:user][:password])
       redirect_to root_path, success: t('.success')
