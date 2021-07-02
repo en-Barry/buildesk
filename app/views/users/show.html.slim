@@ -5,7 +5,7 @@ main.columns.is-centered.is-marginless
     section#new_arrival
       .container
         br
-        .columns id="user-id-#{@user.id}"
+        .columns id="user-id-#{@user.uuid}"
           .column.is-two-fifths
             .card
               .card-content
@@ -24,7 +24,7 @@ main.columns.is-centered.is-marginless
                   .has-text-right.is-size-7
                     = link_to 'プロフィールを編集', edit_profile_path, data: { turbolinks: false } if current_user == @user
                     
-              footer.card-footer id="user-link-id-#{@user.id}"
+              footer.card-footer id="user-link-id-#{@user.uuid}"
                 - if current_user == @user
                   = link_to likes_posts_path, class: 'card-footer-item'
                     span.icon-text

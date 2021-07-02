@@ -8,7 +8,7 @@
         .control
           #post-file-upload.file.has-name.is-fullwidth
             label.file-label.is-normal
-              = f.file_field :images, multiple: true, accept: 'image/*', class: 'file-input', required: true
+              = f.file_field :images, multiple: true, accept: 'image/*', class: 'file-input'
               = f.hidden_field :image_cache
               span.file-cta
                 span.file-icon
@@ -53,7 +53,7 @@
             = b.label class: 'checkbox has-text-weight-semibold' do
               = b.check_box + " #{b.text}　"
         p.help.has-text-grey-lighter.is-size-7
-          | デスク用途に近しいものを選択してください（必須）
+          | 利用者の属性に当てはまるものを選択してください（必須）
               
   .field.is-horizontal
     .field-label.is-normal
@@ -91,7 +91,7 @@
     .field-body
       .field
         .control
-          = f.submit '投稿する', class: %w[button is-light has-text-weight-semibold is-rounded]
+          = f.submit '投稿する', class: %w[button is-light has-text-weight-semibold is-rounded], id: 'submit-button'
   hr  
   p.has-text-centered.is-size-7.has-text-grey-light
     | *記載に関してはアップデート対応予定
