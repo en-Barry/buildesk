@@ -13,7 +13,7 @@ section.hero.is-small
             .media-content
               p.title.has-text-weight-bold.is-5
                 = link_to user_path(@post.user), class: 'has-text-white' do
-                  = @post.user.name
+                  = truncate(@post.user.name, length: 15)
               p.subtitle.is-7.has-text-light
                 = t('activerecord.attributes.post.category_ids')
                 = '：'

@@ -9,7 +9,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
         = image_tag current_user.image_url(:thumb), class: 'img-circle elevation-2'
       .info
         = link_to admin_user_path(current_user), class: 'd-block' do
-          = current_user.name
+          = truncate(current_user.name, length: 20)
     nav.mt-2
       ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
         li.nav-item

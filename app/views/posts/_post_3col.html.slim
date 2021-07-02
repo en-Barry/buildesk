@@ -12,7 +12,7 @@
                 = image_tag post_3col.user.image_url(:thumb), class: 'is-rounded'
             .media-content
               p.title.is-6.has-text-weight-semibold
-                = post_3col.user.name
+                = truncate(post_3col.user.name, length: 20)
               p.subtitle.is-6
                 = l post_3col.created_at, format: :short
             .media-right

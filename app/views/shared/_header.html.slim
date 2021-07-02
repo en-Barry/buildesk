@@ -14,7 +14,7 @@ header.is-dark.navbar.is-fixed-top[role="navigation" aria-label="main navigation
         = link_to '新規投稿', new_post_path, class: 'navbar-item', data: { turbolinks: false }
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link
-            = current_user.name
+            = truncate(current_user.name, length: 12)
           .navbar-dropdown.is-right
             = link_to 'マイページ', user_path(current_user.id), class: 'navbar-item', data: { turbolinks: false }
             = link_to 'プロフィール編集', edit_profile_path, class: 'navbar-item', data: { turbolinks: false }
