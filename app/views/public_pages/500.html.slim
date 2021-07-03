@@ -1,0 +1,29 @@
+- set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
+
+html.has-navbar-fixed-top
+header.is-dark.navbar.is-fixed-top[role="navigation" aria-label="main navigation"]
+  .container
+    .navbar-brand
+      .navbar-item
+        = link_to root_path, data: { turbolinks: false }
+          = image_tag('/images/buildesk_logo.png', size: '112x28')
+
+main
+  .container        
+    section.section
+      .columns.is-vcentered.is-marginless
+        .column.is-offset-1
+          .content
+            p.title.is-4.has-text-weight-bold.is-spaced
+              | サーバーエラーが発生しました。
+            p
+              | サーバーの問題でお探しのページを表示できません。
+              br
+              | 再度時間をおいてアクセスしてください。
+            br
+            .field
+              p.control
+                = link_to '戻る', :back, class: 'button is-primary has-text-weight-semibold', data: { turbolinks: false }
+        .column
+          br
+          = image_tag('/images/500_image.png')

@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
+gem 'hanmoto'
 
 # Database
 gem 'mysql2', '>= 0.4.4'
