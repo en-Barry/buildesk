@@ -1,0 +1,22 @@
+- set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
+
+main
+  .container        
+    section.section
+      .columns.is-vcentered.is-marginless
+        .column.is-offset-1
+          .content
+            p.title.is-4.has-text-weight-bold.is-spaced
+              | お探しのページは見つかりませんでした。
+            p.subtitle.is-6
+              | 理想のデスク環境は完成しましたか？
+              br
+              | あなたの知見を待っている人がたくさんいます。
+            br
+            .field.is-grouped
+              p.control
+                = link_to '戻る', :back, class: 'button is-primary has-text-weight-semibold', data: { turbolinks: false }
+              p.control
+                = link_to 'デスク/アイテムを投稿する', new_post_path, class: 'button is-primary is-inverted has-text-weight-semibold', data: { turbolinks: false }
+        .column
+          = image_tag('/images/404_image.png')
