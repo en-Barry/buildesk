@@ -1,0 +1,21 @@
+- set_meta_tags title: t('.title'), og: { og_title: t('.og_title') }
+
+main.columns.is-centered.is-marginless
+  .column.is-three-quarters
+    section#new_arrival
+      .container
+        br
+        .columns
+          .column.is-two-fifths
+            .card
+              .card-content
+                .media
+                  .media-left
+                    figure.image.is-48x48
+                      = image_tag '/images/user_logo_blue.png', class: 'is-rounded'
+                  .media-content
+                    p.title.is-4.has-text-weight-bold
+                      = 'Not found user'
+                    p.subtitle.is-6
+                      = '@正しいアカウント名を入力してください'
+                  

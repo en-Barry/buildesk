@@ -7,7 +7,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(uuid: params[:uuid])
-    @posts = @user.posts.includes(:user, :items, :post_images).order(created_at: :desc)
+    if @user.present?
+      @posts = @user.posts.includes(:user, :items, :post_images).order(created_at: :desc)
+    else
+      render 'non_user'
+    end
   end
 
   def create
