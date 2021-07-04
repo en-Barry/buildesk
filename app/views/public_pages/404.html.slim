@@ -15,7 +15,7 @@ main
         .column.is-offset-1
           .content
             p.title.is-4.has-text-weight-bold.is-spaced
-              | お探しのページは見つかりませんでした。
+              = t('.404 Not Found')
             p
               | URLに誤りがあるか、お探しのページは移動もしくは削除された可能性があります。
             p
@@ -25,7 +25,7 @@ main
             br
             .field.is-grouped
               p.control
-                = link_to '戻る', :back, class: 'button is-primary has-text-weight-semibold', data: { turbolinks: false }
+                = link_to t('defaults.back'), :back, class: 'button is-primary has-text-weight-semibold', data: { turbolinks: false }
               p.control
                 = link_to 'マイデスク/アイテムを投稿する', new_post_path, class: 'button is-primary is-inverted has-text-weight-semibold', data: { turbolinks: false }
         .column

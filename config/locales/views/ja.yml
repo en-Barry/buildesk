@@ -8,6 +8,7 @@ ja:
     like: 'いいね'
     bookmark: 'ブックマーク'
     unspecified: '指定なし'
+    back: '戻る'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
@@ -33,6 +34,8 @@ ja:
     show:
       title: "%{user}のデスク環境"
       og_title: '%{user}のデスク集'
+    non_user:
+      Please enter the correct account name: '@正しいアカウント名を入力してください'
   user_sessions:
     new:
       title: 'ログイン'
@@ -61,6 +64,11 @@ ja:
   items:
     show:
       title: 'アイテム詳細'
+  public_pages:
+    404:
+      404 Not Found: 'お探しのページは見つかりませんでした。'
+    500:
+      500 Internal Server Error: 'サーバーエラーが発生しました。'
   time:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
