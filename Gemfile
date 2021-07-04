@@ -8,9 +8,9 @@ gem 'rails', '6.0.3.5'
 # Assets
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'hanmoto'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
-gem 'hanmoto'
 
 # Database
 gem 'mysql2', '>= 0.4.4'
