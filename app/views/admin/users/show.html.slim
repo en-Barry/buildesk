@@ -27,6 +27,11 @@
               = truncate(@user.name, length: 20)
           tr
             th[scope="row"]
+              = t('activerecord.attributes.user.uuid')
+            td
+              = @user.uuid
+          tr
+            th[scope="row"]
               = t('activerecord.attributes.user.image')
             td
               = image_tag @user.image_url, size: '200x200'

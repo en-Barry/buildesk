@@ -23,7 +23,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
             p
               |  アイテム一覧
         li.nav-item
-          = link_to '#', class: "nav-link #{active_if('admin/posts')}" do
+          = link_to admin_posts_path, class: "nav-link #{active_if('admin/posts')}" do
             i.nav-icon.far.fa-file-image
             p
               |  投稿一覧

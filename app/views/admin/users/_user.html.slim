@@ -4,6 +4,8 @@ tr
   td
     = link_to user.name, admin_user_path(user)
   td
+    = user.uuid
+  td
     = user.role
   td
     = l(user.created_at, format: :short)

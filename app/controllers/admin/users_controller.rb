@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     @search = User.ransack(params[:q])
-    @users = @search.result(distinct: true)
+    @users = @search.result(distinct: true).order(created_at: :desc)
   end
 
   def show; end
@@ -26,10 +26,10 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(uuid: params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :role, :password, :password_confirmation, :image, :image_cache)
+    params.require(:user).permit(:name, :email, :role, :uuid, :password, :password_confirmation, :image, :image_cache)
   end
 end

@@ -1,0 +1,55 @@
+- set_meta_tags title: t('.title')
+
+.container
+  .row
+    .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+      h1
+        = t('.title')
+      .text-right.mb-3
+        = link_to '削除', admin_post_path(@post), method: :delete, class: %i[btn btn-danger], data: { confirm: t('defaults.message.delete_confirm') }
+      table.table.table-bordered.bg-white
+        tbody
+          tr
+            th[scope="row"]
+              | ID
+            td
+              = @post.id
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.post.area')
+            td
+              = @post.area
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.user.name')
+            td
+              = truncate(@post.user.name, length: 20)
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.user.uuid')
+            td
+              = @post.user.uuid
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.post.category_ids')
+            td
+              = @post.categories[0].name
+              br
+              = @post.categories[1].name if @post.categories[1].present?
+              br
+              = @post.categories[2].name if @post.categories[2].present?
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.post.images')
+            td
+              = image_tag @post.post_images.first.image_url(:main), size: '200x150'
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.post.body')
+            td
+              = @post.body
+          tr
+            th[scope="row"]
+              = t('activerecord.attributes.post.created_at')
+            td
+              = l(@post.created_at, format: :short)
