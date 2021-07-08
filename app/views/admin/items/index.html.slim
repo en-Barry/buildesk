@@ -17,14 +17,14 @@
             .col-auto
               = link_to 'アイテム追加', new_admin_item_path, class: 'btn btn-secondary'
               
-table.table.table-striped
-  thead
-    tr
-      th[scope="col"]
-        = 'id'
-      th[scope="col"]
-        = t('activerecord.attributes.item.name')
-      th[scope="col"]
-        = t('activerecord.attributes.item.created_at')
-  tbody
-    = render @items
+    table.table.table-striped
+      thead
+        tr
+          th[scope="col"]
+            = 'id'
+          th[scope="col"]
+            = t('activerecord.attributes.item.name')
+          th[scope="col"]
+            = t('activerecord.attributes.item.created_at')
+      tbody
+        = render @items
