@@ -8,8 +8,6 @@ class Admin::PostsController < Admin::BaseController
 
   def show; end
 
-  def edit; end
-
   def destroy
     @post.destroy
     redirect_to admin_posts_path, success: t('defaults.message.deleted', post: post.model_name.human)
