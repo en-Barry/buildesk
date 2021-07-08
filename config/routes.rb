@@ -35,5 +35,6 @@ Rails.application.routes.draw do
     root 'dashboards#index'
     resources :users, only: %i[index show edit update destroy], shallow: true
     resources :items, shallow: true
+    resources :posts, only: %i[index show edit update destroy], shallow: true
   end
 end

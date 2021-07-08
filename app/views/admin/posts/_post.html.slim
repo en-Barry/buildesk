@@ -1,0 +1,15 @@
+tr
+  th[scope="row"]
+    = post.id
+  td
+    = link_to post.user.name, admin_post_path(post)
+  td
+    = link_to post.user.uuid, admin_post_path(post)
+  td
+    = post.categories[0].name
+  td
+    = post.area
+  td
+    = l(post.created_at, format: :short)
+  td
+    = link_to '削除', admin_post_path(post), method: :delete, class: %i[btn btn-danger], data: { confirm: t('defaults.message.delete_confirm') }
