@@ -9,6 +9,7 @@ nav.is-dark.navbar[role="navigation" aria-label="main navigation"]
         span[aria-hidden="true"] 
     #navMenu.navbar-menu
       .navbar-end
+        = link_to t('posts.index.title'), posts_path, class: 'navbar-item', data: { turbolinks: false }
         .navbar-item
           = link_to t('defaults.login'), login_path, class: 'button is-rounded is-primary is-inverted has-text-weight-semibold', data: { turbolinks: false }
 
