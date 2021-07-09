@@ -11,6 +11,6 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
     region: 'ap-northeast-1'
   }
-  config.fog_directory  = 'buildesk-bucket'
+  config.fog_directory = 'buildesk-bucket'
   # config.asset_host = 'https://image.buildesk.app'
 end
