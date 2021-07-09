@@ -15,7 +15,7 @@ main
         .column
           h1.title.is-3.has-text-weight-bold
             = t('.New Arrival')
-          .tile.is-ancestor
+          .tile.is-ancestor.columns
             - if @posts.present?
               = render @posts
           p.has-text-right

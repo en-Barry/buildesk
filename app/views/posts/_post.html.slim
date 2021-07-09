@@ -1,10 +1,10 @@
-.tile.is-parent
+.tile.is-parent.column.is-one-quarter
   .card
     div id="post-id-#{post.id}"
       = link_to post_path(post)
         .card-image
           figure.image
-            = image_tag post.post_images.first.image_url(:thumb), alt: 'post-img'
+            = image_tag post.post_images.first.image_url(:main), size: '1290x960', alt: 'post-img'
         .card-content
           .media
             .media-left
