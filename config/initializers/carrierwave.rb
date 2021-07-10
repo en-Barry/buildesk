@@ -12,5 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
   config.fog_directory = 'buildesk-bucket'
-  # config.asset_host = 'https://image.buildesk.app'
+  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
+  config.asset_host = 'https://image.buildesk.app'
 end
