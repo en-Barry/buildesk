@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
+  before_destroy :destroy_image_s3
 
   mount_uploader :image, UserImageUploader
 
@@ -53,5 +54,15 @@ class User < ApplicationRecord
 
   def to_param
     uuid
+  end
+
+  private
+
+  def destroy_image_s3
+    image.remove!
+    image.thumb.remove!
+  rescue Excon::Errors::Error => error
+    puts "Something gone wrong"
+    false
   end
 end
