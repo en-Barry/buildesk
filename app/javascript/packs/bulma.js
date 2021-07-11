@@ -7,6 +7,7 @@ $(document).ready(function() {
     $(".navbar-menu").toggleClass("is-active");
   });
 
+  // 投稿の編集・削除ボタンの表示
   $(document).on('click', '.dropdown-trigger', function() {
     $(".dropdown").toggleClass("is-active");
   });
