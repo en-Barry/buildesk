@@ -47,10 +47,6 @@ class PostsController < ApplicationController
     redirect_to root_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
-  def likes
-    @like_posts = current_user.like_posts.includes(:user, :post_images).order(created_at: :desc)
-  end
-
   def bookmarks
     @bookmark_posts = current_user.bookmark_posts.includes(:user, :post_images).order(created_at: :desc)
   end

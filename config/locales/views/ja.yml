@@ -56,7 +56,7 @@ ja:
     likes:
       title: 'いいねした投稿'
     bookmarks:
-      title: 'ブックマークした投稿'
+      title: '保存した投稿'
   categories:
     show:
       title: 'カテゴリー別投稿一覧'
