@@ -22,7 +22,7 @@ section.hero.is-small
                 .dropdown.is-right
                   .dropdown-trigger
                     span.icon.is-medium
-                      i.fas.fa-angle-down.fa-lg[aria-hidden="true"]
+                      i.fas.fa-ellipsis-v[aria-hidden="true"]
                   #dropdown-menu.dropdown-menu[role="menu"]
                     .dropdown-content
                       = link_to t('defaults.edit'), edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'dropdown-item'
