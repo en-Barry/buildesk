@@ -14,7 +14,7 @@ section.hero.is-small
               p.title.has-text-weight-bold.is-5
                 = link_to user_path(@post.user), class: 'has-text-white' do
                   = truncate(@post.user.name, length: 15)
-              p.subtitle.is-7
+              p.subtitle.is-6
                 = link_to user_path(@post.user), class: 'has-text-grey-lighter' do
                   = "@#{@post.user.uuid}"
             .media-right
