@@ -17,6 +17,16 @@ section.hero.is-small
               p.subtitle.is-7
                 = link_to user_path(@post.user), class: 'has-text-grey-lighter' do
                   = "@#{@post.user.uuid}"
+            .media-right
+              - if current_user&.own?(@post)
+                .dropdown.is-right
+                  .dropdown-trigger
+                    span.icon.is-medium
+                      i.fas.fa-angle-down.fa-lg[aria-hidden="true"]
+                  #dropdown-menu.dropdown-menu[role="menu"]
+                    .dropdown-content
+                      = link_to t('defaults.edit'), edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'dropdown-item'
+                      = link_to t('defaults.delete'), post_path(@post), id: "button-delete-#{@post.id}", class: 'dropdown-item', method: :delete, data: { confirm: t('defaults.message.delete_confirm') }
 
 main
   section.columns.is-centered.is-marginless
@@ -54,12 +64,13 @@ main
                   p.card-header-title.is-size-5
                     | デスクメモ
                   .card-header-icon
-                    span.icon
-                      = render 'likes/like', post: @post
-                    span.icon
+                    span.icon.is-medium
                       = render 'bookmarks/bookmark', post: @post
-                    - if current_user&.own?(@post)
-                      = render 'crud_menus', post: @post
+                    span.icon-text
+                      span.icon.is-medium
+                        = render 'likes/like', post: @post
+                      span
+                        = @like_count
                 .card-content
                   .content
                     small.has-text-grey-light
@@ -103,7 +114,7 @@ main
                     p.has-text-centered
                       | Not registered..
           / モバイル表示用コメント欄
-          .tile.is-parent.is-hidden-desktop
+          .tile.is-parent.is-hidden-tablet
             .tile.is-child
               p.title.has-text-weight-bold.is-5
                 = t('activerecord.models.comment')

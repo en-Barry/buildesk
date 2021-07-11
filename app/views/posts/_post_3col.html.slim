@@ -3,8 +3,8 @@
     div id="post-id-#{post_3col.id}"
       = link_to post_path(post_3col)
         .card-image
-          figure.image
-            = image_tag post_3col.post_images.first.image_url(:thumb), alt: 'post-img'
+          figure.image.is-4by3
+            = image_tag post_3col.post_images.first.image_url(:main), alt: 'post-img'
         .card-content
           .media
             .media-left
@@ -12,10 +12,10 @@
                 = image_tag post_3col.user.image_url(:thumb), class: 'is-rounded'
             .media-content
               p.title.is-6.has-text-weight-semibold
-                = truncate(post_3col.user.name, length: 20)
-              p.subtitle.is-6
+                = truncate(post_3col.user.name, length: 10)
+              p.subtitle.is-7
                 = l post_3col.created_at, format: :short
             .media-right
-              span.tag.is-light.is-rounded
+              span.tag.is-light.is-rounded.is-hidden-mobile
                 .is-6
                   = post_3col.categories[0].name

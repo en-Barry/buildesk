@@ -9,6 +9,8 @@ ja:
     bookmark: 'ブックマーク'
     unspecified: '指定なし'
     back: '戻る'
+    edit: '編集'
+    delete: '削除'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"

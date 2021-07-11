@@ -9,6 +9,6 @@ main.columns.is-centered.is-marginless
           = t('.title')
         .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
           - if @posts.present?
-            = render partial: 'post_image', collection: @posts
+            = render partial: 'post_3col', collection: @posts
           - else
             = '投稿がありません'
