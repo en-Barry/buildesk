@@ -9,8 +9,8 @@ class PostImage < ApplicationRecord
     image.remove!
     image.thumb.remove!
     image.main.remove!
-  rescue Excon::Errors::Error => error
-    puts "Something gone wrong"
+  rescue Excon::Errors::Error => e
+    puts 'Something gone wrong'
     false
   end
 end

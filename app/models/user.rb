@@ -61,8 +61,8 @@ class User < ApplicationRecord
   def destroy_image_s3
     image.remove!
     image.thumb.remove!
-  rescue Excon::Errors::Error => error
-    puts "Something gone wrong"
+  rescue Excon::Errors::Error => e
+    puts 'Something gone wrong'
     false
   end
 end
