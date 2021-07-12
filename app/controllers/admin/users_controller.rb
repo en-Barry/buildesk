@@ -20,7 +20,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     @user.destroy
-    redirect_to admin_root_path(@user), success: t('defaults.message.deleted', item: User.model_name.human)
+    redirect_to admin_users_path, success: t('defaults.message.deleted', item: User.model_name.human)
   end
 
   private

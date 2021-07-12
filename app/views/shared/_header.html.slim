@@ -4,13 +4,14 @@ header.is-dark.navbar.is-fixed-top[role="navigation" aria-label="main navigation
     .navbar-brand
       .navbar-item
         = link_to root_path, data: { turbolinks: false }
-          = image_tag('/images/buildesk_logo.png', size: '112x28')
+          = image_tag('https://image.buildesk.app/images/buildesk_logo.png', size: '112x28')
       a.navbar-burger[role="button" aria-label="menu" aria-expanded="false" data-target="navMenu"]
         span[aria-hidden="true"]
         span[aria-hidden="true"]
         span[aria-hidden="true"] 
     #navMenu.navbar-menu
       .navbar-end
+        = link_to 'デスク一覧', posts_path, class: 'navbar-item', data: { turbolinks: false }
         = link_to '新規投稿', new_post_path, class: 'navbar-item', data: { turbolinks: false }
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link

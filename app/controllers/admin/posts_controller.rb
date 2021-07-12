@@ -10,7 +10,7 @@ class Admin::PostsController < Admin::BaseController
 
   def destroy
     @post.destroy
-    redirect_to admin_posts_path, success: t('defaults.message.deleted', post: post.model_name.human)
+    redirect_to admin_posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
   private

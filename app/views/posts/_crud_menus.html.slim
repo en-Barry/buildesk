@@ -1,6 +1,6 @@
-span.icon
+span.icon.is-medium
   = link_to edit_post_path(post), id: "button-edit-#{post.id}" do
     i.fas.fa-pen
-span.icon
+span.icon.is-medium
   = link_to post_path(post), id: "button-delete-#{post.id}", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do
     i.fas.fa-trash

@@ -26,17 +26,12 @@ main.columns.is-centered.is-marginless
                     
               footer.card-footer id="user-link-id-#{@user.uuid}"
                 - if current_user == @user
-                  = link_to likes_posts_path, class: 'card-footer-item'
-                    span.icon-text
-                      i.fas.fa-heart
-                      span
-                        = ' Like'
                   = link_to bookmarks_posts_path, class: 'card-footer-item'
                     span.icon-text
                       i.fa.fa-bookmark
                       span
                         = ' List'
-                = link_to "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
+                = link_to "https://twitter.com/share?url=#{request.url}&text=#{@user.name}のデスク＆アイテム集&hashtags=Buildesk,デスク周り,デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
                   span.icon-text
                     i.fab.fa-twitter
                     span
@@ -44,19 +39,24 @@ main.columns.is-centered.is-marginless
           .column.is-half
             p.title.has-text-weight-bold.is-4
               = "#{truncate(@user.name, length: 12)}のデスク遍歴"
-            .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-              - if @posts.present?
+            - if @posts.present?
+              .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
                 = render partial: 'posts/post_image', collection: @posts
-              - else
+            - else
+              br
+              p.has-text-centered
                 = '投稿がありません'
+              br
             hr
             p.title.has-text-weight-bold.is-4
-              = "#{truncate(@user.name, length: 12)}のGear"
+              = "#{truncate(@user.name, length: 12)}のGears"
             p.subtitle.is-6
               | 投稿に紐づいたアイテム
-            .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-              - if @posts.present?
+            - if @posts.present?
+              .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
                 = render partial: 'items/item_image', collection: @posts
-              - else
+            - else
+              br
+              p.has-text-centered
                 = '投稿がありません'
         br      

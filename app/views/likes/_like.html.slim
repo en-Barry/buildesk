@@ -1,6 +1,6 @@
 - if current_user&.liked?(post)
   = link_to like_path(post), method: :delete, id: "button-like-#{post.id}" do
-    i.fas.fa-heart
+    i.fas.fa-heart.fa-lg
 - else 
   = link_to post_likes_path(post), method: :post, id: "button-like-#{post.id}" do
-    i.far.fa-heart
+    i.far.fa-heart.fa-lg

@@ -9,11 +9,12 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   
     = display_meta_tags(default_meta_tags)
-  body
+  body.site
     - if logged_in?
       = render 'shared/header'
     - else
       = render 'shared/before_login_header'
     = render 'shared/flash_message'
-    = yield
+    .site-content
+      = yield
     = render 'shared/footer'

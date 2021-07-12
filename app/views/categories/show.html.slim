@@ -7,6 +7,6 @@ main.columns.is-centered.is-marginless
         br
         p.title.has-text-weight-bold
           = t("category.#{@category.name}")+'のデスク'
-        .columns.is-multiline.is-variable.is-3-desktop.is-1-mobile
+        .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
           - if @posts.present?
             = render partial: 'posts/post_3col', collection: @posts

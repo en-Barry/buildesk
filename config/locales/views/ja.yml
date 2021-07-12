@@ -9,6 +9,8 @@ ja:
     bookmark: 'ブックマーク'
     unspecified: '指定なし'
     back: '戻る'
+    edit: '編集'
+    delete: '削除'
     message:
       created: "%{item}しました"
       not_created: "%{item}できません"
@@ -19,7 +21,7 @@ ja:
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'
-    Writer: 'ライター / エディター'
+    Writer: 'ライター / イラストレーター'
     Designer: 'デザイナー / イラストレーター'
     Director: 'ディレクター / マーケター'
     Other: 'その他'
@@ -54,7 +56,7 @@ ja:
     likes:
       title: 'いいねした投稿'
     bookmarks:
-      title: 'ブックマークした投稿'
+      title: '保存した投稿'
   categories:
     show:
       title: 'カテゴリー別投稿一覧'

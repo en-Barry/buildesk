@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order(created_at: :asc)
+    @like_count = @post.likes.count
   end
 
   def create
@@ -44,10 +45,6 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
     redirect_to root_path, success: t('defaults.message.deleted', item: Post.model_name.human)
-  end
-
-  def likes
-    @like_posts = current_user.like_posts.includes(:user, :post_images).order(created_at: :desc)
   end
 
   def bookmarks

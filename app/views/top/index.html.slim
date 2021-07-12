@@ -13,10 +13,73 @@ main
     section.section#new_arrival
       .columns.is-marginless
         .column
-          h1.title.is-3.has-text-weight-bold
+          h1.title.has-text-weight-bold
             = t('.New Arrival')
-          .tile.is-ancestor
+          .tile.is-ancestor.columns
             - if @posts.present?
               = render @posts
           p.has-text-right
             = link_to t('.show more'), posts_path
+
+      br
+      .columns.is-marginless
+        .column
+          h1.title.has-text-weight-bold
+            = 'カテゴリー'
+          .columns
+            .column.is-one-third.has-text-centered
+              = link_to category_path(Category.find(1).name)
+                .img-on-moji
+                  figure.image.is-3by1
+                    = image_tag('https://image.buildesk.app/images/engineer-image-bg.png')
+                  p.is-size-4.has-text-weight-bold.has-text-white
+                    | Engineer
+            .column.has-text-centered
+              = link_to category_path(Category.find(2).name)
+                .img-on-moji
+                  figure.image.is-3by1
+                    = image_tag('https://image.buildesk.app/images/writer-image-bg.png')
+                  p.is-size-4.has-text-weight-bold.has-text-white
+                    | Writer
+            .column.has-text-centered
+              = link_to category_path(Category.find(3).name)
+                .img-on-moji
+                  figure.image.is-3by1
+                    = image_tag('https://image.buildesk.app/images/mediacreator-image-bg.png')
+                  p.is-size-4.has-text-weight-bold.has-text-white
+                    | Media Creator
+
+      br
+      .columns.is-marginless
+        .column
+          h1.title.has-text-weight-bold
+            = "What's Buildesk"
+          .columns
+            .column.is-one-third.has-text-centered
+              .content
+                figure.image.is-16by9
+                  = image_tag('https://image.buildesk.app/images/desk_sample.jpg')
+                p.title.is-5.has-text-weight-semibold
+                  = '参考になるデスクを見つけよう'
+                p.is-size-7.has-text-grey-lighter
+                  = '見返したい投稿は保存可能。「エンジニア」「メディアクリエイター」など、カテゴリー別でも探せます。'
+                button.button.is-primary
+                  = link_to 'デスク一覧', posts_path, class: 'has-text-white', data: { turbolinks: false }
+            .column.has-text-centered
+              .content
+                figure.image.is-16by9
+                  = image_tag('https://image.buildesk.app/images/item_sample.jpg')
+                p.title.is-5.has-text-weight-semibold
+                  = '気になるアイテムがすぐ分かる！'
+                p.is-size-7.has-text-grey-lighter
+                  = 'デスクに使われているアイテムのメーカーや価格が分かるので、調べる手間が省けます。アイテムの詳細ページでは、同じアイテムが使われている投稿一覧を見ることができます。'
+            .column.has-text-centered
+              .content
+                figure.image.is-16by9
+                  = image_tag('https://image.buildesk.app/images/photo_upload.jpg')
+                p.title.is-5.has-text-weight-semibold
+                  = '自分のデスクも登録しよう'
+                p.is-size-7.has-text-grey-lighter
+                  = 'デスク周りを一新したときや、My new gearしたときに。使っているアイテムも登録し、みんなにオススメを紹介しましょう。また、マイページではデスク遍歴を楽しむこともできます。'
+                button.button.is-primary
+                  = link_to '新規投稿', new_post_path, class: 'has-text-white', data: { turbolinks: false }

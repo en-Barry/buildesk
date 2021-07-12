@@ -62,9 +62,11 @@ main.columns.is-centered.section.is-marginless
           .field.is-horizontal
             .field-label
             .field-body
-              .field
-                .control
+              .field.is-grouped
+                p.control
                   = f.submit '変更を保存する', class: %w[button is-light has-text-weight-semibold is-rounded]
+                p.control
+                = link_to t('defaults.back'), :back, class: 'button is-primary has-text-weight-semibold  is-rounded', data: { turbolinks: false }
 
           hr  
             p.has-text-centered.is-size-7.has-text-grey-light

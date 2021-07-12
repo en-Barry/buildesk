@@ -29,11 +29,11 @@
             i.fas.fa-upload
           span.file-label
             | ファイルを選択
-    = f.hidden_field :image_cache
+    p.help.has-text-grey-lighter.is-size-7
+      | 画像は1x1でリサイズされます
     figure.image.is-96x96
-      = image_tag @user.image.url(:thumb),
-                  class: 'is-rounded',
-                  id: 'preview'
+      = image_tag(@user.image.url(:thumb), id: 'preview')
+    = f.hidden_field :image_cache
 
   .field
     label.label
