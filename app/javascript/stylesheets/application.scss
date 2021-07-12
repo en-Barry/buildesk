@@ -1,3 +1,20 @@
-// 追加ファイル
+/* 追加ファイル */
 @import 'item_search_modal';
 @import 'bulma_override';
+
+
+/* 画像の上に文字を重ねる */
+.img-on-moji{
+  position: relative;/*相対配置*/
+  }
+ 
+.img-on-moji p {
+  position: absolute;/*絶対配置*/
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
