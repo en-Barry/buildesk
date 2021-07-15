@@ -5,9 +5,9 @@ html
     = csp_meta_tag
 
     meta[name="viewport" content="width=device-width, initial-scale=1"]
+
     = stylesheet_link_tag "https://unpkg.com/bulmaswatch/darkly/bulmaswatch.min.css"
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  
+    
     = display_meta_tags(default_meta_tags)
   body.site
     - if logged_in?
@@ -18,3 +18,5 @@ html
     .site-content
       = yield
     = render 'shared/footer'
+
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'defer': 'defer'
