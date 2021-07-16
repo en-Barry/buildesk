@@ -1,0 +1,20 @@
+- set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
+
+html.has-navbar-fixed-top
+header.is-dark.navbar.is-fixed-top[role="navigation" aria-label="main navigation"]
+  .container
+    .navbar-brand
+      .navbar-item
+        = link_to root_path, data: { turbolinks: false }
+          = image_tag('/images/buildesk_logo.png', size: '112x28')
+
+main
+  .container        
+    section.section
+      .columns.is-vcentered.is-marginless
+        .column.is-offset-1
+          .content
+            p.title.is-4.has-text-weight-bold.is-spaced
+              = '利用規約'
+            p
+              = render 'shared/user_policy' 

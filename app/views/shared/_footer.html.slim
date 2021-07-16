@@ -1,7 +1,8 @@
 footer.footer
   .content.has-text-centered
-    p
+    p  
       | Copyright © 
-      strong
-        = link_to root_path, class: 'has-text-light'
-          | Buildesk
+      strong  = link_to 'Buildesk', root_path, class: 'has-text-light'
+    
+    p = link_to '利用規約', user_policy_path, class: 'has-text-light'
+    p プライバシーポリシー
