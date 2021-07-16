@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
   get 'user_policy', to: 'top#user_policy'
+  get 'privacy_policy', to: 'top#privacy_policy'
 
   resources :users, only: %i[new create show], param: :uuid
   resources :categories, only: %i[index show], param: :name

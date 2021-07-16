@@ -1,0 +1,12 @@
+- set_meta_tags og: { og_title: t('.og_title'), description: t('.og_description') }
+
+main
+  .container        
+    section.section
+      .columns.is-marginless
+        .column
+          .content
+            p.title.is-4.has-text-weight-bold.is-spaced
+              = 'プライバシーポリシー'
+            p
+              = render 'shared/privacy_policy'
