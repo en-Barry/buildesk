@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
   before_destroy :destroy_image_s3
+  before_create :set_uuid
 
   mount_uploader :image, UserImageUploader
 
@@ -65,5 +66,9 @@ class User < ApplicationRecord
   rescue Excon::Errors::Error => e
     puts 'Something gone wrong'
     false
+  end
+
+  def set_uuid
+    self.uuid ||= SecureRandom.alphanumeric(10)
   end
 end

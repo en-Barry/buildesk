@@ -20,8 +20,6 @@ class OauthsController < ApplicationController
     else
       begin
         @user = create_from(provider)
-        @user.uuid = SecureRandom.alphanumeric(10) if @user.uuid.include?('@')
-        @user.save
         reset_session
         auto_login(@user)
         redirect_to root_path, success: "#{provider.titleize}でログインしました"

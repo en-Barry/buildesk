@@ -1,5 +1,9 @@
 class ChangeColumnNullTrueForEmailOnUsers < ActiveRecord::Migration[6.0]
-  def change
-    change_column :users, :email, :string, null: :true
+  def up
+    change_column :users, :email, :string, null: false, default: ''
+  end
+
+  def down
+    change_column :users, :email, :string, null: true
   end
 end

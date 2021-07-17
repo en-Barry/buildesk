@@ -124,7 +124,6 @@ Rails.application.config.sorcery.configure do |config|
   end
   config.twitter.user_info_mapping = {
     name: 'name',
-    email: 'email',
     description: 'description',
     uuid: 'screen_name',
     remote_image_url: 'profile_image_url_https'
