@@ -6,8 +6,6 @@ ruby '2.6.6'
 gem 'rails', '6.0.3.5'
 
 # Assets
-gem 'bootstrap-sass'
-gem 'font-awesome-sass'
 gem 'hanmoto'
 gem 'sass-rails'
 gem 'webpacker', '~> 4.0'
@@ -37,6 +35,7 @@ gem 'faker'
 gem 'seed-fu'
 
 # Uploader
+gem 'asset_sync'
 gem 'carrierwave', '2.1.1'
 gem 'fog-aws'
 

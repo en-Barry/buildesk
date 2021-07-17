@@ -33,3 +33,20 @@ main.columns.is-centered.section.is-marginless
                     i.far.fa-envelope
                   span
                     | メールアドレスで登録する
+        .has-text-centered
+          small.modal-link.has-text-link
+            | 利用規約
+          small
+            | に同意いただいた上で、会員登録にお進みください。
+
+        .modal
+          .modal-background
+          .modal-card
+            header.modal-card-head
+              .modal-card-title.has-text-weight-semibold
+                | 利用規約
+              button.delete[aria-label="close"]
+            section.modal-card-body
+              = render 'shared/user_policy'
+            footer.modal-card-foot
+              button.button.modal-link 閉じる

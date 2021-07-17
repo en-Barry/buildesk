@@ -14,6 +14,7 @@ class OauthsController < ApplicationController
     end
 
     @user = login_from(provider)
+
     if @user
       redirect_to root_path, success: "#{provider.titleize}でログインしました"
     else

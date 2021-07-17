@@ -7,8 +7,10 @@ main.columns.is-centered.is-marginless
         br
         p.title.has-text-weight-bold
           = t('.title')
-        .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
-          - if @posts.present?
+        - if @posts.present?
+          .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
             = render partial: 'post_3col', collection: @posts
-          - else
+        - else
+          br
+          p.has-text-centered
             = '投稿がありません'

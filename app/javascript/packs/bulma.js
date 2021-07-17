@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
   // Check for click events on the navbar burger icon
   $(document).on('click', '.navbar-burger', function() {
@@ -11,4 +11,10 @@ $(document).ready(function() {
   $(document).on('click', '.dropdown-trigger', function() {
     $(".dropdown").toggleClass("is-active");
   });
+
+  // モーダルの表示
+  $(document).on('click', '.modal-link', function() {
+    $(".modal").toggleClass("is-active");
+  });
+
 });

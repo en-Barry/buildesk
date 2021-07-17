@@ -1,5 +1,3 @@
-const { Collapse } = require("bootstrap");
-
 $(function() {
 
   // モーダルの表示・非表示
