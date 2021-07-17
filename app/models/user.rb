@@ -14,7 +14,8 @@ class User < ApplicationRecord
   has_many :bookmark_posts, through: :bookmarks, source: :post
 
   validates :name, presence: true, length: { maximum: 50 } # Twitterに準拠
-  validates :email, uniqueness: { case_sensitive: true }, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, uniqueness: { case_sensitive: true }, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { in: 8..30 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
