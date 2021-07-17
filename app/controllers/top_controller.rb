@@ -5,9 +5,7 @@ class TopController < ApplicationController
     @posts = Post.all.includes(:user, :post_images, :categories).order(created_at: :desc).limit(4)
   end
 
-  def user_policy
-  end
+  def user_policy; end
 
-  def privacy_policy
-  end
+  def privacy_policy; end
 end
