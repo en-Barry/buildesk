@@ -170,7 +170,8 @@ Rails.application.config.sorcery.configure do |config|
   config.google.user_info_mapping = {
     email: 'email',
     name: 'name',
-    remote_image_url: 'picture'
+    remote_image_url: 'picture',
+    uuid: 'email'
   }
   config.google.scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile'
   #
