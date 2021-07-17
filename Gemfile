@@ -35,9 +35,9 @@ gem 'faker'
 gem 'seed-fu'
 
 # Uploader
+gem 'asset_sync'
 gem 'carrierwave', '2.1.1'
 gem 'fog-aws'
-gem 'asset_sync'
 
 # Storage
 gem 'mini_magick', '4.11.0'
