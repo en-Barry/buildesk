@@ -1,4 +1,4 @@
-- set_meta_tags title: t('.title'), og: { og_title: t('.og_title')}
+- set_meta_tags title: t('.title'), og: { title: t('.og_title', category: t("category.#{@category.name}"))}
 
 main.columns.is-centered.is-marginless
   .column.is-three-quarters
