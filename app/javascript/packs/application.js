@@ -9,6 +9,7 @@ require('../packs/item_search')
 require('../packs/user_edit')
 require('../packs/post_edit')
 require('../packs/bulma')
+require('../packs/swiper')
 
 import '@fortawesome/fontawesome-free/js/all';
 import '../stylesheets/application';
