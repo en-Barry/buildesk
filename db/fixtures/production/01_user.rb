@@ -1,8 +1,8 @@
 User.create!(
-  name: 'admin',
-  email: 'obaryu1011@icloud.com',
-  password: 'admin_password',
-  password_confirmation: 'admin_password',
-  uuid: 'admin_user',
-  role: 1
+  name: Rails.application.credentials.dig(:user, :admin, :name),
+  email: Rails.application.credentials.dig(:user, :admin, :email),
+  password: Rails.application.credentials.dig(:user, :admin, :password),
+  password_confirmation: Rails.application.credentials.dig(:user, :admin, :password_confirmation),
+  uuid: Rails.application.credentials.dig(:user, :admin, :uuid),
+  role: Rails.application.credentials.dig(:user, :admin, :role)
 )
