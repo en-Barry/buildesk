@@ -28,15 +28,20 @@ ja:
   top:
     index:
       og_title: '快適なデスク環境をビルドしよう'
-      og_description: 'Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。こだわりを持つリモートワーカーのデスクを参考にして、生産性アップにつなげよう。'
+      og_description: 'Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。みんなのデスクを参考にして、リモートワークの生産性アップにつなげよう。'
       New Arrival: '新着'
+    user_policy: 
+      title: '利用規約'
+    privacy_policy: 
+      title: 'プライバシーポリシー'
   users:
     new:
       title: 'ユーザー登録'
     show:
       title: "%{user}のデスク環境"
-      og_title: '%{user}のデスク集'
+      og_title: "%{user}のデスク＆アイテム集"
     non_user:
+      title: 'ユーザーが存在しません'
       Please enter the correct account name: '@正しいアカウント名を入力してください'
   user_sessions:
     new:
@@ -60,12 +65,14 @@ ja:
   categories:
     show:
       title: 'カテゴリー別投稿一覧'
+      og_title: '%{category}のデスク一覧'
   profiles:
     edit:
       title: 'プロフィール編集'
   items:
     show:
       title: 'アイテム詳細'
+      og_title: '%{item}'
   public_pages:
     404:
       404 Not Found: 'お探しのページは見つかりませんでした。'

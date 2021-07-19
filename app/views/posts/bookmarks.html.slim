@@ -7,6 +7,8 @@ main.columns.is-centered.is-marginless
         br
         p.title.has-text-weight-bold
           = t('.title')
+        p.subtitle.is-5
+          = '他のユーザーには公開されません'
         - if @bookmark_posts.present?
           .columns.is-multiline.is-mobile.is-variable.is-3-desktop.is-1-mobile
             = render partial: 'post_image', collection: @bookmark_posts

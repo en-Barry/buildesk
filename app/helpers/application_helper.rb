@@ -34,10 +34,10 @@ module ApplicationHelper
   def default_og
     {
       site_name: :site,
-      title: :og_title,
-      description: :description,
+      title: :title,
+      description: t('top.index.og_description'),
       url: request.url,
-      image: 'https://image.buildesk.app/images/app_ogp.png'
+      image: 'https://image.buildesk.app/images/app_ogp_new.png'
     }
   end
 

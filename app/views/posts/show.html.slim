@@ -1,4 +1,4 @@
-- set_meta_tags title: t('.title'), og: { og_title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), description: @post.body, image: @post.post_images.first.image_url }
+- set_meta_tags title: t('.title'), og: { title: t('.og_title', user: @post.user.name, data: l(@post.created_at, format: :simple)), image: @post.post_images.first.image_url }
 
 section.hero.is-small
   .columns.is-centered.is-gapless
@@ -38,7 +38,7 @@ main
               .tile.is-vertical
             .tile.is-child
               figure.image.is-4by3
-                = image_tag @post.post_images.first.image_url(:main)
+                = image_tag @post.post_images.first.image_url
             / デスクトップ表示用コメント欄
             .tile.is-child.is-hidden-mobile
               p.title.has-text-weight-bold.is-5
