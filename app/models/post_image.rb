@@ -7,8 +7,8 @@ class PostImage < ApplicationRecord
 
   def destroy_image_s3
     image.remove!
-    image.thumb.remove!
-    image.main.remove!
+    image.thumb_1x1.remove!
+    image.thumb_4x3.remove!
   rescue Excon::Errors::Error => e
     puts 'Something gone wrong'
     false
