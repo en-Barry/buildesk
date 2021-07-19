@@ -3,7 +3,7 @@ module ApplicationHelper
 
   def default_meta_tags
     {
-      site: 'Buildesk（ビルデスク）',
+      site: t('site.name'),
       reverse: true,
       separator: '|',
       og: default_og,
@@ -34,7 +34,7 @@ module ApplicationHelper
   def default_og
     {
       site_name: :site,
-      title: :title,
+      title: :full_title,
       description: t('top.index.og_description'),
       url: request.url,
       image: 'https://image.buildesk.app/images/app_ogp_new.png'
