@@ -48,7 +48,7 @@ class PostsForm
       end
 
       items_params&.each do |item|
-        h_item = eval(item) # evalmメソッドはセキュリティホール的に非推奨なので早急に修正
+        h_item = eval(item) # セキュリティホール的に非推奨らしい
         new_item = Item.new(h_item)
 
         if Item.exists?(item_code: h_item[:item_code])

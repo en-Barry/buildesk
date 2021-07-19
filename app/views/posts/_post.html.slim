@@ -4,7 +4,7 @@
       = link_to post_path(post)
         .card-image
           figure.image
-            = image_tag post.post_images.first.image_url(:thumb_4x3), size: '1290x960', alt: 'post-img'
+            = image_tag post.post_images.first.image_url(:main), size: '1290x960', alt: 'post-img'
         .card-content
           .media
             .media-left

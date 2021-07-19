@@ -42,7 +42,7 @@
             th[scope="row"]
               = t('activerecord.attributes.post.images')
             td
-              = image_tag @post.post_images.first.image_url, size: '200x150'
+              = image_tag @post.post_images.first.image_url(:main), size: '200x150'
           tr
             th[scope="row"]
               = t('activerecord.attributes.post.body')

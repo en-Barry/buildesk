@@ -3,4 +3,4 @@
     .card-image
       figure.image
         = link_to post_path(post_image)
-          = image_tag post_image.post_images.first.image_url(:thumb_1x1), alt: 'post-img'
+          = image_tag post_image.post_images.first.image_url(:thumb), alt: 'post-img'
