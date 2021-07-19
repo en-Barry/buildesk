@@ -37,8 +37,13 @@ main
             /.tile
               .tile.is-vertical
             .tile.is-child
-              figure.image.is-4by3
-                = image_tag @post.post_images.first.image_url
+              .swiper-container
+                .swiper-wrapper
+                  - @post.post_images.each do | image |
+                    .swiper-slide
+                      figure.image.is-4by3
+                        = image_tag image.image_url
+                .swiper-pagination
             / デスクトップ表示用コメント欄
             .tile.is-child.is-hidden-mobile
               p.title.has-text-weight-bold.is-5
