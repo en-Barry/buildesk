@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(version: 20_210_717_124_428) do
     t.string 'image'
     t.integer 'role', default: 0, null: false
     t.string 'uuid', null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
   add_foreign_key 'bookmarks', 'posts'
