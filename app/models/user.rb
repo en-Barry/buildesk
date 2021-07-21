@@ -22,7 +22,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :description, length: { maximum: 200 }
-  validates :uuid, presence: true, uniqueness: { case_sensitive: true }, length: { in: 4..15 }, format: { with: /\A[a-zA-Z\d\_\-]+\z/ } # Twitterに準拠
+  validates :uuid, presence: true, uniqueness: { case_sensitive: true }, length: { in: 4..15 }, format: { with: /\A[a-zA-Z\d_\-]+\z/ } # Twitterに準拠
 
   enum role: { general: 0, admin: 1 }
 
