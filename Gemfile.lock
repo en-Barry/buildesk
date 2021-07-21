@@ -104,6 +104,9 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
+    exception_notification (4.4.3)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     excon (0.84.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -353,6 +356,7 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    slack-notifier (2.4.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -427,6 +431,7 @@ DEPENDENCIES
   capybara
   carrierwave (= 2.1.1)
   enum_help
+  exception_notification
   factory_bot_rails (~> 6.1.0)
   faker
   fog-aws
@@ -457,6 +462,7 @@ DEPENDENCIES
   scss_lint
   seed-fu
   simple_form
+  slack-notifier
   slim-rails
   slim_lint
   sorcery

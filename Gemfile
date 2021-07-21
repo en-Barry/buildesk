@@ -54,6 +54,10 @@ gem 'meta-tags'
 # Search
 gem 'ransack'
 
+# Error notification
+gem 'exception_notification'
+gem 'slack-notifier'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
