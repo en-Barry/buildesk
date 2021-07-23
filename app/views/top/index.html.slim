@@ -28,21 +28,21 @@ main
             = 'カテゴリー'
           .columns
             .column.is-one-third.has-text-centered
-              = link_to category_path(Category.find(1).name)
+              = link_to category_path(@categories[0].name)
                 .img-on-moji
                   figure.image.is-3by1
                     = image_tag('https://image.buildesk.app/images/engineer-image-bg.png')
                   p.is-size-4.has-text-weight-bold.has-text-white
                     | Engineer
             .column.has-text-centered
-              = link_to category_path(Category.find(2).name)
+              = link_to category_path(@categories[2].name)
                 .img-on-moji
                   figure.image.is-3by1
                     = image_tag('https://image.buildesk.app/images/writer-image-bg.png')
                   p.is-size-4.has-text-weight-bold.has-text-white
                     | Writer
             .column.has-text-centered
-              = link_to category_path(Category.find(3).name)
+              = link_to category_path(@categories[1].name)
                 .img-on-moji
                   figure.image.is-3by1
                     = image_tag('https://image.buildesk.app/images/mediacreator-image-bg.png')

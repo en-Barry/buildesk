@@ -14,7 +14,18 @@
               p.title.is-6.has-text-weight-semibold
                 = truncate(post_3col.user.name, length: 10)
               p.subtitle.is-7
-                = l post_3col.created_at, format: :short
+                span.icon-text
+                  span.icon
+                    i
+                      i.far.fa-heart
+                  span 
+                    = post_3col.likes.size
+                    | &ensp;
+                  span.icon
+                    i
+                      i.far.fa-comment
+                  span 
+                    = post_3col.comments.size
             .media-right
               span.tag.is-light.is-rounded.is-hidden-mobile
                 .is-6

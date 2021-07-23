@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :post_set, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all.includes(:user, :post_images, :categories).order(created_at: :desc)
+    @posts = Post.all.includes(:user, :post_images, :categories, :likes, :comments).order(created_at: :desc)
   end
 
   def new
