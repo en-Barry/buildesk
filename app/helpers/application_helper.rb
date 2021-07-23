@@ -6,6 +6,9 @@ module ApplicationHelper
       site: t('site.name'),
       reverse: true,
       separator: '|',
+      site: t('site.name'),
+      description: t('site.description'),
+      keyword: 'リモートワーク,デスクワーク,デスクワーカー,デスク環境,デスク周り,mynewgear,desktour,deskphoto',
       og: default_og,
       twitter: default_twitter_card,
       icon: [

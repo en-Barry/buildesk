@@ -13,8 +13,26 @@
             .media-content
               p.title.is-6.has-text-weight-semibold
                 = truncate(post.user.name, length: 12)
-              p.subtitle.is-6
-                = l post.created_at, format: :short
+              p.subtitle.is-7
+                span.icon-text
+                  span.icon
+                    i
+                      i.fa.fa-heart
+                  span 
+                    = post.likes.size
+                    | &ensp;
+                  span.icon
+                    i
+                      i.fa.fa-comment
+                  span 
+                    = post.comments.size
+                    | &ensp;
+                  span.icon
+                    i
+                      i.fa.fa-tags
+                  span
+                    = post.item_tags.size
+
             .media-right
               span.tag.is-light.is-rounded
                 .is-6

@@ -30,9 +30,9 @@ nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
       p.is-size-7
         | Home
     = link_to posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
-      i.fa.fa-bolt
+      i.fas.fa-search
       p.is-size-7
-        | New
+        | Search
     = link_to new_post_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       i.fa.fa-plus-square
       p.is-size-7
@@ -40,7 +40,7 @@ nav.navbar.is-dark.is-fixed-bottom[role="navigation"]
     = link_to bookmarks_posts_path, class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       i.fa.fa-bookmark
       p.is-size-7
-        | List
+        | Keep
     = link_to user_path(current_user), class: 'navbar-item is-expanded is-block has-text-centered', data: { turbolinks: false } do
       i.fa.fa-user
       p.is-size-7

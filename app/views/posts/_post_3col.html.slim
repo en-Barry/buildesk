@@ -8,13 +8,29 @@
         .card-content
           .media
             .media-left
-              figure.image.is-32x32
+              figure.image.is-24x24
                 = image_tag post_3col.user.image_url(:thumb), class: 'is-rounded'
             .media-content
               p.title.is-6.has-text-weight-semibold
                 = truncate(post_3col.user.name, length: 10)
               p.subtitle.is-7
-                = l post_3col.created_at, format: :short
+                small
+                  span.icon-text
+                    span.icon
+                      i
+                        i.fa.fa-heart
+                    span 
+                      = post_3col.likes.size
+                    span.icon
+                      i
+                        i.fa.fa-comment
+                    span 
+                      = post_3col.comments.size
+                    span.icon
+                      i
+                        i.fa.fa-tags
+                    span
+                      = post_3col.item_tags.size
             .media-right
               span.tag.is-light.is-rounded.is-hidden-mobile
                 .is-6

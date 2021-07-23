@@ -23,6 +23,7 @@ class PostsForm
 
   validate :image_content_type
   validate :image_size
+  validate :image_count
 
   delegate :persisted?, to: :@post
 
@@ -122,5 +123,9 @@ class PostsForm
     images&.each do |image|
       errors.add(:images, 'は5MB以下のファイルまでアップロードできます') if image.size > 5.megabytes
     end
+  end
+
+  def image_count
+    errors.add(:images, 'は5枚までアップロードできます') if images.count >= 6
   end
 end

@@ -20,6 +20,7 @@ ja:
       not_deleted: "%{item}を削除できません"
   site:
     name: 'Buildesk（ビルデスク）'
+    description: 'Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。みんなのデスクを参考にして、リモートワークの生産性アップにつなげよう。'
   category:
     Engineer: 'エンジニア'
     MediaCreator: 'メディアクリエイター'
@@ -29,6 +30,7 @@ ja:
     Other: 'その他'
   top:
     index:
+      title: 'トップページ'
       og_title: '快適なデスク環境をビルドしよう｜Buildesk'
       og_description: 'Buildesk（ビルデスク）はデスク環境に特化した写真投稿サービスです。みんなのデスクを参考にして、リモートワークの生産性アップにつなげよう。'
       New Arrival: '新着'
@@ -77,8 +79,10 @@ ja:
       og_title: '%{item}｜Buildesk'
   public_pages:
     404:
+      title: '404 Not Found'
       404 Not Found: 'お探しのページは見つかりませんでした。'
     500:
+      title: 'サーバーエラー'
       500 Internal Server Error: 'サーバーエラーが発生しました。'
   time:
     formats:

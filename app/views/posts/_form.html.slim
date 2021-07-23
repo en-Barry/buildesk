@@ -22,6 +22,8 @@
             | 画像形式: JPEG/PNG
           dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
             | 推奨サイズ: 4x3
+          dt.has-text-grey-lighter.is-size-7.has-text-weight-semibold
+            | ファイルサイズ: 5MB, 5枚まで可能
       .column
         .media-content
           .media-right
@@ -69,7 +71,7 @@
           dt.help.has-text-grey-lighter.is-size-7
             | アイテムは5つまで選択可能です*
           dt.has-text-grey-lighter.is-size-7
-            | 投稿後に選択・削除することはできません*
+            | 投稿後に追加・削除することはできません*
 
       = f.hidden_field 'items1', multiple: true
       = f.hidden_field 'items2', multiple: true
