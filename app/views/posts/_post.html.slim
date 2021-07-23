@@ -17,15 +17,21 @@
                 span.icon-text
                   span.icon
                     i
-                      i.far.fa-heart
+                      i.fa.fa-heart
                   span 
                     = post.likes.size
                     | &ensp;
                   span.icon
                     i
-                      i.far.fa-comment
+                      i.fa.fa-comment
                   span 
                     = post.comments.size
+                    | &ensp;
+                  span.icon
+                    i
+                      i.fa.fa-tags
+                  span
+                    = post.item_tags.size
 
             .media-right
               span.tag.is-light.is-rounded
