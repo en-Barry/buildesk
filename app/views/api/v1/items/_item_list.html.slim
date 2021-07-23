@@ -1,8 +1,8 @@
-- items.first(10).each_with_index do |item, index|
+- items.each_with_index do |item, index|
   .column.is-half-mobile.is-one-third-desktop.item
     .card id="search-id-#{index}"
       .card-image
-        figure.image.is-1by1
+        figure.image.is-5by4
           = image_tag(item[:image])
       .card-content
         .content

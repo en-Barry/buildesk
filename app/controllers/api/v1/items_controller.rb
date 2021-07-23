@@ -15,7 +15,7 @@ class Api::V1::ItemsController < ApplicationController
     if params[:keyword]
       results = RakutenWebService::Ichiba::Product.search(
         keyword: params[:keyword],
-        hits: 10
+        hits: 18
       )
       results.each do |result|
         item = {
