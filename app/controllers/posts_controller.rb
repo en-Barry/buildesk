@@ -72,5 +72,5 @@ class PostsController < ApplicationController
       { items5: [] }
     ).merge(user_id: current_user.id)
   end
-  #item_attributes: [:item_code, :name, :maker, :price, :image, :rakuten_url, :amazon_url]
+  # item_attributes: [:item_code, :name, :maker, :price, :image, :rakuten_url, :amazon_url]
 end
