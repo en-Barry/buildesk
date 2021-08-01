@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order(created_at: :asc)
     @like_count = @post.likes.count
+    @items = @post.items.distinct
   end
 
   def create
@@ -71,4 +72,5 @@ class PostsController < ApplicationController
       { items5: [] }
     ).merge(user_id: current_user.id)
   end
+  #item_attributes: [:item_code, :name, :maker, :price, :image, :rakuten_url, :amazon_url]
 end

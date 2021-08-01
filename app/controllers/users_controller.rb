@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(uuid: params[:uuid])
     if @user.present?
-      @posts = @user.posts.includes(:user, :items, :post_images).order(created_at: :desc)
+      @posts = @user.posts.includes(:user, :post_images, :items).order(created_at: :desc)
+      @items = @posts.map { |post| post.items }.flatten.uniq
     else
       render 'non_user'
     end

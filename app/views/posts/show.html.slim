@@ -112,8 +112,8 @@ main
               p.title.has-text-weight-bold.is-5
                 | アイテム
               .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-                - if @post.items.present?
-                  = render 'items/item_image', { item_image: @post }
+                - if @items.present?
+                  = render partial: 'items/item', collection: @items
                 - else
                   .column
                     p.has-text-centered

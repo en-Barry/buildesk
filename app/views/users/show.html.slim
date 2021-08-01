@@ -54,7 +54,7 @@ main.columns.is-centered.is-marginless
               | 投稿に紐づいたアイテム
             - if @posts.present?
               .columns.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
-                = render partial: 'items/item_image', collection: @posts
+                = render partial: 'items/item', collection: @items
             - else
               br
               p.has-text-centered
