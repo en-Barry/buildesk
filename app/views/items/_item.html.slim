@@ -1,0 +1,13 @@
+.column.is-half-mobile.is-one-third-desktop
+  .card id="item-id-#{item.id}"
+    = link_to item_path(item), class: 'has-text-white'
+      .card-image
+        figure.image.is-5by4
+          = image_tag item.image, alt: 'item-img'
+      .card-content
+        .content
+          p
+            = truncate(item.name, length: 30)
+            br
+            small
+              = "¥#{number_to_currency(item.price, unit: '')}"
