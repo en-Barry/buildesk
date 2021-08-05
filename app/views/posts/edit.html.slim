@@ -57,7 +57,7 @@ main.columns.is-centered.section.is-marginless
                       | アイテムの増減はできません*
                   #item-results.columns.is-marginless.is-multiline.is-mobile.is-variable.is-1-desktop.is-1-mobile
                     - if @form.items.present?
-                      = render 'items/item_image', { item_image: @form }
+                      = render partial: 'items/item', collection: @form.items
 
           .field.is-horizontal
             .field-label
