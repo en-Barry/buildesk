@@ -103,7 +103,7 @@ main
                       time
                         = l @post.created_at, format: :long
                 footer.card-footer
-                  = link_to "https://twitter.com/share?url=#{request.url}&text=%0a%0a#{@post.user.name}のデスクをcheck!%0a%23Buildesk%20%23MyNewGear%20%23デスク周り%20%23デスクツアー", title: 'Twitter', target: '_blank', class: 'card-footer-item'
+                  = link_to "https://twitter.com/share?url=#{request.url}&text=%0a%0a#{escape_text(@post.user.name)}", title: 'Twitter', target: '_blank', class: 'card-footer-item'
                     span.icon-text
                       i.fab.fa-twitter
                       = 'シェアする'
