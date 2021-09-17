@@ -68,6 +68,9 @@
   - RDS
 - puma
 - Nginx  
+
+![image](https://user-images.githubusercontent.com/69828703/133830108-c96c3bd0-d65e-4d5d-bff8-d94e87be3c7f.png)
+
 <br />
 
 ## **画面遷移図**
