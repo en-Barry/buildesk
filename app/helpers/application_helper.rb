@@ -51,6 +51,6 @@ module ApplicationHelper
   end
 
   def escape_text(name)
-    CGI.escape(name) + "のデスクをcheck!%0a%23Buildesk%20%23MyNewGear%20%23デスク周り%20%23デスクツアー"
+    CGI.escape(name) + 'のデスクをcheck!%0a%23Buildesk%20%23MyNewGear%20%23デスク周り%20%23デスクツアー'
   end
 end
