@@ -1,2 +1,6 @@
-= link_to like_path(post), method: :delete, id: "button-like-#{post.id}", remote: true do
-  i.fas.fa-heart.fa-lg
+span.icon.is-medium
+  = link_to like_path(post), method: :delete, id: "button-like-#{post.id}", remote: true do
+    i.fas.fa-heart.fa-lg
+span#like-count
+  = @like_count
+

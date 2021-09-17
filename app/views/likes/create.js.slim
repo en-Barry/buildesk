@@ -1,1 +1,3 @@
 | $("#button-like-#{@post.id}").replaceWith("#{j(render('likes/like', post: @post))}");
+| $("#like-count").remove();
+| $("#like-count").html("#{@like_count}");

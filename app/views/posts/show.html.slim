@@ -75,13 +75,10 @@ main
                       - else
                         = render 'bookmarks/unbookmark', post: @post
                     span.icon-text
-                      span.icon.is-medium
-                        - if current_user&.liked?(@post)
-                          = render 'likes/like', post: @post
-                        - else
-                          = render 'likes/unlike', post: @post
-                      span
-                        = @like_count
+                      - if current_user&.liked?(@post)
+                        = render 'likes/like', post: @post
+                      - else
+                        = render 'likes/unlike', post: @post
                 .card-content
                   .content
                     small.has-text-grey-light
