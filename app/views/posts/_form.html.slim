@@ -117,5 +117,7 @@
             = f.text_field :keyword, id: 'js-search-keyword', placeholder: 'キーワードを入力', class: 'input'
           .control
             = f.submit '検索', id: 'js-search-button', class: %w[button is-primary]
-          
+
+
+= javascript_pack_tag "post_edit" 
       
