@@ -70,7 +70,10 @@ main
                     | デスクメモ
                   .card-header-icon
                     span.icon.is-medium
-                      = render 'bookmarks/bookmark', post: @post
+                      - if current_user&.bookmarked?(@post)
+                        = render 'bookmarks/bookmark', post: @post
+                      - else
+                        = render 'bookmarks/unbookmark', post: @post
                     span.icon-text
                       span.icon.is-medium
                         = render 'likes/like', post: @post
