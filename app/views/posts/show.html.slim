@@ -76,7 +76,10 @@ main
                         = render 'bookmarks/unbookmark', post: @post
                     span.icon-text
                       span.icon.is-medium
-                        = render 'likes/like', post: @post
+                        - if current_user&.liked?(@post)
+                          = render 'likes/like', post: @post
+                        - else
+                          = render 'likes/unlike', post: @post
                       span
                         = @like_count
                 .card-content
