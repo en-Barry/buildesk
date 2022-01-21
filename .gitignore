@@ -41,3 +41,5 @@ yarn-debug.log*
 /public/404.html
 /public/422.html
 /public/500.html
+
+/config/credentials/production.key

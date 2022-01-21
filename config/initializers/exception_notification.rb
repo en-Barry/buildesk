@@ -42,8 +42,8 @@ ExceptionNotification.configure do |config|
   #   http_method: :post
   # }
 
-  # config.add_notifier :slack, {
-  #   webhook_url: Rails.application.credentials.slack[:webhook_url],
-  #   channel: '#エラー通知'
-  # }
+  config.add_notifier :slack, {
+    webhook_url: Rails.application.credentials.slack[:webhook_url],
+    channel: '#エラー通知'
+  }
 end

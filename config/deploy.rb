@@ -23,7 +23,7 @@ set :branch, 'main'
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+append :linked_files, "config/credentials/production.key"
 
 # sharedディレクトリに入れるファイルを指定
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
