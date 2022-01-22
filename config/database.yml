@@ -57,4 +57,5 @@ test:
 #
 production:
   <<: *default
-  database: aws_buildesk_production
+  database: buildesk_production
+  password: Rails.application.credentials.dig(:vps, :mysql_password)
