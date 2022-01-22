@@ -15,9 +15,6 @@ default: &default
   charset: utf8mb4
   collation: utf8mb4_general_ci
   pool: 5
-  username: <%= ENV['AWS_BUILDESK_USERNAME'] %>
-  password: <%= ENV['AWS_BUILDESK_PASSWORD'] %>
-  host: <%= ENV['AWS_BUILDESK_HOST'] %>
   timeout: 5000
 
 development:
