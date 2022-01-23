@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:en-Barry/buildesk.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/app/buildesk"
 
-set :branch, 'sakura' || 'main'
+set :branch, ENV['BRANCH'] || "main"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
