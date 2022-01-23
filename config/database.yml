@@ -56,5 +56,4 @@ production:
   <<: *default
   database: buildesk_production
   username: root
-  hostname: Rails.application.credentials.dig(:vps, :mysql_hostname) 
   password: Rails.application.credentials.dig(:vps, :mysql_password)
