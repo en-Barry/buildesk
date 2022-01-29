@@ -45,14 +45,14 @@ set :rbenv_type, :system
 set :rbenv_ruby, '2.6.6'
 set :rbenv_path, '/usr/local/rbenv'
 
-after 'deploy:finishing', 'deploy:restart_puma'
 namespace :deploy do
   # pumaの再起動
   task :restart_puma do
     invoke  'puma:stop'
     invoke! 'puma:start'
   end
-
+end
+after 'puma:restart', 'deploy:restart_puma'
   # # デプロイ中だけデプロイユーザに権限を付与
   # task :init_permission do
   #   on release_roles :all do
@@ -68,4 +68,3 @@ namespace :deploy do
 
   # before :starting, :init_permission
   # after :finished, :reset_permission
-end
