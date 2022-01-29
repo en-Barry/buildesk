@@ -48,11 +48,12 @@ set :rbenv_path, '/usr/local/rbenv'
 namespace :deploy do
   # pumaの再起動
   task :restart_puma do
+    Rake::Task["puma:restart_puma"].reenable
     invoke  'puma:stop'
     invoke! 'puma:start'
   end
 end
-after 'puma:restart', 'deploy:restart_puma'
+# after 'puma:restart', 'deploy:restart_puma'
   # # デプロイ中だけデプロイユーザに権限を付与
   # task :init_permission do
   #   on release_roles :all do
