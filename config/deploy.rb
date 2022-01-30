@@ -47,15 +47,3 @@ set :rbenv_path, '/usr/local/rbenv'
 
 # pumaの設定
 set :puma_conf, "#{current_path}/config/puma/production.rb"
-
-namespace :deploy do
-  # pumaの再起動
-  task :puma_restart_again do
-    invoke  'puma:stop'
-    invoke! 'puma:start'
-  end
-end
-after 'puma:restart', 'deploy:puma_restart_again'
-
-  # before :starting, :init_permission
-  # after :finished, :reset_permission
