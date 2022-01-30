@@ -45,27 +45,17 @@ set :rbenv_type, :system
 set :rbenv_ruby, '2.6.6'
 set :rbenv_path, '/usr/local/rbenv'
 
+# pumaの設定
+set :puma_conf, "#{current_path}/config/puma/production.rb"
+
 namespace :deploy do
   # pumaの再起動
-  task :restart_puma do
-    Rake::Task["puma:restart_puma"].reenable
+  task :puma_restart_again do
     invoke  'puma:stop'
     invoke! 'puma:start'
   end
 end
-# after 'puma:restart', 'deploy:restart_puma'
-  # # デプロイ中だけデプロイユーザに権限を付与
-  # task :init_permission do
-  #   on release_roles :all do
-  #     execute :sudo, :chown, '-R', "#{fetch(:user)}:#{fetch(:group)}", deploy_to
-  #   end
-  # end
-
-  # task :reset_permission do
-  #   on release_roles :all do
-  #     execute :sudo, :chown, '-R', "nginx:nginx", deploy_to
-  #   end
-  # end
+after 'puma:restart', 'deploy:puma_restart_again'
 
   # before :starting, :init_permission
   # after :finished, :reset_permission
