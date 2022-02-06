@@ -10,7 +10,7 @@ set :repo_url, "git@github.com:en-Barry/buildesk.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/app/buildesk"
 
-set :branch, 'main'
+set :branch, ENV['BRANCH'] || "main"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -45,27 +45,5 @@ set :rbenv_type, :system
 set :rbenv_ruby, '2.6.6'
 set :rbenv_path, '/usr/local/rbenv'
 
-after 'deploy:finishing', 'deploy:restart_puma'
-namespace :deploy do
-  # pumaの再起動
-  task :restart_puma do
-    invoke  'puma:stop'
-    invoke! 'puma:start'
-  end
-
-  # # デプロイ中だけデプロイユーザに権限を付与
-  # task :init_permission do
-  #   on release_roles :all do
-  #     execute :sudo, :chown, '-R', "#{fetch(:user)}:#{fetch(:group)}", deploy_to
-  #   end
-  # end
-
-  # task :reset_permission do
-  #   on release_roles :all do
-  #     execute :sudo, :chown, '-R', "nginx:nginx", deploy_to
-  #   end
-  # end
-
-  # before :starting, :init_permission
-  # after :finished, :reset_permission
-end
+# pumaの設定
+set :puma_conf, "#{current_path}/config/puma/production.rb"
